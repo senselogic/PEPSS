@@ -81,6 +81,8 @@ class WATCHED_FILE
 
 // -- VARIABLES
 
+bool
+    FilesAreWatched;
 int
     PauseDuration;
 string
@@ -703,7 +705,7 @@ void WatchFiles(
                 CompileFile( watched_file );
             }
         }
-        
+
         Thread.sleep( dur!("msecs")( PauseDuration ) );
     }
 }
@@ -723,6 +725,7 @@ void main(
 
     InputFolderPath = "PEPSS/";
     OutputFolderPath = "SCSS/";
+    FilesAreWatched = false;
     PauseDuration = 500;
 
     while ( argument_array.length >= 1
@@ -737,6 +740,12 @@ void main(
             OutputFolderPath = argument_array[ 2 ];
 
             argument_array = argument_array[ 3 .. $ ];
+        }
+        else if ( option == "--watch" )
+        {
+            FilesAreWatched = true;
+
+            argument_array = argument_array[ 1 .. $ ];
         }
         else if ( option == "--pause"
              && argument_array.length >= 2 )
@@ -757,7 +766,10 @@ void main(
     {
         WatchFile( argument_array[ 0 ] );
 
-        WatchFiles();
+        if ( FilesAreWatched )
+        {
+            WatchFiles();
+        }
     }
     else
     {
