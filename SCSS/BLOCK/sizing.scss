@@ -1,0 +1,10 @@
+// == RULE
+
+// -- SIZING
+
+@mixin sizing(
+    $sizing
+    )
+{
+    box-sizing: $sizing;
+}

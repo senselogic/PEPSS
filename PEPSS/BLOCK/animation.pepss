@@ -1,0 +1,11 @@
+// == RULE
+
+// -- ANIMATION
+
+@animation(
+    $animation
+    )
+{
+    -webkit-animation: $animation;
+    animation: $animation;
+}

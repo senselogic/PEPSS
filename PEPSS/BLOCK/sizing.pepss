@@ -1,0 +1,10 @@
+// == RULE
+
+// -- SIZING
+
+@sizing(
+    $sizing
+    )
+{
+    box-sizing: $sizing;
+}

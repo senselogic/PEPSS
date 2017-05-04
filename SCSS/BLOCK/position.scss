@@ -1,0 +1,45 @@
+// == RULE
+
+// -- POSITION
+
+@mixin position(
+    $position
+    )
+{
+    position: $position;
+}
+
+@mixin position_left(
+    $left_position
+    )
+{
+    left: $left_position;
+}
+
+@mixin position_right(
+    $right_position
+    )
+{
+    right: $right_position;
+}
+
+@mixin position_top(
+    $top_position
+    )
+{
+    top: $top_position;
+}
+
+@mixin position_bottom(
+    $bottom_position
+    )
+{
+    bottom: $bottom_position;
+}
+
+@mixin position_depth(
+    $depth
+    )
+{
+    z-index: $depth;
+}

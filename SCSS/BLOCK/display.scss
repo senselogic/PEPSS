@@ -1,0 +1,10 @@
+// == RULE
+
+// -- DISPLAY
+
+@mixin display(
+    $type
+    )
+{
+    display: $type;
+}

@@ -1,0 +1,30 @@
+// -- RULES
+
+// .. SCREEN
+
+#lightbox_media
+{
+    @include display( table );
+    @include position( fixed );
+    @include position_top( 0 );
+    @include position_left( 0 );
+    @include width( 100% );
+    @include height( 100% );
+    @include background_color( rgba( 0, 0, 0, 0.8 ) );
+}
+
+// .. CONTAINER
+
+#lightbox_container
+{
+    @include display( table-cell );
+    @include text_align( center );
+    @include text_align( middle );
+}
+
+// .. IMAGE
+
+#lightbox_image
+{
+    @include width( 90% );
+}

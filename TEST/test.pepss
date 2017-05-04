@@ -1,0 +1,121 @@
+/*
+    comment
+*/
+
+$variable_123 = 0;    // :
+
+?func_123(    // @function
+    $first_argument_1_2_3 
+    )
+{
+    return $first_argument_1_2_3 + 1;    // @return
+}
+
+@rule_123(    // @mixin
+    $first_argument_1_2_3 = $variable_123,    // :
+    $second_argument_1_2_3 = $first_argument_1_2_3 * 2 + func_123( $variable_123 )    // :
+    )
+{
+    $first_argument_1_2_3
+    $second_argument_1_2_3
+}
+
+$a = 10;    // :
+$b = ( ( $a + 1 ) * 2 - 2 ) / 2;    // :
+$a = 10;    // :
+$c = $b;    // :
+
+$a $b $c
+$(a)$(b)px    // #{$a}#{$b}px
+
+$s = '$(a)$(b)px';    // #{$a}#{$b}px
+import 'test_include.pepss';    // @import scss
+
+.test
+{
+    $a
+}
+
+?test(    // @function
+    $x, 
+    $y 
+    )
+{
+    return $x + $y;    // @return
+}
+
+%test
+{
+}
+
+@test(    // @mixin
+    $x, 
+    $y, 
+    $z 
+    )
+{
+    :test;    // @include
+    :%test;    // @include
+    $w = test( $x, $y ) + $z;    // :
+}
+
+@test    // @mixin
+{
+    :test( 1, 2, 3 );    // @include
+}
+
+.test2
+{
+    >test;    // @extend
+    :test( $a, $b, $c);    // @include
+}
+
+if $a < $b    // @if
+{
+    $a $b
+}
+else if $a > $b    // @else if
+{
+    $a $b
+}
+else    // @else
+{
+    $a $b
+}
+
+$a = 1 @ small_min;    // @include media( small_min ) { $a: 1; }
+$b = 10 @ "( max-width: $(media_largest_max_em) )";    // @include media( "( max-width: #{$media_largest_max_em} )" )
+$c = -1;    // :
+
+$colors = a, b, c;    // :
+
+foreach $color in $colors    // @each $color in $colors
+{
+}
+
+for $index = 1 .. length( $colors )    // @for $index from 1 through length( $colors )
+{
+    $color = nth( $colors, $index );
+    
+    .test_$(color)    // #{$color}
+    {
+        color : $color;
+    }
+}
+
+for $a = 1 .. $b    // @for $a from 1 through $b
+{
+    $a $b $c
+}
+
+for $a = 0 >> $b    // @for $a from 0 to $b
+{
+    $a $b $c
+}
+
+$i = 6;    // :
+
+while $i > 0    // @while
+{
+    $i = $i - 2;    // :
+}

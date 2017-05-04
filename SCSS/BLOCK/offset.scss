@@ -1,0 +1,35 @@
+// == RULE
+
+// -- OFFSET
+
+@mixin offset_left(
+    $left_offset
+    )
+{
+    position: relative;
+    left: $left_offset;
+}
+
+@mixin offset_right(
+    $right_offset
+    )
+{
+    position: relative;
+    right: $right_offset;
+}
+
+@mixin offset_top(
+    $top_offset
+    )
+{
+    position: relative;
+    top: $top_offset;
+}
+
+@mixin offset_bottom(
+    $bottom_offset
+    )
+{
+    position: relative;
+    bottom: $bottom_offset;
+}

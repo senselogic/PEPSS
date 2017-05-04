@@ -1,0 +1,80 @@
+// == RULE
+
+// -- MARGIN
+
+@mixin margin(
+    $top_margin,
+    $right_margin: $top_margin,
+    $bottom_margin: $top_margin,
+    $left_margin: $right_margin
+    )
+{
+    margin: $top_margin $right_margin $bottom_margin $left_margin;
+}
+
+@mixin margin_vertical(
+    $top_margin,
+    $bottom_margin: $top_margin
+    )
+{
+    margin-top: $top_margin;
+    margin-bottom: $bottom_margin;
+}
+
+@mixin margin_horizontal(
+    $left_margin,
+    $right_margin: $left_margin
+    )
+{
+    margin-left: $left_margin;
+    margin-right: $right_margin;
+}
+
+@mixin margin_top(
+    $top_margin
+    )
+{
+    margin-top: $top_margin;
+}
+
+@mixin margin_bottom(
+    $bottom_margin
+    )
+{
+    margin-bottom: $bottom_margin;
+}
+
+@mixin margin_left(
+    $left_margin
+    )
+{
+    margin-left: $left_margin;
+}
+
+@mixin margin_right(
+    $right_margin
+    )
+{
+    margin-right: $right_margin;
+}
+
+@mixin margin_center
+{
+    margin: 0 auto;
+}
+
+@mixin margin_centered
+{
+    margin-left: auto;
+    margin-right: auto;
+
+    &:before
+    {
+        content: '<div>';
+    }
+
+    &:before
+    {
+        content: '</div>';
+    }
+}

@@ -1,0 +1,37 @@
+// == RULE
+
+// -- CONTAINER
+
+@mixin table_container(
+    $maximum_width: null,
+    $width: null
+    )
+{
+    display: table;
+
+    & > *
+    {
+        display: table-cell;
+        vertical-align: top;
+    }
+
+    @if $maximum_width != null
+    {
+        margin: 0 auto;
+        max-width: $maximum_width;
+    }
+
+    @if $width != null
+    {
+        width: $width;
+    }
+}
+
+// -- LAYOUT
+
+@mixin table_layout(
+    $layout
+    )
+{
+    table-layout: $layout;
+}

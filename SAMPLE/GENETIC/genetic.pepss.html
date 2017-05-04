@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0"/>
+        <title>
+            Genetic - Wonderfull Responsive HTML5/CSS3 Template
+        </title>
+        <link rel="stylesheet" href="genetic.css"/>
+    </head>
+    <body>
+        <!--=
+            // == IMPORT
+
+            import '../PEPSS/unit.pepss';
+            
+            // == CONSTANT
+
+            // .. MEDIA
+
+            $media_small_max_px_count = 540;
+            $media_medium_max_px_count = 960;
+            $media_large_max_px_count = 1280;
+            
+            // .. INLINE
+            
+            $inline_content_letter_spacing = 1 * $px;
+
+            // == IMPORT
+
+            import '../PEPSS/pepss.pepss';
+
+            // == CONSTANT
+
+            // -- COLOR
+
+            // .. BACKGROUND
+
+            $light_grey_background_color = #f6f6f6;
+
+            // .. TEXT
+
+            $dark_grey_text_color = #484848;
+            $light_grey_text_color = #959595;
+
+            // .. LINE
+
+            $grey_line_color = #c7c7c7;
+            $light_grey_line_color = #d9d9d9;
+
+            // .. FONT
+
+            $text_font_family = Raleway, Arial, sans-serif;
+            $text_font_size_smaller = 11 * $px;
+            $text_font_size_small = 14 * $px;
+            $text_font_size_medium = 18 * $px;
+            $text_font_size_large = 24 * $px;
+            $text_font_size_larger = 26 * $px;
+            $text_font_size_largest = 32 * $px;
+
+            // == RULE
+
+            // -- FONT
+
+            :font_file( 'MEDIA/raleway_500', 'Raleway', 500 );
+            :font_file( 'MEDIA/raleway_800', 'Raleway', 800 );
+
+            // -- CONTENT
+
+            // .. GLOBAL
+
+            body
+            {
+                :font_family( $text_font_family );
+                :text_size( $text_font_size_small );
+                :text_weight( 500 );
+                :text_spacing( $inline_content_letter_spacing );
+                :text_color( $dark_grey_text_color );
+                :background_color( white );
+            }
+
+            a
+            {
+                :text_color( $dark_grey_text_color );
+            }
+
+            a:hover
+            {
+                :text_color( $light_grey_text_color );
+            }
+        =-->
+        <section class="page_container">
+            <header class="header_block">
+                <!--.
+                    // .. HEADER
+
+                    :width( 100% );
+                    :padding( 30 * $px );
+
+                    :media( large_min )
+                    {
+                        :float( left );
+                        :width( 300 * $px );
+                        :padding( 50 * $px );
+                        :position( fixed );
+                    }
+                    
+                    :background_color( white );
+                .-->
+                <h1 class="header_title">
+                    <!--.
+                        :padding_vertical( 50 * $px ) @ large_min;
+                        :text_size( $text_font_size_largest );
+                        :text_case( uppercase );
+                    .-->
+                    Genetic
+                </h1>
+                <h2 class="header_subtitle">
+                    <!--.
+                        :display( none );
+                    .-->
+                    Wonderfull Responsive HTML5/CSS3 Template
+                </h2>
+                <nav class="header_menu">
+                    <a class="header_hamburger_button" href="#">
+                        <!--.
+                            :media( medium_max )
+                            {
+                                :display( block );
+                                :size( 40 * $px, 40 * $px );
+                                :position( fixed );
+                                :position_right( 30 * $px );
+                                :position_top( 30 * $px );
+                                :position_depth( 1 );
+                                :background_image( 'MEDIA/men_icons.png' );
+                            }
+                        .-->
+                        <!--.:hover
+                            :opacity( 0.7 );
+                        .-->
+                    </a>
+                    <ul class="header_menu_button_list">
+                        <!--.
+                            :display( none );
+                            :display( block ) @ large_min;
+                            :padding_vertical( 40 * $px, 50 * $px );
+                        .-->
+                        <li class="header_menu_button">
+                            <!--.
+                                :height( 45 * $px );
+                                :text_size( $text_font_size_small );
+                                :text_height( 45 * $px );
+                            .-->
+                            <a class="header_menu_link_selected" href="home.html">
+                                <!--.
+                                    :text_color( $light_grey_text_color );
+                                .-->
+                                Home
+                            </a>
+                        </li>
+                        <li class="header_menu_button">
+                            <a class="header_menu_link" href="#">
+                                About
+                            </a>
+                        </li>
+                        <li class="header_menu_button">
+                            <a class="header_menu_link" href="#">
+                                The Team
+                            </a>
+                        </li>
+                        <li class="header_menu_button">
+                            <a class="header_menu_link" href="#">
+                                Journal
+                            </a>
+                        </li>
+                        <li class="header_menu_button">
+                            <a class="header_menu_link" href="#">
+                                Contact Us
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <div class="header_bottom_block">
+                    <!--.
+                        :display( none );
+                        :display( block ) @ large_min;
+                        :padding_vertical( 40 * $px, 50 * $px );
+                    .-->
+                    <ul class="header_social_button_container">
+                        <!--.
+                            :float_container;
+                        .-->
+                        <li class="header_social_button">
+                            <!--.
+                                :size( 30 * $px, 30 * $px );
+                                :margin_right( 10 * $px );
+                            .-->
+                            <a id="header_facebook_icon" class="header_social_link" href="http://www.facebook.com">
+                                <!--.
+                                    :display( block );
+                                    :size( 30 * $px, 30 * $px );
+                                    :background_image( 'MEDIA/sm.png' );
+                                    :text_size( 0 );
+                                .-->
+                                <!--.:hover
+                                    :background_image( 'MEDIA/sm2.png' );
+                                .-->
+                                <!--#
+                                    :background_position( 0 );
+                                #-->
+                                Facebook
+                            </a>
+                        </li>
+                        <li class="header_social_button">
+                            <a id="header_google_icon" class="header_social_link" href="http://www.google.com">
+                                <!--#
+                                    :background_position( -31px );
+                                #-->
+                                Google+
+                            </a>
+                        </li>
+                        <li class="header_social_button">
+                            <a id="header_rss_icon" class="header_social_link" href="file/rss.xml">
+                                <!--#
+                                    :background_position( -155px );
+                                #-->
+                                RSS
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="header_copyright">
+                        <!--.
+                            :padding_vertical( 20 * $px );
+                            :text_size( $text_font_size_smaller );
+                            :text_height( 15 * $px );
+                        .-->
+                        <div>
+                            Copyright © 2017 SenseLogic.
+                        </div>
+                        <div>
+                            Template by
+                            <a class="header_copyright_link" href="">
+                                <!--.
+                                    :text_weight( 800 );
+                                .-->
+                                Templator
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="main_container">
+                <!--.
+                    // .. MAIN
+
+                    :display( block );
+                    :margin_left( 300 * $px ) @ large_min;
+                    :background_color( $light_grey_background_color );
+                .-->
+                <header class="slider_block">
+                    <!--=
+                        // .. SLIDER
+                    =-->
+                    <h1 class="slider_title">
+                        <!--.
+                            :display( none );
+                        .-->
+                        Sed do eiusmod tempor incididunt ut labore et dolore seed magna aliqua.
+                    </h1>
+                    <figure class="slider_figure">
+                        <!--.
+                            :position( relative );
+                        .-->
+                        <img class="slider_image" src="MEDIA/header.jpg" alt="Sed do eiusmod tempor incididunt ut labore et dolore seed magna aliqua." />
+                        <!--.
+                            :height_max( 500 * $px );
+                            :height( 100% ) @ medium_max;
+                            :width( 100% ) @ large_min;
+                        .-->
+                        <figcaption class="slider_text">
+                            <!--.
+                                :display( block );
+                                :column( 96 * $pc, 3.5 * $pc );
+                                :padding( 20 * $px );
+                                :position( absolute );
+                                :position_bottom( 0 );
+                                :text_size( $text_font_size_larger );
+                                :text_height( 35 * $px );
+                                :text_weight( 800 );
+                                :text_align( middle );
+                                :text_case( uppercase );
+                                :background_color( rgba( 255, 255, 255, 0.8 ) );
+                            .-->
+                            Sed do eiusmod tempor incididunt ut labore et dolore seed magna aliqua.
+                            <nav class="slider_menu">
+                                <ul class="slider_menu_button_container">
+                                    <!--.
+                                        :float_container;
+                                        :position( absolute );
+                                        :position_top( -41 * $px );
+                                        :position_right( 0 );
+                                    .-->
+                                    <li class="slider_menu_button">
+                                        <!--.
+                                            :size( 40 * $px, 40 * $px );
+                                            :margin_left( 1 * $px );
+                                        .-->
+                                        <!--.:hover
+                                            :opacity( 0.8 );
+                                        .-->
+                                        <a id="slider_left_icon" class="slider_menu_link" href="#">
+                                            <!--.
+                                                :display( block );
+                                                :size( 40 * $px, 40 * $px );
+                                                :background_image( 'MEDIA/p_navigation.png' );
+                                            .-->
+                                            <!--#
+                                                :background_position( 0 );
+                                            #-->
+                                        </a>
+                                    </li>
+                                    <li class="slider_menu_button">
+                                        <a id="slider_middle_icon" class="slider_menu_link" href="#">
+                                            <!--#
+                                                :background_position( -41px );
+                                            #-->
+                                        </a>
+                                    </li>
+                                    <li class="slider_menu_button">
+                                        <a id="slider_right_icon" class="slider_menu_link" href="#">
+                                            <!--#
+                                                :background_position( -82px );
+                                            #-->
+                                        </a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </figcaption>
+                    </figure>
+                </header>
+                <section class="gallery_container">
+                    <!--.
+                        // .. GALLERY
+
+                        :column( 96 * $pc, 3.5 * $pc );
+                        :padding( 30 * $px );
+                        :background_color( white );
+                    .-->
+                    <h1 class="gallery_title_block">
+                        <!--.
+                            :display( none );
+                        .-->
+                        Home
+                    </h1>
+                    <p class="gallery_text_block">
+                        <!--.
+                            :padding_vertical( 20 * $px, 50 * $px );
+                            :text_size( $text_font_size_small );
+                            :text_height( 25 * $px );
+                        .-->
+                        Nunc pellentesque mauris ut magna pulvinar, quis fermentum tellus pulvinar. Curabitur ut fermentum quam. Nam tincidunt sagittis neque in elementum. Fusce convallis cursus porta. Curabitur dapibus pretium leo, at laoreet magna ullamcorper ac. Integer quam nulla, fringilla ac imperdiet at, consequat vel leo. Quisque non semper justo, eu aliquam velit. Pellentesque rhoncus, quam ac fringilla euismod, ligula diam congue orci, id cursus dui velit quis ligula.
+                    </p>
+                    <h2 class="gallery_subtitle_block">
+                        <!--.
+                            :text_size( $text_font_size_large );
+                            :text_weight( 800 );
+                        .-->
+                        Works
+                    </h2>
+                    <ul class="work_container">
+                        <!--.
+                            // .. WORK
+
+                            :float_container;
+                            :padding_vertical( 30 * $px );
+                        .-->
+                        <li class="work_block">
+                            <!--.
+                                :column;
+                                :column( 48 * $pc ) @ medium_min;
+                                :column( 32 * $pc ) @ large_min;
+                                :position( relative );
+                            .-->
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <!--.
+                                        :text_height( 0 );
+                                    .-->
+                                    <img class="work_image" src="MEDIA/work1.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <!--.
+                                        :width( 100% );
+                                    .-->
+                                    <!--=
+                                        .work_block:hover .work_image
+                                        {
+                                            :visibility( hidden );
+                                        }
+                                    =-->
+                                    <figcaption class="work_text">
+                                        <!--.
+                                            :display( none );
+                                            :margin_left( 10% );
+                                            :width( 80% );
+                                            :padding( 10% );
+                                            :border_vertical( 2 * $px solid $grey_line_color );
+                                            :position( absolute );
+                                            :position_top( 25% );
+                                            :text_size( $text_font_size_medium );
+                                            :text_height( 20 * $px );
+                                            :text_color( $dark_grey_text_color );
+                                            :text_align( center );
+                                        .-->
+                                        <!--=
+                                            .work_block:hover .work_text
+                                            {
+                                                :display( block );
+                                            }
+                                        =-->
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work2.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work3.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work4.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work5.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work6.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work4.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work3.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                        <li class="work_block">
+                            <a class="work_link" href="#">
+                                <figure class="work_figure">
+                                    <img class="work_image" src="MEDIA/work2.jpg" alt="culpa qui officia deserunt mollit"/>
+                                    <figcaption class="work_text">
+                                        culpa qui officia deserunt mollit
+                                    </figcaption>
+                                </figure>
+                            </a>
+                        </li>
+                    </ul>
+                </section>
+            </main>
+        </section>
+    </body>
+</html>

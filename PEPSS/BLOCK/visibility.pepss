@@ -1,0 +1,10 @@
+// == RULE
+
+// -- VISIBILITY
+
+@visibility(
+    $visibility
+    )
+{
+    visibility: $visibility;
+}

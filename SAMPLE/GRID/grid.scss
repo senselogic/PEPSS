@@ -1,0 +1,276 @@
+// == CONSTANT
+
+// .. MEDIA
+
+$media_small_max_px_count: 640;
+$media_medium_max_px_count: 1024;
+$media_large_max_px_count: 1440;
+$media_larger_max_px_count: 1920;
+
+// == IMPORT
+
+@import '../SCSS/pepss.scss';
+
+// == CONSTANT
+
+// -- COLOR
+
+$wrapper_color: #f4f4f4;
+$container_color: #f8f8f8;
+$title_color: #fee;
+$first_block_color: #eef;
+$second_block_color: #efe;
+$third_block_color: #eff;
+
+// -- FONT
+
+$title_font_family: $font_family_impact;
+$title_font_size_small: 24 * $px;
+$title_font_size_medium: 32 * $px;
+$title_font_size_large: 48 * $px;
+$title_font_size_larger: 60 * $px;
+
+$first_block_font_family: $font_family_monaco;
+$first_block_font_size_small: 12 * $px;
+
+
+$second_block_font_family: $font_family_palatino;
+$second_block_font_size_small: 14 * $px;
+
+// -- CONTENT
+
+// BODY
+
+body
+{
+    @include background_color( $wrapper_color );
+}
+
+// HEADER
+
+.header_container
+{
+    @include float_container( 960 * $px );
+
+    @include media( larger_min )
+    {
+        @include float_container( $media_larger_min_px );
+    }
+
+    @include background_color( $container_color );
+}
+
+.header_title_block
+{
+    @include column( 96 * $pc, 10 * $pc );
+    @include background_color( $title_color );
+    @include font_family( $title_font_family );
+    @include text_size( $title_font_size_small );
+
+    @include media( medium_min )
+    {
+        @include text_size( $title_font_size_medium );
+    }
+
+    @include media( large_min )
+    {
+        @include text_size( $title_font_size_large );
+    }
+
+    @include media( larger_min )
+    {
+        @include text_size( $title_font_size_larger );
+    }
+
+    @include text_weight( bold );
+    @include text_align( center );
+    @include text_decoration( underline );
+    @include spacing( 10 * $px );
+}
+
+.header_first_block
+{
+    @include column;
+
+    @include media( medium_min )
+    {
+        @include column( 32 * $pc, 0, 0, 12 * $pc );
+    }
+
+    @include media( large_min )
+    {
+        @include column;
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc );
+    }
+
+    @include background_color( $first_block_color );
+    @include font_family( $first_block_font_family );
+    @include text_size( $first_block_font_size_small );
+    @include spacing_horizontal( 10 * $px );
+    @include padding_vertical( 10 * $px );
+}
+
+.header_second_block
+{
+    @include column;
+
+    @include media( medium_min )
+    {
+        @include column( 32 * $pc, 0, 0, 8 * $pc, 12 * $pc );
+    }
+
+    @include media( large_min )
+    {
+        @include column( 32 * $pc );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc );
+    }
+
+    @include background_color( $second_block_color );
+    @include font_family( $second_block_font_family );
+    @include text_size( $second_block_font_size_small );
+    @include padding_horizontal( 10 * $px );
+    @include spacing_vertical( 10 * $px );
+}
+
+.header_third_block
+{
+    @include column;
+
+    @include media( large_min )
+    {
+        @include column( 32 * $pc );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc );
+    }
+
+    @include background_color( $third_block_color );
+    @include font_family( $second_block_font_family );
+    @include text_size( $second_block_font_size_small );
+    @include padding_horizontal( 10 * $px );
+    @include spacing_vertical( 10 * $px );
+}
+
+.footer_container
+{
+    @include inline_container( 960 * $px );
+
+    @include media( larger_min )
+    {
+        @include float_container( $media_larger_min_px );
+    }
+
+    @include background_color( $container_color );
+}
+
+.footer_title_block
+{
+    @include column( 96 * $pc, 10 * $pc );
+    @include background_color( $title_color );
+    @include font_family( $title_font_family );
+    @include text_size( $title_font_size_small );
+
+    @include media( medium_min )
+    {
+        @include text_size( $title_font_size_medium );
+    }
+
+    @include media( large_min )
+    {
+        @include text_size( $title_font_size_large );
+    }
+
+    @include media( larger_min )
+    {
+        @include text_size( $title_font_size_larger );
+    }
+
+    @include text_weight( bold );
+    @include text_align( center );
+    @include text_decoration( underline );
+    @include spacing( 10 * $px );
+}
+
+.footer_first_block
+{
+    @include column;
+
+    @include media( medium_min )
+    {
+        @include column( 32 * $pc, 0, 0, 12 * $pc );
+    }
+
+    @include media( large_min )
+    {
+        @include column;
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc );
+    }
+
+    @include background_color( $first_block_color );
+    @include font_family( $first_block_font_family );
+    @include text_size( $first_block_font_size_small );
+    @include spacing_horizontal( 10 * $px );
+    @include padding_vertical( 10 * $px );
+}
+
+.footer_second_block
+{
+    @include column;
+
+    @include media( medium_min )
+    {
+        @include column( 32 * $pc, 0, 0, 8 * $pc, 12 * $pc );
+    }
+
+    @include media( large_min )
+    {
+        @include column( 32 * $pc );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc );
+    }
+
+    @include background_color( $second_block_color );
+    @include font_family( $second_block_font_family );
+    @include text_size( $second_block_font_size_small );
+    @include padding_horizontal( 10 * $px );
+    @include spacing_vertical( 10 * $px );
+}
+
+.footer_third_block
+{
+    @include column;
+
+    @include media( large_min )
+    {
+        @include column( 32 * $pc );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc );
+    }
+
+    @include background_color( $third_block_color );
+    @include font_family( $second_block_font_family );
+    @include text_size( $second_block_font_size_small );
+    @include padding_horizontal( 10 * $px );
+    @include spacing_vertical( 10 * $px );
+}
+

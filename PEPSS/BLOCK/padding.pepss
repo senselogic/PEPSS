@@ -1,0 +1,59 @@
+// == RULE
+
+// -- PADDING
+
+@padding(
+    $top_padding,
+    $right_padding = null,
+    $bottom_padding = null,
+    $left_padding = null
+    )
+{
+    padding: $top_padding $right_padding $bottom_padding $left_padding;
+}
+
+@padding_vertical(
+    $top_padding,
+    $bottom_padding = $top_padding
+    )
+{
+    padding-top: $top_padding;
+    padding-bottom: $bottom_padding;
+}
+
+@padding_horizontal(
+    $left_padding,
+    $right_padding = $left_padding
+    )
+{
+    padding-left: $left_padding;
+    padding-right: $right_padding;
+}
+
+@padding_top(
+    $top_padding
+    )
+{
+    padding-top: $top_padding;
+}
+
+@padding_bottom(
+    $bottom_padding
+    )
+{
+    padding-bottom: $bottom_padding;
+}
+
+@padding_left(
+    $left_padding
+    )
+{
+    padding-left: $left_padding;
+}
+
+@padding_right(
+    $right_padding
+    )
+{
+    padding-right: $right_padding;
+}

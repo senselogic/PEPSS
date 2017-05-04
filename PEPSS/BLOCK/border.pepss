@@ -1,0 +1,77 @@
+// == RULE
+
+// -- BORDER
+
+@border(
+    $top_border,
+    $right_border = $top_border,
+    $bottom_border = $top_border,
+    $left_border = $right_border
+    )
+{
+    border-top: $top_border;
+    border-right: $right_border;
+    border-bottom: $bottom_border;
+    border-left: $left_border;
+}
+
+@border_vertical(
+    $top_border,
+    $bottom_border = $top_border
+    )
+{
+    border-top: $top_border;
+    border-bottom: $bottom_border;
+}
+
+@border_horizontal(
+    $left_border,
+    $right_border = $left_border
+    )
+{
+    border-left: $left_border;
+    border-right: $right_border;
+}
+
+@border_top(
+    $top_border
+    )
+{
+    border-top: $top_border;
+}
+
+@border_bottom(
+    $bottom_border
+    )
+{
+    border-bottom: $bottom_border;
+}
+
+@border_left(
+    $left_border
+    )
+{
+    border-left: $left_border;
+}
+
+@border_right(
+    $right_border
+    )
+{
+    border-right: $right_border;
+}
+
+@border_style(
+    $style
+    )
+{
+    border-style: $style;
+}
+
+@border_radius(
+    $radius
+    )
+{
+    border-radius: $radius;
+}
+

@@ -1,0 +1,45 @@
+// == RULE
+
+// -- POSITION
+
+@position(
+    $position
+    )
+{
+    position: $position;
+}
+
+@position_left(
+    $left_position
+    )
+{
+    left: $left_position;
+}
+
+@position_right(
+    $right_position
+    )
+{
+    right: $right_position;
+}
+
+@position_top(
+    $top_position
+    )
+{
+    top: $top_position;
+}
+
+@position_bottom(
+    $bottom_position
+    )
+{
+    bottom: $bottom_position;
+}
+
+@position_depth(
+    $depth
+    )
+{
+    z-index: $depth;
+}

@@ -1,0 +1,194 @@
+// == CONSTANT
+
+$media_small_max_px_count = 640 !default;
+$media_medium_max_px_count = 1024 !default;
+$media_large_max_px_count = 1440 !default;
+$media_larger_max_px_count = 1920 !default;
+$media_largest_max_px_count = 9999 !default;
+
+$media_small_min_px_count = 1;
+$media_medium_min_px_count = ( $media_small_max_px_count + $media_small_min_px_count );
+$media_large_min_px_count = ( $media_medium_max_px_count + $media_small_min_px_count );
+$media_larger_min_px_count = ( $media_large_max_px_count + $media_small_min_px_count );
+$media_largest_min_px_count = ( $media_larger_max_px_count + $media_small_min_px_count );
+
+$media_small_max_px = ( $media_small_max_px_count * $px );
+$media_medium_max_px = ( $media_medium_max_px_count * $px );
+$media_large_max_px = ( $media_large_max_px_count * $px );
+$media_larger_max_px = ( $media_larger_max_px_count * $px );
+$media_largest_max_px = ( $media_largest_max_px_count * $px );
+
+$media_small_min_px = ( $media_small_min_px_count * $px );
+$media_medium_min_px = ( $media_medium_min_px_count * $px );
+$media_large_min_px = ( $media_large_min_px_count * $px );
+$media_larger_min_px = ( $media_larger_min_px_count * $px );
+$media_largest_min_px = ( $media_largest_min_px_count * $px );
+
+$media_small_max_pm = ( $media_small_max_px_count * $pm );
+$media_medium_max_pm = ( $media_medium_max_px_count * $pm );
+$media_large_max_pm = ( $media_large_max_px_count * $pm );
+$media_larger_max_pm = ( $media_larger_max_px_count * $pm );
+$media_largest_max_pm = ( $media_largest_max_px_count * $pm );
+
+$media_small_min_pm = ( $media_small_min_px_count * $pm );
+$media_medium_min_pm = ( $media_medium_min_px_count * $pm );
+$media_large_min_pm = ( $media_large_min_px_count * $pm );
+$media_larger_min_pm = ( $media_larger_min_px_count * $pm );
+$media_largest_min_pm = ( $media_largest_min_px_count * $pm );
+
+// == RULE
+
+@media(
+    $prefix
+    )
+{
+    if $prefix == small or $prefix == small_
+    {
+        @media ( min-width: $media_small_min_pm ) and ( max-width: $media_small_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == medium or $prefix == medium_
+    {
+        @media ( min-width: $media_medium_min_pm ) and ( max-width: $media_medium_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == large or $prefix == large_
+    {
+        @media ( min-width: $media_large_min_pm ) and ( max-width: $media_large_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == larger or $prefix == larger_
+    {
+        @media ( min-width: $media_larger_min_pm ) and ( max-width: $media_larger_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == largest or $prefix == largest_
+    {
+        @media ( min-width: $media_largest_min_pm ) and ( max-width: $media_largest_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == small_min or $prefix == small_min_
+    {
+        @media ( min-width: $media_small_min_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == medium_min or $prefix == medium_min_
+    {
+        @media ( min-width: $media_medium_min_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == large_min or $prefix == large_min_
+    {
+        @media ( min-width: $media_large_min_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == larger_min or $prefix == larger_min_
+    {
+        @media ( min-width: $media_larger_min_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == largest_min or $prefix == largest_min_
+    {
+        @media ( min-width: $media_largest_min_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == small_max or $prefix == small_max_
+    {
+        @media ( max-width: $media_small_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == medium_max or $prefix == medium_max
+    {
+        @media ( max-width: $media_medium_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == large_max or $prefix == large_max_
+    {
+        @media ( max-width: $media_large_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == larger_max or $prefix == larger_max_
+    {
+        @media ( max-width: $media_larger_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix == largest_max or $prefix == largest_max_
+    {
+        @media ( max-width: $media_largest_max_pm )
+        {
+            @content;
+        }
+    }
+    else if $prefix != null
+    {
+        @media $(prefix)
+        {
+            @content;
+        }
+    }
+    else
+    {
+        @content;
+    }
+}
+
+@media_min( 
+    $min_width
+    )
+{
+    @media ( min-width: $min_width )
+    {
+        @content;
+    }
+}
+
+@media_max( 
+    $max_width
+    )
+{
+    @media ( max-width: $max_width )
+    {
+        @content;
+    }
+}
+
+@media_range( 
+    $min_width, 
+    $max_width
+    )
+{
+    @media ( min-width: $min_width ) and ( max-width: $max_width )
+    {
+        @content;
+    }
+}
+
+

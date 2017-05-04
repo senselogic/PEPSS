@@ -1,0 +1,67 @@
+// == RULE
+
+// -- CLEAR
+
+@mixin float_clear
+{
+    @if &
+    {
+        &:before,
+        &:after
+        {
+            content: '';
+            display: table;
+        }
+
+        &:after
+        {
+            clear: both;
+        }
+    }
+}
+
+// -- CONTAINER
+
+@mixin float_container(
+    $maximum_width: null,
+    $width: null
+    )
+{
+    @include float_clear;
+
+    @if &
+    {
+        & > *
+        {
+            display: inline;
+            float: left;
+        }
+    }
+
+    @if $maximum_width != null
+    {
+        margin: 0 auto;
+        max-width: $maximum_width;
+    }
+
+    @if $width != null
+    {
+        width: $width;
+    }
+}
+
+// -- FLOAT
+
+@mixin float(
+    $float
+    )
+{
+    float: $float;
+}
+
+// -- GLOBALS
+
+body
+{
+    @include float_clear;
+}

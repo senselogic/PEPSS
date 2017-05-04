@@ -1,0 +1,247 @@
+# Pepss
+
+SCSS with a simpler syntax.
+
+## Features
+
+* Programmer-friendly syntax.
+* Media condition suffixes.
+* Automatically detects and compiles dependencies.
+* Watches file modifications for instant recompilation.
+* Extracts CSS definitions from HTML templates.
+
+## Command line
+
+pepss [options] file.pepss
+
+### Options
+``` 
+    --replace PEPSS/ SCSS/ : folder paths to replace to build SCSS file paths
+    --pause 500 : pause duration while watching Pepss files
+``` 
+### Examples
+
+Convert "file.pepss" and its dependencies in SCSS, and watch them for modifications.
+
+```bash
+pepss file.pepss 
+```
+
+## Syntax
+
+The "test.pepss" file shows the available Pepss statements and how they are translated in SCSS.
+
+```cpp
+/*
+    comment
+*/
+
+$variable_123 = 0;    // :
+
+?func_123(    // @function
+    $first_argument_1_2_3 
+    )
+{
+    return $first_argument_1_2_3 + 1;    // @return
+}
+
+@rule_123(    // @mixin
+    $first_argument_1_2_3 = $variable_123,    // :
+    $second_argument_1_2_3 = $first_argument_1_2_3 * 2 + func_123( $variable_123 )    // :
+    )
+{
+    $first_argument_1_2_3
+    $second_argument_1_2_3
+}
+
+$a = 10;    // :
+$b = ( ( $a + 1 ) * 2 - 2 ) / 2;    // :
+$a = 10;    // :
+$c = $b;    // :
+
+$a $b $c
+$(a)$(b)px    // #{$a}#{$b}px
+
+$s = '$(a)$(b)px';    // #{$a}#{$b}px
+import 'test_include.pepss';    // @import scss
+
+.test
+{
+    $a
+}
+
+?test(    // @function
+    $x, 
+    $y 
+    )
+{
+    return $x + $y;    // @return
+}
+
+%test
+{
+}
+
+@test(    // @mixin
+    $x, 
+    $y, 
+    $z 
+    )
+{
+    :test;    // @include
+    :%test;    // @include
+    $w = test( $x, $y ) + $z;    // :
+}
+
+@test    // @mixin
+{
+    :test( 1, 2, 3 );    // @include
+}
+
+.test2
+{
+    >test;    // @extend
+    :test( $a, $b, $c);    // @include
+}
+
+if $a < $b    // @if
+{
+    $a $b
+}
+else if $a > $b    // @else if
+{
+    $a $b
+}
+else    // @else
+{
+    $a $b
+}
+
+$a = 1 @ small_min;    // @include media( small_min ) { $a: 1; }
+$b = 10 @ "( max-width: $(media_largest_max_em) )";    // @include media( "( max-width: #{$media_largest_max_em} )" )
+$c = -1;    // :
+
+$colors = a, b, c;    // :
+
+foreach $color in $colors    // @each $color in $colors
+{
+}
+
+for $index = 1 .. length( $colors )    // @for $index from 1 through length( $colors )
+{
+    $color = nth( $colors, $index );
+    
+    .test_$(color)    // #{$color}
+    {
+        color : $color;
+    }
+}
+
+for $a = 1 .. $b    // @for $a from 1 through $b
+{
+    $a $b $c
+}
+
+for $a = 0 >> $b    // @for $a from 0 to $b
+{
+    $a $b $c
+}
+
+$i = 6;    // :
+
+while $i > 0    // @while
+{
+    $i = $i - 2;    // :
+}
+```
+
+## Installation
+
+Install the [DMD 2 compiler](https://dlang.org/download.html).
+
+Build the executable with the following command line :
+
+```bash
+dmd pepss.d
+```
+
+## Usage
+
+Pass the main ".pepss" file of your web page as an argument.
+
+```bash
+nodejs pepss.js page.pepss
+```
+
+All the imported ".pepss" files and their dependencies will automatically be converted into ".scss" files, replacing Pepss commands by their SCSS equivalent.
+
+All these Pepss files will be watched for modifications, and recompiled when needed.
+
+The generated SCSS files can now be compiled into a CSS file as usual.
+
+```bash
+sass --watch page.scss:page.css
+```
+
+## Prototyping
+
+If you pass a ".pepss.html" file as an argument, it is automatically split into a ".html" file and a ".pepss" file.
+
+```bash
+nodejs pepss.js page.pepss.html
+```
+
+The Pepss code is simply extracted from special HTML comments :
+
+* `<!--=` `=-->` : copied code. 
+* `<!--#` `#-->` : id code.
+* `<!--.` `.-->` : class code.
+
+```html
+...
+<header class="slider_block">
+    <!--=
+        // .. SLIDER
+    =-->
+    <h1 class="slider_title">
+        <!--.
+            :display( none );
+        .-->
+        Sed do eiusmod tempor incididunt ut labore et dolore seed magna aliqua.
+    </h1>
+    ...
+        <li class="slider_menu_button">
+            <!--.
+                :size( 40 * $px, 40 * $px );
+                :margin_left( 1 * $px );
+            .-->
+            <!--.:hover
+                :opacity( 0.8 );
+            .-->
+        </li>
+        ...
+        <li class="slider_menu_button">
+            <a id="slider_middle_icon" class="slider_menu_link" href="#">
+                <!--#
+                    :background_position( -41px );
+                #-->
+            </a>
+        </li>
+        ...
+```
+
+The prototyping can be done exclusively from within the ".pepss.html" file, 
+as it is also a valid HTML file including the resulting ".css" files built from the ".scss" files.
+## Version
+
+0.1
+
+## Author
+
+Eric Pelzer (ecstatic.coder@gmail.com).
+
+## License
+
+This project is licensed under the GNU General Public License version 3.
+
+See the [LICENSE.md](LICENSE.md) file for details.

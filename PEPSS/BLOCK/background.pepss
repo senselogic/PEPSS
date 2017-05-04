@@ -1,0 +1,78 @@
+// == RULE
+
+// -- BACKGROUND
+
+// .. BACKGROUND
+
+@background( 
+    $background_list...
+    )
+{
+    background: $background_list;
+}
+
+// .. COLOR
+
+@background_color( 
+    $color_list...
+    )
+{
+    background-color: $color_list;
+}
+
+// .. IMAGE
+
+@background_image( 
+    $image_list...
+    )
+{
+    $image_url_list = '';
+    
+    for $image_index = 1 .. length( $image_list )
+    {
+        $image_url_list += 'url("' + nth( $image_list, $image_index ) + '")';
+        
+        if $image_index < length( $image_list )
+        {
+            $image_url_list += ', ';
+        }
+    }
+    
+    background-image: #{$image_url_list};
+}
+
+// .. TILING
+
+@background_tiling( 
+    $tiling_list...
+    )
+{
+    background-repeat: $tiling_list;
+}
+
+// .. SIZE
+
+@background_size( 
+    $size_list...
+    )
+{
+    background-size: $size_list;
+}
+
+// .. POSITION
+
+@background_position( 
+    $position_list...
+    )
+{
+    background-position: $position_list;
+}
+
+// .. ATTACHMENT
+
+@background_attachment( 
+    $attachment_list...
+    )
+{
+    background-attachment: $attachment_list;
+}

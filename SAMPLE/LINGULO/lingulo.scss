@@ -1,0 +1,774 @@
+// == CONSTANT
+
+// .. MEDIA
+
+$media_small_max_px_count: 480;
+$media_medium_max_px_count: 640;
+$media_large_max_px_count: 960;
+$media_larger_max_px_count: 1280;
+
+// == IMPORT
+
+@import '../SCSS/pepss.scss';
+@import '../SCSS/slider.scss';
+
+// == CONSTANT
+
+// .. GRID
+
+$container_width: 930 * $px;
+$gutter_width: 1.5 * $pc;
+
+// .. SLIDER
+
+$slider_height: 300 * $px;
+$slider_animation_duration: 15s;
+
+// -- COLOR
+
+// .. BACKGROUND
+
+$orange_background_color: #ea5e40;
+$black_background_color: #1d1d1d;
+$dark_grey_background_color: #333333;
+$light_grey_background_color: #ece9e0;
+
+// .. TEXT
+
+$orange_text_color: $orange_background_color;
+$dark_grey_text_color: $dark_grey_background_color;
+$grey_text_color: #5e5e5e;
+$light_grey_text_color: #aaaaaa;
+$lightest_grey_text_color: #b7b7b7;
+
+// .. LINE
+
+$orange_line_color: #cc5836;
+$grey_line_color: #444444;
+$brown_line_color: #d6d0c2;
+
+// .. FONT
+
+$title_font_family: 'Baumans', sans-serif;
+$title_font_size_small: 23 * $px;
+$title_font_size_medium: 40 * $px;
+$title_font_size_large: 56 * $px;
+
+$text_font_family: 'Open Sans', sans-serif;
+$text_font_size_smallest: 10 * $px;
+$text_font_size_smaller: 12 * $px;
+$text_font_size_small: 14 * $px;
+$text_font_size_medium: 16 * $px;
+$text_font_size_large: 18 * $px;
+$text_font_size_larger: 20 * $px;
+$text_font_size_largest: 25 * $px;
+
+// == RULE
+
+// -- FONT
+
+@include font_file( 'MEDIA/font_bauman_regular', 'Baumans' );
+@include font_file( 'MEDIA/font_open_sans', 'Open Sans' );
+
+// -- CONTENT
+
+// .. GLOBAL
+
+body
+{
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_medium );
+    @include text_height( 2 );
+    @include text_color( $dark_grey_text_color );
+}
+
+a
+{
+    @include text_color( $dark_grey_text_color );
+}
+
+a:hover
+{
+    @include text_color( $orange_text_color );
+}
+
+input
+{
+    @include border_style( none );
+}
+
+// -- HEADER
+
+.header_wrapper
+{
+    @include background_color( $light_grey_background_color );
+    @include border_top( 5 * $px solid $orange_background_color );
+}
+
+.header_container
+{
+    @include inline_container( $container_width );
+}
+
+.header_title_block
+{
+    @include column( 96 * $pc, $gutter_width );
+    @include padding_vertical( 30 * $px, 5 * $px );
+    @include font_family( $title_font_family );
+    @include text_size( $title_font_size_small );
+    @include text_align( center );
+
+    @include media( medium_min )
+    {
+        @include text_size( $title_font_size_medium );
+    }
+
+    @include media( large_min )
+    {
+        @include text_size( $title_font_size_large );
+        @include text_align( left );
+    }
+
+    @include text_height;
+    @include text_color( $orange_text_color );
+}
+
+.header_subtitle_block
+{
+    @include column( 96 * $pc, $gutter_width );
+    @include text_align( center );
+
+    @include media( large_min )
+    {
+        @include column( 36 * $pc, $gutter_width );
+        @include text_align( right );
+    }
+}
+
+.header_menu_block
+{
+    @include column( 96 * $pc, $gutter_width );
+    @include text_align( center );
+
+    @include media( large_min )
+    {
+        @include column( 60 * $pc, $gutter_width );
+        @include text_align( right );
+    }
+
+    @include margin_bottom( 20 * $px );
+}
+
+.header_menu_button
+{
+    @include display( none );
+
+    @include media( medium_min )
+    {
+        @include display( inline-block );
+        @include margin_left( 6 * $pc );
+    }
+}
+
+.header_menu_link
+{
+    @include text_case( uppercase );
+}
+
+@include media( small_max )
+{
+    .header_menu_icon
+    {
+        @include size( 40 * $px, 36 * $px );
+        @include position( fixed );
+        @include position_left( 5 * $px );
+        @include position_top( 10 * $px );
+        @include background_image( 'MEDIA/icon_menu_open.png' );
+    }
+
+    .header_menu_open
+    {
+        .header_title_block
+        {
+            @include padding_top( 195 * $px );
+        }
+
+        .header_menu_icon
+        {
+            @include background_image( 'MEDIA/icon_menu_close.png' );
+        }
+
+        .header_menu_button_list
+        {
+            @include position( fixed );
+            @include position_left( 0 );
+            @include position_top( 0 );
+            @include width( 100% );
+        }
+
+        .header_menu_button
+        {
+            @include display( block );
+            @include border_bottom( 1 * $px solid $orange_line_color );
+            @include background_color( $orange_background_color );
+            @include text_color( white );
+        }
+
+        .header_menu_link
+        {
+            @include display( block );
+            @include width( 100% );
+            @include height( 40 * $px );
+            @include text_height( 40 * $px );
+            @include text_color( white );
+        }
+
+        .header_menu_link:hover
+        {
+            @include text_color( black );
+        }
+    }
+}
+
+// .. SLIDER
+
+.slider_wrapper
+{
+    @include slider_wrapper( $slider_height );
+
+    @include media( large_max )
+    {
+        @include display( none );
+    }
+}
+
+.slider_slide_1
+{
+    @include slider_slide( $slider_height );
+    @include animation( slider_slide_1_3_animation $slider_animation_duration infinite linear );
+    @include background_image( 'MEDIA/background_slide_1.jpg' );
+}
+
+.slider_container
+{
+    @include slider_container( $slider_height );
+
+    @include media( medium_min )
+    {
+        @include padding_horizontal( 20 * $px );
+    }
+}
+
+.slider_title_block
+{
+    @include padding( 0 * $px, 15 * $px );
+    @include border_radius( 15 * $px 0 15 * $px 0 );
+    @include margin_left( $gutter_width );
+    @include margin_top( 40 * $px );
+    @include background_color( $black_background_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_largest );
+    @include text_color( $light_grey_text_color );
+}
+
+.slider_text_block
+{
+    @include column( 96 * $pc, $gutter_width );
+    @include padding( 5 * $px, 15 * $px );
+    @include border_radius( 5 * $px );
+    @include margin_top( 10 * $px );
+    @include background_color( $light_grey_background_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+    @include text_color( $dark_grey_text_color );
+}
+
+.slider_slide_2
+{
+    @include slider_slide( $slider_height );
+    @include animation( slider_slide_2_3_animation $slider_animation_duration infinite linear );
+    @include background_image( 'MEDIA/background_slide_2.jpg' );
+}
+
+.slider_slide_3
+{
+    @include slider_slide( $slider_height );
+    @include animation( slider_slide_3_3_animation $slider_animation_duration infinite linear );
+    @include background_image( 'MEDIA/background_slide_3.jpg' );
+}
+
+// .. SEARCH
+
+.search_wrapper
+{
+    @include background_color( $orange_background_color );
+    @include padding_vertical( 15 * $px );
+}
+
+.search_container
+{
+    @include inline_container( $container_width );
+}
+
+.search_text_block
+{
+    @include column( 96 * $pc, $gutter_width );
+    @include text_align( center );
+
+    @include media( larger_min )
+    {
+        @include column( 60 * $pc, $gutter_width );
+        @include text_align( left );
+    }
+
+    @include text_align( middle );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_large );
+    @include text_color( white );
+}
+
+.search_input_block
+{
+    @include column( 72 * $pc, $gutter_width, 0 );
+
+    @include media( medium_min )
+    {
+        @include column( 80 * $pc, $gutter_width, 0 );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc, 0 );
+    }
+
+    @include padding_horizontal( 5 * $px );
+    @include border_radius( 5 * $px );
+    @include margin_top( 1.5 * $px );
+    @include background_color( $light_grey_background_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_medium );
+}
+
+.search_submit_block
+{
+    @include column( 24 * $pc, 1 * $pc, $gutter_width );
+
+    @include media( medium_min )
+    {
+        @include column( 16 * $pc, 1 * $pc, $gutter_width );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 12 * $pc, 1 * $pc, $gutter_width );
+    }
+
+    @include border_radius( 5 * $px );
+    @include margin_top( 1.5 * $px );
+    @include background_color( $black_background_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_medium );
+    @include text_color( white );
+}
+
+.search_submit_block:hover
+{
+    @include background_color( $light_grey_background_color );
+    @include text_color( $dark_grey_text_color );
+}
+
+// .. MAIN
+
+.main_wrapper
+{
+    background: $light_grey_background_color;
+}
+
+// TOP
+
+.main_top_container
+{
+    @include inline_container( $container_width );
+    @include padding_vertical( 72 * $px, 20 * $px );
+}
+
+@mixin main_top_article_block(
+    $background_image
+    )
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( large_min )
+    {
+        @include column( 96 * $pc, 16 * $pc );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 32 * $pc, $gutter_width );
+    }
+
+    @include height_min( 64 * $px );
+    @include padding_left( 79 * $px );
+    @include padding_bottom( 36 * $px );
+    @include background_image( $background_image );
+    @include background_tiling( no-repeat );
+}
+
+.main_top_article_padlock_block
+{
+    @include main_top_article_block( 'MEDIA/icon_padlock.png' );
+}
+
+.main_top_article_title
+{
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_larger );
+    @include padding_bottom( 10 * $px );
+}
+
+.main_top_article_text
+{
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+}
+
+.main_top_article_iphone_block
+{
+    @include main_top_article_block( 'MEDIA/icon_iphone.png' );
+}
+
+.main_top_article_gear_block
+{
+    @include main_top_article_block( 'MEDIA/icon_gear.png' );
+}
+
+// MIDDLE
+
+.main_middle_container
+{
+    @include inline_container( $container_width );
+}
+
+@mixin main_middle_block
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( larger_min )
+    {
+        @include column( 96 * $pc, $gutter_width );
+    }
+}
+
+.main_middle_title_block
+{
+    @include main_middle_block;
+    @include padding_bottom( 12 * $px );
+    @include border_bottom( 1 * $px solid $brown_line_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_larger );
+}
+
+.main_middle_figure_container
+{
+    @include main_middle_block;
+    @include inline_container;
+}
+
+.main_middle_figure_block
+{
+    @include column( 96 * $pc, $gutter_width );
+
+    @include media( large_min )
+    {
+        @include column( 48 * $pc, $gutter_width );
+    }
+
+    @include media( larger_min )
+    {
+        @include column( 24 * $pc, $gutter_width );
+    }
+
+    @include margin_bottom( 10 * $px );
+    @include text_align( center );
+}
+
+.main_middle_figure_image
+{
+    @include display( inline-block );
+    @include width( 200 * $px );
+    @include padding_vertical( 20 * $px );
+}
+
+.main_middle_figure_caption
+{
+    @include display( inline-block );
+    @include width( 200 * $px );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+    @include text_align( left );
+}
+
+.main_middle_figure_title
+{
+    @include border_bottom( 1 * $px solid $brown_line_color );
+    @include text_weight( bold );
+    @include padding_vertical( 5 * $px, 15 * $px );
+    @include text_align( left );
+}
+
+// BOTTOM
+
+.main_bottom_container
+{
+    @include inline_container( $container_width );
+    @include padding_vertical( 48 * $px );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+}
+
+.main_bottom_title_block
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( larger_min )
+    {
+        @include column( 48 * $pc, $gutter_width, $gutter_width, 0, 48 * $pc );
+    }
+
+    @include padding_bottom( 12 * $px );
+    @include border_bottom( 1 * $px solid $brown_line_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_larger );
+}
+
+.main_bottom_left_block
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( larger_min )
+    {
+        @include column( 48 * $pc, $gutter_width );
+    }
+
+    @include padding_vertical( 20 * $px );
+}
+
+.main_bottom_text
+{
+    @include padding_bottom( 10 * $px );
+}
+
+.main_bottom_right_block
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( larger_min )
+    {
+        @include column( 48 * $pc, $gutter_width );
+    }
+}
+
+@mixin main_bottom_text(
+    $background_image
+    )
+{
+    @include height_min( 120 * $px );
+    @include padding_left( 95 * $px );
+    @include padding_vertical( 20 * $px );
+    @include background_image( $background_image );
+    @include background_tiling( no-repeat );
+    @include background_position( 0 20 * $px );
+}
+
+.main_bottom_rocket_text
+{
+    @include main_bottom_text( 'MEDIA/icon_rocket.png' );
+}
+
+.main_bottom_stopwatch_text
+{
+    @include main_bottom_text( 'MEDIA/icon_stopwatch.png' );
+}
+
+// .. BOTTOM
+
+.bottom_wrapper
+{
+    @include background_color( $dark_grey_background_color );
+}
+
+.bottom_container
+{
+    @include inline_container( $container_width );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+    @include text_color( $light_grey_text_color );
+    @include padding_bottom( 20 * $px );
+}
+
+.bottom_block
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( larger_min )
+    {
+        @include column( 32 * $pc, $gutter_width );
+    }
+
+    @include inline_container;
+}
+
+.bottom_title_block
+{
+    @include column( 96 * $pc );
+    @include padding_vertical( 25 * $px, 5 * $px );
+    @include border_bottom( 1 * $px solid $grey_line_color );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_large );
+    @include text_color( white );
+}
+
+.bottom_left_text_block
+{
+    @include column( 96 * $pc );
+    @include padding_vertical( 15 * $px );
+}
+
+.bottom_middle_text_block
+{
+    @include column( 96 * $pc );
+    @include padding_left( 30 * $px );
+    @include border_bottom( 1 * $px solid $grey_line_color );
+    @include background_image( 'MEDIA/icon_arrow.png' );
+    @include background_tiling( no-repeat );
+    @include background_position( 0 15 * $px );
+    @include text_height( 45 * $px );
+    @include text_color( $light_grey_text_color );
+}
+
+.bottom_right_container
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( larger_min )
+    {
+        @include column( 32 * $pc, $gutter_width );
+    }
+
+    @include inline_container;
+    @include padding_bottom( 15 * $px );
+}
+
+.bottom_right_link_container
+{
+    @include column( 96 * $pc );
+    @include padding_top( 15 * $px );
+    @include inline_container;
+    @include text_color( $light_grey_text_color );
+}
+
+.bottom_right_link_image_block
+{
+    @include column( 28 * $pc, 0, 0, 0, 4 * $pc );
+    @include width_max( 113 * $px );
+    @include border( 3 * $px solid $grey_line_color );
+}
+
+.bottom_right_link_text_block
+{
+    @include column( 64 * $pc );
+}
+
+// .. FOOTER
+
+.footer_wrapper
+{
+    @include background_color( $black_background_color );
+}
+
+.footer_container
+{
+    @include inline_container( $container_width );
+    @include padding_vertical( 20 * $px, 15 * $px );
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+    @include text_color( $grey_text_color );
+}
+
+.footer_copyright_block
+{
+    @include column( 96 * $pc, 16 * $pc );
+
+    @include media( large_min )
+    {
+        @include column( 64 * $pc, $gutter_width );
+    }
+}
+
+.footer_copyright_link
+{
+    @include text_color( $light_grey_text_color );
+}
+
+.footer_social_block
+{
+    @include column( 32 * $pc, $gutter_width );
+
+    @include media( medium_max )
+    {
+        @include display( none );
+    }
+
+    @include text_align( right );
+}
+
+.footer_social_button
+{
+    @include display( inline-block );
+    @include margin_left( 10 * $px );
+    @include opacity( .38 );
+}
+
+.footer_social_button:hover
+{
+    @include opacity( 1 );
+}
+
+@mixin footer_social_link
+{
+    @include display( block );
+    @include size( 25 * $px, 25 * $px );
+    @include background_size( 25 * $px, 25 * $px );
+}
+
+.footer_twitter_link
+{
+    @include footer_social_link;
+    @include background_image( 'MEDIA/icon_twitter.png' );
+}
+
+.footer_youtube_link
+{
+    @include footer_social_link;
+    @include background_image( 'MEDIA/icon_youtube.png' );
+}
+
+.footer_blogger_link
+{
+    @include footer_social_link;
+    @include background_image( 'MEDIA/icon_blogger.png' );
+}
+
+.footer_google_plus_link
+{
+    @include footer_social_link;
+    @include background_image( 'MEDIA/icon_google_plus.png' );
+}
+
+.footer_xing_link
+{
+    @include footer_social_link;
+    @include background_image( 'MEDIA/icon_xing.png' );
+}
+

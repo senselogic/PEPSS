@@ -1,0 +1,170 @@
+// == CONSTANT
+
+// .. MEDIA
+
+$media_small_max_px_count = 640;
+$media_medium_max_px_count = 1024;
+$media_large_max_px_count = 1440;
+$media_larger_max_px_count = 1920;
+
+// == IMPORT
+
+import '../PEPSS/pepss.pepss';
+
+// == CONSTANT
+
+// -- COLOR
+
+$wrapper_color = #f4f4f4;
+$container_color = #f8f8f8;
+$title_color = #fee;
+$first_block_color = #eef;
+$second_block_color = #efe;
+$third_block_color = #eff;
+
+// -- FONT
+
+$title_font_family = $font_family_impact;
+$title_font_size_small = 24 * $px;
+$title_font_size_medium = 32 * $px;
+$title_font_size_large = 48 * $px;
+$title_font_size_larger = 60 * $px;
+
+$first_block_font_family = $font_family_monaco;
+$first_block_font_size_small = 12 * $px;
+
+
+$second_block_font_family = $font_family_palatino;
+$second_block_font_size_small = 14 * $px;
+
+// -- CONTENT
+
+// BODY
+
+body
+{
+    :background_color( $wrapper_color );
+}
+
+// HEADER
+
+.header_container
+{
+    :float_container( 960 * $px );
+    :float_container( $media_larger_min_px ) @ larger_min;
+    :background_color( $container_color );
+}
+
+.header_title_block
+{
+    :column( 96 * $pc, 10 * $pc );
+    :background_color( $title_color );
+    :font_family( $title_font_family );
+    :text_size( $title_font_size_small );
+    :text_size( $title_font_size_medium ) @ medium_min;
+    :text_size( $title_font_size_large ) @ large_min;
+    :text_size( $title_font_size_larger ) @ larger_min;
+    :text_weight( bold );
+    :text_align( center );
+    :text_decoration( underline );
+    :spacing( 10 * $px );
+}
+
+.header_first_block
+{
+    :column;
+    :column( 32 * $pc, 0, 0, 12 * $pc ) @ medium_min;
+    :column @ large_min;
+    :column( 24 * $pc ) @ larger_min;
+    :background_color( $first_block_color );
+    :font_family( $first_block_font_family );
+    :text_size( $first_block_font_size_small );
+    :spacing_horizontal( 10 * $px );
+    :padding_vertical( 10 * $px );
+}
+
+.header_second_block
+{
+    :column;
+    :column( 32 * $pc, 0, 0, 8 * $pc, 12 * $pc ) @ medium_min;
+    :column( 32 * $pc ) @ large_min;
+    :column( 24 * $pc ) @ larger_min;
+    :background_color( $second_block_color );
+    :font_family( $second_block_font_family );
+    :text_size( $second_block_font_size_small );
+    :padding_horizontal( 10 * $px );
+    :spacing_vertical( 10 * $px );
+}
+
+.header_third_block
+{
+    :column;
+    :column( 32 * $pc ) @ large_min;
+    :column( 24 * $pc ) @ larger_min;
+    :background_color( $third_block_color );
+    :font_family( $second_block_font_family );
+    :text_size( $second_block_font_size_small );
+    :padding_horizontal( 10 * $px );
+    :spacing_vertical( 10 * $px );
+}
+
+.footer_container
+{
+    :inline_container( 960 * $px );
+    :float_container( $media_larger_min_px ) @ larger_min;
+    :background_color( $container_color );
+}
+
+.footer_title_block
+{
+    :column( 96 * $pc, 10 * $pc );
+    :background_color( $title_color );
+    :font_family( $title_font_family );
+    :text_size( $title_font_size_small );
+    :text_size( $title_font_size_medium ) @ medium_min;
+    :text_size( $title_font_size_large ) @ large_min;
+    :text_size( $title_font_size_larger ) @ larger_min;
+    :text_weight( bold );
+    :text_align( center );
+    :text_decoration( underline );
+    :spacing( 10 * $px );
+}
+
+.footer_first_block
+{
+    :column;
+    :column( 32 * $pc, 0, 0, 12 * $pc ) @ medium_min;
+    :column @ large_min;
+    :column( 24 * $pc ) @ larger_min;
+    :background_color( $first_block_color );
+    :font_family( $first_block_font_family );
+    :text_size( $first_block_font_size_small );
+    :spacing_horizontal( 10 * $px );
+    :padding_vertical( 10 * $px );
+}
+
+.footer_second_block
+{
+    :column;
+    :column( 32 * $pc, 0, 0, 8 * $pc, 12 * $pc ) @ medium_min;
+    :column( 32 * $pc ) @ large_min;
+    :column( 24 * $pc ) @ larger_min;
+    :background_color( $second_block_color );
+    :font_family( $second_block_font_family );
+    :text_size( $second_block_font_size_small );
+    :padding_horizontal( 10 * $px );
+    :spacing_vertical( 10 * $px );
+}
+
+.footer_third_block
+{
+    :column;
+    :column( 32 * $pc ) @ large_min;
+    :column( 24 * $pc ) @ larger_min;
+    :background_color( $third_block_color );
+    :font_family( $second_block_font_family );
+    :text_size( $second_block_font_size_small );
+    :padding_horizontal( 10 * $px );
+    :spacing_vertical( 10 * $px );
+}
+

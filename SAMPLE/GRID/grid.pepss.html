@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>
+            A responsive grid made with PEPSS !!!
+        </title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="grid.css"/>
+    </head>
+    <body>
+        <!--=
+            // == CONSTANT
+            
+            // .. MEDIA
+            
+            $media_small_max_px_count = 640;
+            $media_medium_max_px_count = 1024;
+            $media_large_max_px_count = 1440;
+            $media_larger_max_px_count = 1920;
+            
+            // == IMPORT
+
+            import '../PEPSS/pepss.pepss';
+            
+            // == CONSTANT
+
+            // -- COLOR
+
+            $wrapper_color = #f4f4f4;
+            $container_color = #f8f8f8;
+            $title_color = #fee;
+            $first_block_color = #eef;
+            $second_block_color = #efe;
+            $third_block_color = #eff;
+
+            // -- FONT
+            
+            $title_font_family = $font_family_impact;
+            $title_font_size_small = 24 * $px;
+            $title_font_size_medium = 32 * $px;
+            $title_font_size_large = 48 * $px;
+            $title_font_size_larger = 60 * $px;
+            
+            $first_block_font_family = $font_family_monaco;
+            $first_block_font_size_small = 12 * $px;
+            
+            
+            $second_block_font_family = $font_family_palatino;
+            $second_block_font_size_small = 14 * $px;
+            
+            // -- CONTENT
+
+            // BODY
+
+            body
+            {
+                :background_color( $wrapper_color );
+            }
+        =-->
+        <header class="header_container">
+            <!--.
+                // HEADER
+                
+                :float_container( 960 * $px );
+                :float_container( $media_larger_min_px ) @ larger_min;
+                :background_color( $container_color );
+            .-->
+            <h1 class="header_title_block">
+                <!--.
+                    :column( 96 * $pc, 10 * $pc );
+                    :background_color( $title_color );
+                    :font_family( $title_font_family );
+                    :text_size( $title_font_size_small );
+                    :text_size( $title_font_size_medium ) @ medium_min;
+                    :text_size( $title_font_size_large ) @ large_min;
+                    :text_size( $title_font_size_larger ) @ larger_min;
+                    :text_weight( bold );
+                    :text_align( center );
+                    :text_decoration( underline );
+                    :spacing( 10 * $px );
+                .-->
+                                A float grid made with PEPSS !!!
+            </h1>
+            <div class="header_first_block">
+                <!--.
+                    :column;
+                    :column( 32 * $pc, 0, 0, 12 * $pc ) @ medium_min;
+                    :column @ large_min;
+                    :column( 24 * $pc ) @ larger_min;
+                    :background_color( $first_block_color );
+                    :font_family( $first_block_font_family );
+                    :text_size( $first_block_font_size_small );
+                    :spacing_horizontal( 10 * $px );
+                    :padding_vertical( 10 * $px );
+                .-->
+                <p>
+                    Ullamco tamen arbitror eiusmod ad sed illum varias fugiat probant. Varias
+                    nescius incurreret non illum voluptate hic tractavissent, ipsum aliquip ea
+                    mandaremus se noster ullamco exquisitaque. Te si amet aute dolor, excepteur esse
+                    legam ne malis aut cupidatat sint incididunt, tamen doctrina si consequat e
+                    cillum mentitum quo graviterque ubi si duis offendit mentitum do laboris dolor
+                    quamquam, ex dolore ex fugiat. Mentitum ea officia eu aute vidisse eiusmod iis
+                    cupidatat ad summis non non non enim anim quorum. Nam quis cernantur. Ut varias
+                    si malis. Quo nisi arbitrantur et magna et singulis an est doctrina do proident
+                    quo an anim pariatur familiaritatem.
+                </p>
+            </div>
+            <div class="header_second_block">
+                <!--.
+                    :column;
+                    :column( 32 * $pc, 0, 0, 8 * $pc, 12 * $pc ) @ medium_min;
+                    :column( 32 * $pc ) @ large_min;
+                    :column( 24 * $pc ) @ larger_min;
+                    :background_color( $second_block_color );
+                    :font_family( $second_block_font_family );
+                    :text_size( $second_block_font_size_small );
+                    :padding_horizontal( 10 * $px );
+                    :spacing_vertical( 10 * $px );
+                .-->
+                <p>
+                    Ut elit pariatur consequat. Singulis summis veniam an illum. Ad est duis dolore
+                    quae. Deserunt eu nisi. Amet est si anim quibusdam et ita eram voluptatibus ea
+                    eu laborum a litteris quo ullamco summis probant. Culpa ullamco ab arbitrantur e
+                    multos sed singulis ut lorem ad noster singulis transferrem, e lorem veniam
+                    nulla arbitror, o eram instituendarum si e in veniam fugiat aute a hic summis
+                    nostrud familiaritatem an a iis velit quid dolore. Ab mandaremus firmissimum ubi
+                    lorem ab ita magna arbitror, class vidisse familiaritatem iis iis labore offendit
+                    vidisse ab e illum dolore amet iudicem ne quo quid familiaritatem eu te
+                    excepteur instituendarum, offendit ita mentitum.
+                </p>
+            </div>
+            <div class="header_third_block">
+                <!--.
+                    :column;
+                    :column( 32 * $pc ) @ large_min;
+                    :column( 24 * $pc ) @ larger_min;
+                    :background_color( $third_block_color );
+                    :font_family( $second_block_font_family );
+                    :text_size( $second_block_font_size_small );
+                    :padding_horizontal( 10 * $px );
+                    :spacing_vertical( 10 * $px );
+                .-->
+                <p>
+                    Ut ut anim incurreret aut ad dolore transferrem, doctrina labore mandaremus
+                    mandaremus, irure litteris incididunt. An amet si dolor, an quorum possumus
+                    laboris quo ab duis nulla si quamquam est varias ad ingeniis eu summis, est sunt
+                    voluptate officia, cernantur esse vidisse nescius se do ipsum deserunt doctrina
+                    si de tempor qui laboris. Ullamco aute malis ita aliqua, ab esse e illum.
+                    Probant ita nisi consequat. Do aut dolore deserunt, ita fore eiusmod nostrud ubi
+                    non est illum esse eram, quis litteris ne praetermissum, a ea tamen anim dolor,
+                    proident aliqua multos ad ipsum, lorem quibusdam despicationes, cernantur ab
+                    noster. A eram magna irure mandaremus. O labore occaecat, voluptate quid
+                    officia.
+                </p>
+            </div>
+            <div class="header_third_block">
+                <p>
+                    Est ipsum admodum, senserit malis varias aut culpa. Ea o labore tamen tamen, se
+                    incididunt ubi tempor, arbitror quae anim ubi varias ne quae iis cupidatat sed
+                    quae. Iudicem transferrem de aliquip, aliqua ingeniis ea occaecat. Aliqua
+                    comprehenderit aliquip nulla incurreret est quorum graviterque expetendis noster
+                    arbitror. An quae esse sunt incididunt eu ne malis mentitum firmissimum, quo
+                    velit eiusmod sempiternum, ingeniis eu ipsum. Officia enim tempor laboris.
+                    Appellat dolore e aliquip relinqueret iis et arbitror relinqueret.
+                </p>
+            </div>
+        </header>
+
+        <footer class="footer_container">
+            <!--.
+                :inline_container( 960 * $px );
+                :float_container( $media_larger_min_px ) @ larger_min;
+                :background_color( $container_color );
+            .-->
+            <h1 class="footer_title_block">
+                <!--.
+                    :column( 96 * $pc, 10 * $pc );
+                    :background_color( $title_color );
+                    :font_family( $title_font_family );
+                    :text_size( $title_font_size_small );
+                    :text_size( $title_font_size_medium ) @ medium_min;
+                    :text_size( $title_font_size_large ) @ large_min;
+                    :text_size( $title_font_size_larger ) @ larger_min;
+                    :text_weight( bold );
+                    :text_align( center );
+                    :text_decoration( underline );
+                    :spacing( 10 * $px );
+                .-->
+                                An inline grid made with PEPSS !!!
+            </h1>
+            <div class="footer_first_block">
+                <!--.
+                    :column;
+                    :column( 32 * $pc, 0, 0, 12 * $pc ) @ medium_min;
+                    :column @ large_min;
+                    :column( 24 * $pc ) @ larger_min;
+                    :background_color( $first_block_color );
+                    :font_family( $first_block_font_family );
+                    :text_size( $first_block_font_size_small );
+                    :spacing_horizontal( 10 * $px );
+                    :padding_vertical( 10 * $px );
+                .-->
+                <p>
+                    Ullamco tamen arbitror eiusmod ad sed illum varias fugiat probant. Varias
+                    nescius incurreret non illum voluptate hic tractavissent, ipsum aliquip ea
+                    mandaremus se noster ullamco exquisitaque. Te si amet aute dolor, excepteur esse
+                    legam ne malis aut cupidatat sint incididunt, tamen doctrina si consequat e
+                    cillum mentitum quo graviterque ubi si duis offendit mentitum do laboris dolor
+                    quamquam, ex dolore ex fugiat. Mentitum ea officia eu aute vidisse eiusmod iis
+                    cupidatat ad summis non non non enim anim quorum. Nam quis cernantur. Ut varias
+                    si malis. Quo nisi arbitrantur et magna et singulis an est doctrina do proident
+                    quo an anim pariatur familiaritatem.
+                </p>
+            </div>
+            <div class="footer_second_block">
+                <!--.
+                    :column;
+                    :column( 32 * $pc, 0, 0, 8 * $pc, 12 * $pc ) @ medium_min;
+                    :column( 32 * $pc ) @ large_min;
+                    :column( 24 * $pc ) @ larger_min;
+                    :background_color( $second_block_color );
+                    :font_family( $second_block_font_family );
+                    :text_size( $second_block_font_size_small );
+                    :padding_horizontal( 10 * $px );
+                    :spacing_vertical( 10 * $px );
+                .-->
+                <p>
+                    Ut elit pariatur consequat. Singulis summis veniam an illum. Ad est duis dolore
+                    quae. Deserunt eu nisi. Amet est si anim quibusdam et ita eram voluptatibus ea
+                    eu laborum a litteris quo ullamco summis probant. Culpa ullamco ab arbitrantur e
+                    multos sed singulis ut lorem ad noster singulis transferrem, e lorem veniam
+                    nulla arbitror, o eram instituendarum si e in veniam fugiat aute a hic summis
+                    nostrud familiaritatem an a iis velit quid dolore. Ab mandaremus firmissimum ubi
+                    lorem ab ita magna arbitror, class vidisse familiaritatem iis iis labore offendit
+                    vidisse ab e illum dolore amet iudicem ne quo quid familiaritatem eu te
+                    excepteur instituendarum, offendit ita mentitum.
+                </p>
+            </div>
+            <div class="footer_third_block">
+                <!--.
+                    :column;
+                    :column( 32 * $pc ) @ large_min;
+                    :column( 24 * $pc ) @ larger_min;
+                    :background_color( $third_block_color );
+                    :font_family( $second_block_font_family );
+                    :text_size( $second_block_font_size_small );
+                    :padding_horizontal( 10 * $px );
+                    :spacing_vertical( 10 * $px );
+                .-->
+                <p>
+                    Ut ut anim incurreret aut ad dolore transferrem, doctrina labore mandaremus
+                    mandaremus, irure litteris incididunt. An amet si dolor, an quorum possumus
+                    laboris quo ab duis nulla si quamquam est varias ad ingeniis eu summis, est sunt
+                    voluptate officia, cernantur esse vidisse nescius se do ipsum deserunt doctrina
+                    si de tempor qui laboris. Ullamco aute malis ita aliqua, ab esse e illum.
+                    Probant ita nisi consequat. Do aut dolore deserunt, ita fore eiusmod nostrud ubi
+                    non est illum esse eram, quis litteris ne praetermissum, a ea tamen anim dolor,
+                    proident aliqua multos ad ipsum, lorem quibusdam despicationes, cernantur ab
+                    noster. A eram magna irure mandaremus. O labore occaecat, voluptate quid
+                    officia.
+                </p>
+            </div>
+            <div class="footer_third_block">
+                <p>
+                    Est ipsum admodum, senserit malis varias aut culpa. Ea o labore tamen tamen, se
+                    incididunt ubi tempor, arbitror quae anim ubi varias ne quae iis cupidatat sed
+                    quae. Iudicem transferrem de aliquip, aliqua ingeniis ea occaecat. Aliqua
+                    comprehenderit aliquip nulla incurreret est quorum graviterque expetendis noster
+                    arbitror. An quae esse sunt incididunt eu ne malis mentitum firmissimum, quo
+                    velit eiusmod sempiternum, ingeniis eu ipsum. Officia enim tempor laboris.
+                    Appellat dolore e aliquip relinqueret iis et arbitror relinqueret.
+                </p>
+            </div>
+        </footer>
+        <script src="../PEPSS/JS/inline.js">
+        </script>
+    </body>
+</html>

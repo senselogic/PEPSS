@@ -1,0 +1,10 @@
+// == RULE
+
+// -- VISIBILITY
+
+@mixin visibility(
+    $visibility
+    )
+{
+    visibility: $visibility;
+}

@@ -1,0 +1,10 @@
+// == RULE
+
+// -- DISPLAY
+
+@display(
+    $type
+    )
+{
+    display: $type;
+}

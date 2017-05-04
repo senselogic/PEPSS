@@ -1,0 +1,44 @@
+// == CONSTANT
+
+// -- SPACING
+
+$inline_container_letter_spacing: -0.31em !default;
+$inline_content_letter_spacing: normal !default;
+
+// == RULE
+
+// -- CONTAINER
+
+@mixin inline_container(
+    $maximum_width: null,
+    $width: null,
+    $letter_spacing: $inline_container_letter_spacing,
+    $content_letter_spacing: $inline_content_letter_spacing
+    )
+{
+    @if $letter_spacing != null
+    {
+        letter-spacing: $letter_spacing;
+    }
+
+    & > *
+    {
+        display: inline-block;
+        vertical-align: top;
+        @if $content_letter_spacing != null
+        {
+            letter-spacing: $content_letter_spacing;
+        }
+    }
+
+    @if $maximum_width != null
+    {
+        margin: 0 auto;
+        max-width: $maximum_width;
+    }
+
+    @if $width != null
+    {
+        width: $width;
+    }
+}

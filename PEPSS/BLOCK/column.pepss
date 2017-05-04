@@ -1,0 +1,16 @@
+// == RULE
+
+// -- COLUMN
+
+@column(
+    $width = 100%,
+    $left_margin_width = 0,
+    $right_margin_width = $left_margin_width,
+    $left_offset_width = 0,
+    $right_offset_width = 0
+    )
+{
+    width: $width - $left_margin_width - $right_margin_width;
+    margin-left: $left_offset_width + $left_margin_width;
+    margin-right: $right_offset_width + $right_margin_width;
+}

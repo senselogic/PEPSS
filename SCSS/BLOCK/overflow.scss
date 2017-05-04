@@ -1,0 +1,10 @@
+// == RULE
+
+// -- OVERFLOW
+
+@mixin overflow(
+    $overflow
+    )
+{
+    overflow: $overflow;
+}

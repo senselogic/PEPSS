@@ -1,0 +1,13 @@
+// == RULE
+
+// -- SCALE
+
+@scale(
+    $x_scale,
+    $y_scale
+    )
+{
+    -webkit-transform: scale( $x_scale, $y_scale );
+    -ms-transform: scale( $x_scale, $y_scale );
+    transform: scale( $x_scale, $y_scale );
+}

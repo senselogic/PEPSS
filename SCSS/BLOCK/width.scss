@@ -1,0 +1,24 @@
+// == RULE
+
+// -- WIDTH
+
+@mixin width(
+    $width
+    )
+{
+    width: $width;
+}
+
+@mixin width_min(
+    $min_width
+    )
+{
+    min-width: $min_width;
+}
+
+@mixin width_max(
+    $max_width
+    )
+{
+    max-width: $max_width;
+}

@@ -1,0 +1,78 @@
+// == RULE
+
+// -- BACKGROUND
+
+// .. BACKGROUND
+
+@mixin background(
+    $background_list...
+    )
+{
+    background: $background_list;
+}
+
+// .. COLOR
+
+@mixin background_color(
+    $color_list...
+    )
+{
+    background-color: $color_list;
+}
+
+// .. IMAGE
+
+@mixin background_image(
+    $image_list...
+    )
+{
+    $image_url_list: '';
+
+    @for $image_index from 1 through length( $image_list )
+    {
+        $image_url_list: $image_url_list + 'url("' + nth( $image_list, $image_index ) + '")';
+
+        @if $image_index < length( $image_list )
+        {
+            $image_url_list: $image_url_list + ', ';
+        }
+    }
+
+    background-image: #{$image_url_list};
+}
+
+// .. TILING
+
+@mixin background_tiling(
+    $tiling_list...
+    )
+{
+    background-repeat: $tiling_list;
+}
+
+// .. SIZE
+
+@mixin background_size(
+    $size_list...
+    )
+{
+    background-size: $size_list;
+}
+
+// .. POSITION
+
+@mixin background_position(
+    $position_list...
+    )
+{
+    background-position: $position_list;
+}
+
+// .. ATTACHMENT
+
+@mixin background_attachment(
+    $attachment_list...
+    )
+{
+    background-attachment: $attachment_list;
+}

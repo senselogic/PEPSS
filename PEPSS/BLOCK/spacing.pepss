@@ -1,0 +1,63 @@
+// == RULE
+
+// -- SPACING
+
+@spacing(
+    $top_border,
+    $right_border = $top_border,
+    $bottom_border = $top_border,
+    $left_border = $right_border
+    )
+{
+    border-top: $top_border solid transparent;
+    border-right: $right_border solid transparent;
+    border-bottom: $bottom_border solid transparent;
+    border-left: $left_border solid transparent;
+}
+
+@spacing_vertical(
+    $top_border,
+    $bottom_border = $top_border
+    )
+{
+    border-top: $top_border solid transparent;
+    border-bottom: $bottom_border solid transparent;
+}
+
+@spacing_horizontal(
+    $left_border,
+    $right_border = $left_border
+    )
+{
+    border-left: $left_border solid transparent;
+    border-right: $right_border solid transparent;
+}
+
+@spacing_top(
+    $top_border
+    )
+{
+    border-top: $top_border solid transparent;
+}
+
+@spacing_bottom(
+    $bottom_border
+    )
+{
+    border-bottom: $bottom_border solid transparent;
+}
+
+@spacing_left(
+    $left_border
+    )
+{
+    border-left: $left_border solid transparent;
+}
+
+@spacing_right(
+    $right_border
+    )
+{
+    border-right: $right_border solid transparent;
+}
+

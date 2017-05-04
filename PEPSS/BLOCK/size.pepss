@@ -1,0 +1,30 @@
+// == RULE
+
+// -- SIZE
+
+@size(
+    $width,
+    $height
+    )
+{
+    width: $width;
+    height: $height;
+}
+
+@size_min(
+    $min_width,
+    $min_height
+    )
+{
+    min-width: $min_width;
+    min-height: $min_height;
+}
+
+@size_max(
+    $max_width,
+    $max_height
+    )
+{
+    max-width: $max_width;
+    max-height: $max_height;
+}

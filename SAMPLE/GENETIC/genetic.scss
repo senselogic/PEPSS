@@ -1,0 +1,403 @@
+// == IMPORT
+
+@import '../SCSS/unit.scss';
+
+// == CONSTANT
+
+// .. MEDIA
+
+$media_small_max_px_count: 540;
+$media_medium_max_px_count: 960;
+$media_large_max_px_count: 1280;
+
+// .. INLINE
+
+$inline_content_letter_spacing: 1 * $px;
+
+// == IMPORT
+
+@import '../SCSS/pepss.scss';
+
+// == CONSTANT
+
+// -- COLOR
+
+// .. BACKGROUND
+
+$light_grey_background_color: #f6f6f6;
+
+// .. TEXT
+
+$dark_grey_text_color: #484848;
+$light_grey_text_color: #959595;
+
+// .. LINE
+
+$grey_line_color: #c7c7c7;
+$light_grey_line_color: #d9d9d9;
+
+// .. FONT
+
+$text_font_family: Raleway, Arial, sans-serif;
+$text_font_size_smaller: 11 * $px;
+$text_font_size_small: 14 * $px;
+$text_font_size_medium: 18 * $px;
+$text_font_size_large: 24 * $px;
+$text_font_size_larger: 26 * $px;
+$text_font_size_largest: 32 * $px;
+
+// == RULE
+
+// -- FONT
+
+@include font_file( 'MEDIA/raleway_500', 'Raleway', 500 );
+@include font_file( 'MEDIA/raleway_800', 'Raleway', 800 );
+
+// -- CONTENT
+
+// .. GLOBAL
+
+body
+{
+    @include font_family( $text_font_family );
+    @include text_size( $text_font_size_small );
+    @include text_weight( 500 );
+    @include text_spacing( $inline_content_letter_spacing );
+    @include text_color( $dark_grey_text_color );
+    @include background_color( white );
+}
+
+a
+{
+    @include text_color( $dark_grey_text_color );
+}
+
+a:hover
+{
+    @include text_color( $light_grey_text_color );
+}
+
+// .. HEADER
+
+.header_block
+{
+    @include width( 100% );
+    @include padding( 30 * $px );
+
+    @include media( large_min )
+    {
+        @include float( left );
+        @include width( 300 * $px );
+        @include padding( 50 * $px );
+        @include position( fixed );
+    }
+
+    @include background_color( white );
+}
+
+.header_title
+{
+    @include media( large_min )
+    {
+        @include padding_vertical( 50 * $px );
+    }
+
+    @include text_size( $text_font_size_largest );
+    @include text_case( uppercase );
+}
+
+.header_subtitle
+{
+    @include display( none );
+}
+
+.header_hamburger_button
+{
+    @include media( medium_max )
+    {
+        @include display( block );
+        @include size( 40 * $px, 40 * $px );
+        @include position( fixed );
+        @include position_right( 30 * $px );
+        @include position_top( 30 * $px );
+        @include position_depth( 1 );
+        @include background_image( 'MEDIA/men_icons.png' );
+    }
+}
+
+.header_hamburger_button:hover
+{
+    @include opacity( 0.7 );
+}
+
+.header_menu_button_list
+{
+    @include display( none );
+
+    @include media( large_min )
+    {
+        @include display( block );
+    }
+
+    @include padding_vertical( 40 * $px, 50 * $px );
+}
+
+.header_menu_button
+{
+    @include height( 45 * $px );
+    @include text_size( $text_font_size_small );
+    @include text_height( 45 * $px );
+}
+
+.header_menu_link_selected
+{
+    @include text_color( $light_grey_text_color );
+}
+
+.header_bottom_block
+{
+    @include display( none );
+
+    @include media( large_min )
+    {
+        @include display( block );
+    }
+
+    @include padding_vertical( 40 * $px, 50 * $px );
+}
+
+.header_social_button_container
+{
+    @include float_container;
+}
+
+.header_social_button
+{
+    @include size( 30 * $px, 30 * $px );
+    @include margin_right( 10 * $px );
+}
+
+.header_social_link
+{
+    @include display( block );
+    @include size( 30 * $px, 30 * $px );
+    @include background_image( 'MEDIA/sm.png' );
+    @include text_size( 0 );
+}
+
+.header_social_link:hover
+{
+    @include background_image( 'MEDIA/sm2.png' );
+}
+
+#header_facebook_icon
+{
+    @include background_position( 0 );
+}
+
+#header_google_icon
+{
+    @include background_position( -31px );
+}
+
+#header_rss_icon
+{
+    @include background_position( -155px );
+}
+
+.header_copyright
+{
+    @include padding_vertical( 20 * $px );
+    @include text_size( $text_font_size_smaller );
+    @include text_height( 15 * $px );
+}
+
+.header_copyright_link
+{
+    @include text_weight( 800 );
+}
+
+// .. MAIN
+
+.main_container
+{
+    @include display( block );
+
+    @include media( large_min )
+    {
+        @include margin_left( 300 * $px );
+    }
+
+    @include background_color( $light_grey_background_color );
+}
+
+// .. SLIDER
+
+.slider_title
+{
+    @include display( none );
+}
+
+.slider_figure
+{
+    @include position( relative );
+}
+
+.slider_image
+{
+    @include height_max( 500 * $px );
+
+    @include media( medium_max )
+    {
+        @include height( 100% );
+    }
+
+    @include media( large_min )
+    {
+        @include width( 100% );
+    }
+}
+
+.slider_text
+{
+    @include display( block );
+    @include column( 96 * $pc, 3.5 * $pc );
+    @include padding( 20 * $px );
+    @include position( absolute );
+    @include position_bottom( 0 );
+    @include text_size( $text_font_size_larger );
+    @include text_height( 35 * $px );
+    @include text_weight( 800 );
+    @include text_align( middle );
+    @include text_case( uppercase );
+    @include background_color( rgba( 255, 255, 255, 0.8 ) );
+}
+
+.slider_menu_button_container
+{
+    @include float_container;
+    @include position( absolute );
+    @include position_top( -41 * $px );
+    @include position_right( 0 );
+}
+
+.slider_menu_button
+{
+    @include size( 40 * $px, 40 * $px );
+    @include margin_left( 1 * $px );
+}
+
+.slider_menu_button:hover
+{
+    @include opacity( 0.8 );
+}
+
+.slider_menu_link
+{
+    @include display( block );
+    @include size( 40 * $px, 40 * $px );
+    @include background_image( 'MEDIA/p_navigation.png' );
+}
+
+#slider_left_icon
+{
+    @include background_position( 0 );
+}
+
+#slider_middle_icon
+{
+    @include background_position( -41px );
+}
+
+#slider_right_icon
+{
+    @include background_position( -82px );
+}
+
+// .. GALLERY
+
+.gallery_container
+{
+    @include column( 96 * $pc, 3.5 * $pc );
+    @include padding( 30 * $px );
+    @include background_color( white );
+}
+
+.gallery_title_block
+{
+    @include display( none );
+}
+
+.gallery_text_block
+{
+    @include padding_vertical( 20 * $px, 50 * $px );
+    @include text_size( $text_font_size_small );
+    @include text_height( 25 * $px );
+}
+
+.gallery_subtitle_block
+{
+    @include text_size( $text_font_size_large );
+    @include text_weight( 800 );
+}
+
+// .. WORK
+
+.work_container
+{
+    @include float_container;
+    @include padding_vertical( 30 * $px );
+}
+
+.work_block
+{
+    @include column;
+
+    @include media( medium_min )
+    {
+        @include column( 48 * $pc );
+    }
+
+    @include media( large_min )
+    {
+        @include column( 32 * $pc );
+    }
+
+    @include position( relative );
+}
+
+.work_figure
+{
+    @include text_height( 0 );
+}
+
+.work_image
+{
+    @include width( 100% );
+}
+
+.work_block:hover .work_image
+{
+    @include visibility( hidden );
+}
+
+.work_text
+{
+    @include display( none );
+    @include margin_left( 10% );
+    @include width( 80% );
+    @include padding( 10% );
+    @include border_vertical( 2 * $px solid $grey_line_color );
+    @include position( absolute );
+    @include position_top( 25% );
+    @include text_size( $text_font_size_medium );
+    @include text_height( 20 * $px );
+    @include text_color( $dark_grey_text_color );
+    @include text_align( center );
+}
+
+.work_block:hover .work_text
+{
+    @include display( block );
+}
+

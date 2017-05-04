@@ -1,0 +1,91 @@
+// == RULE
+
+// -- WEIGHT
+
+@text_weight(
+	$weight
+	)
+{
+    font-weight: $weight;
+}
+
+// -- STYLE
+
+@text_style(
+	$style
+	)
+{
+    font-style: $style;
+}
+
+// -- DECORATION
+
+@text_decoration(
+    $decoration
+    )
+{
+    text-decoration: $decoration;
+}
+
+// -- SIZE
+
+@text_size(
+	$size
+	)
+{
+    font-size: $size;
+}
+
+// -- HEIGHT
+
+@text_height(
+	$height = 1
+	)
+{
+    line-height: $height;
+}
+
+// -- SPACING
+
+@text_spacing(
+    $spacing
+    )
+{
+    letter-spacing: $spacing;
+}
+
+// -- COLOR
+
+@text_color(
+	$color
+	)
+{
+    color: $color;
+}
+
+// -- ALIGN
+
+@text_align( $align )
+{
+    if $align == left or $align == center or $align == right
+    {
+        text-align: $align;
+    }
+    else if $align == top or $align == middle or $align == bottom
+    {
+        vertical-align: $align;
+    }
+    else
+    {
+        error $align;
+    }
+}
+
+// -- CASE
+
+@text_case(
+	$case
+	)
+{
+    text-transform: $case;
+}
