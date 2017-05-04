@@ -212,8 +212,7 @@ The Pepss code is extracted from these special HTML comments :
         ...
 ```
 
-The prototyping can be done exclusively from within the ".pepss.html" file, 
-as it is also a valid HTML file including the resulting ".css" files built from the ".scss" files.
+The ".pepss.html" file can thus be viewed as normally in a web browser, once the generated ".scss" files have been converted into CSS by the SCSS compiler.
 ## Version
 
 0.1
