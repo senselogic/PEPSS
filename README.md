@@ -159,21 +159,19 @@ pepss [options] file.pepss[.html]
 ``` 
 ### Examples
 
+Convert "main.pepss" file and its dependencies into ".scss" files, and watch them for modifications.
+
 ```bash
 pepss main.pepss 
 ```
 
-This file and all its dependencies will automatically be converted into ".scss" files.
-
-They will then be watched for modifications, and recompiled when needed.
+Split "main.pepss.html" into a "main.html" and "main.pepss" file, then convert "main.pepss" file and its dependencies into ".scss" files.
 
 ```bash
-pepss page.pepss.html
+pepss main.pepss.html
 ```
 
-If you pass a ".pepss.html" file as an argument, it is automatically split into a ".html" file and a ".pepss" file.
-
-The Pepss code is extracted from these special HTML comments :
+The Pepss code is extracted from special HTML comments :
 
 * `<!--=` `=-->` : copied code. 
 * `<!--#` `#-->` : id code.
