@@ -10,23 +10,6 @@ SCSS with a simpler syntax.
 * Watches file modifications for instant recompilation.
 * Extracts CSS definitions from HTML templates.
 
-## Command line
-
-pepss [options] file.pepss
-
-### Options
-``` 
-    --replace PEPSS/ SCSS/ : folder paths to replace to build SCSS file paths
-    --pause 500 : pause duration while watching Pepss files
-``` 
-### Examples
-
-Convert "file.pepss" and its dependencies in SCSS, and watch them for modifications.
-
-```bash
-pepss file.pepss 
-```
-
 ## Syntax
 
 The "test.pepss" file shows the available Pepss statements and how they are translated in SCSS.
@@ -165,33 +148,32 @@ Build the executable with the following command line :
 dmd pepss.d
 ```
 
-## Usage
+## Command line
 
-Pass the main ".pepss" file of your web page as an argument.
+pepss [options] file.pepss[.html]
 
-```bash
-nodejs pepss.js page.pepss
-```
-
-All the imported ".pepss" files and their dependencies will automatically be converted into ".scss" files, replacing Pepss commands by their SCSS equivalent.
-
-All these Pepss files will be watched for modifications, and recompiled when needed.
-
-The generated SCSS files can now be compiled into a CSS file as usual.
+### Options
+``` 
+    --replace PEPSS/ SCSS/ : folder paths to replace to build SCSS file paths
+    --pause 500 : pause duration while watching Pepss files
+``` 
+### Examples
 
 ```bash
-sass --watch page.scss:page.css
+pepss main.pepss 
 ```
 
-## Prototyping
+This file and all its dependencies will automatically be converted into ".scss" files.
+
+They will then be watched for modifications, and recompiled when needed.
+
+```bash
+pepss page.pepss.html
+```
 
 If you pass a ".pepss.html" file as an argument, it is automatically split into a ".html" file and a ".pepss" file.
 
-```bash
-nodejs pepss.js page.pepss.html
-```
-
-The Pepss code is simply extracted from special HTML comments :
+The Pepss code is extracted from these special HTML comments :
 
 * `<!--=` `=-->` : copied code. 
 * `<!--#` `#-->` : id code.

@@ -763,11 +763,12 @@ void main(
     {
         writeln( "*** ERROR : Invalid arguments" );
         writeln( "Usage :" );
-        writeln( "    pepss [options] file.pepss" );
+        writeln( "    pepss [options] file.pepss[.html]" );
         writeln( "Options :" );
         writeln( "    --replace PEPSS/ SCSS/" );
         writeln( "    --pause 500" );
-        writeln( "Sample :" );
+        writeln( "Samples :" );
         writeln( "    pepss file.pepss" );
+        writeln( "    pepss file.pepss.html" );
     }
 }
