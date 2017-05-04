@@ -212,7 +212,7 @@ The Pepss code is extracted from these special HTML comments :
         ...
 ```
 
-The ".pepss.html" file can thus be viewed as normally in a web browser, once the generated ".scss" files have been converted into CSS by the SCSS compiler.
+Once the generated ".scss" files have been processed by the SCSS compiler, refresh the ".pepss.html" file in your web browser to see the result.
 ## Version
 
 0.1
