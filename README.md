@@ -4,7 +4,7 @@ Concise SCSS.
 
 ## Features
 
-* More concise syntax.
+* Very concise syntax.
 * Media condition suffixes.
 * Automatically detects and compiles dependencies.
 * Watches file modifications for instant recompilation.
