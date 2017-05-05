@@ -150,13 +150,17 @@ dmd pepss.d
 
 ## Command line
 
+``` 
 pepss [options] file.pepss[.html]
+``` 
 
 ### Options
+
 ``` 
 --replace PEPSS/ SCSS/ : folder paths to replace to get the SCSS file paths from the PEPSS file paths
 --pause 500 : time to wait before checking the Pepss files again
 ``` 
+
 ### Examples
 
 Convert "main.pepss" and its dependencies into ".scss" files.
