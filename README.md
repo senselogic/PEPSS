@@ -1,10 +1,10 @@
 # Pepss
 
-SCSS with a simpler syntax.
+Concise SCSS.
 
 ## Features
 
-* Programmer-friendly syntax.
+* More concise syntax.
 * Media condition suffixes.
 * Automatically detects and compiles dependencies.
 * Watches file modifications for instant recompilation.
