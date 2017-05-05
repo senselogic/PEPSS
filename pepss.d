@@ -779,7 +779,7 @@ void main(
         writeln( "Options :" );
         writeln( "    --replace PEPSS/ SCSS/" );
         writeln( "    --pause 500" );
-        writeln( "Samples :" );
+        writeln( "Examples :" );
         writeln( "    pepss file.pepss" );
         writeln( "    pepss file.pepss.html" );
     }

@@ -154,8 +154,8 @@ pepss [options] file.pepss[.html]
 
 ### Options
 ``` 
-    --replace PEPSS/ SCSS/ : folder paths to replace to get the SCSS file paths from the PEPSS file paths
-    --pause 500 : time to wait before checking the Pepss files again
+--replace PEPSS/ SCSS/ : folder paths to replace to get the SCSS file paths from the PEPSS file paths
+--pause 500 : time to wait before checking the Pepss files again
 ``` 
 ### Examples
 
@@ -217,6 +217,7 @@ The Pepss code is extracted from special HTML comments :
 ```
 
 Once the generated ".scss" files have been processed by the SCSS compiler, refresh the ".pepss.html" file in your web browser to see the result.
+
 ## Version
 
 0.1
