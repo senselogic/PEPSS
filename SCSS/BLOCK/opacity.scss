@@ -1,11 +1,8 @@
 // == RULE
-
 // -- OPACITY
-
 @mixin opacity(
     $opacity
     )
 {
     opacity: $opacity;
 }
-

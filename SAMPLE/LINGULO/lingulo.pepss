@@ -9,8 +9,8 @@ $media_larger_max_px_count = 1280;
 
 // == IMPORT
 
-import '../PEPSS/pepss.pepss';
-import '../PEPSS/slider.pepss';
+import '../../PEPSS/pepss.pepss';
+import '../../PEPSS/slider.pepss';
 
 // == CONSTANT
 

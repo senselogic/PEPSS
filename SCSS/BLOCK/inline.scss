@@ -1,14 +1,9 @@
 // == CONSTANT
-
 // -- SPACING
-
 $inline_container_letter_spacing: -0.31em !default;
 $inline_content_letter_spacing: normal !default;
-
 // == RULE
-
 // -- CONTAINER
-
 @mixin inline_container(
     $maximum_width: null,
     $width: null,

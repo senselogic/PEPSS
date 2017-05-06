@@ -1,5 +1,4 @@
 // == ANIMATION
-
 @-webkit-keyframes slider_slide_1_3_animation
 {
     33%, 95%
@@ -79,9 +78,7 @@
 }
 
 // == RULE
-
 // -- WRAPPER
-
 @mixin slider_wrapper(
     $slider_height
     )
@@ -91,7 +88,6 @@
 }
 
 // -- CONTAINER
-
 @mixin slider_container(
     $slider_height
     )
@@ -101,7 +97,6 @@
 }
 
 // -- SLIDE
-
 @mixin slider_slide(
     $slider_height
     )

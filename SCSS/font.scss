@@ -1,7 +1,5 @@
 // == CONSTANT
-
 // -- FAMILY
-
 $font_family_arial: Arial, Helvetica, sans-serif;
 $font_family_comic: 'Comic Sans MS', cursive;
 $font_family_courier: 'Courier New', Courier, monospace;
@@ -15,11 +13,8 @@ $font_family_tahoma: Tahoma, Geneva, sans-serif;
 $font_family_times: 'Times New Roman', Times, serif;
 $font_family_trebuchet: 'Trebuchet MS', sans-serif;
 $font_family_verdana: Verdana, Geneva, sans-serif;
-
 // == RULE
-
 // -- FILE
-
 @mixin font_file(
     $path,
     $family,
@@ -38,7 +33,6 @@ $font_family_verdana: Verdana, Geneva, sans-serif;
 }
 
 // -- FAMILY
-
 @mixin font_family(
     $family
     )

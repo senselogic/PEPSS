@@ -36,7 +36,7 @@ import std.regex : matchFirst, regex, replaceAll, replaceFirst, Captures, Regex;
 
 // -- TYPES
 
-class WATCHED_FILE
+class FILE
 {
     string
         Path;
@@ -89,18 +89,16 @@ string
     InputFolderPath,
     OutputFolderPath,
     SpaceText;
-WATCHED_FILE[]
-    WatchedFileArray;
+FILE[]
+    FileArray;
 
 // -- FUNCTIONS
 
-void PrintFileError( 
-    string file_path, 
-    int line_index, 
-    string message 
+void PrintError(
+    string message
     )
 {
-    writeln( file_path ~ "(" ~ ( line_index + 1 ).to!string() ~ ") : " ~ message );
+    writeln( "*** ERROR : ", message );
 }
 
 // ~~
@@ -278,7 +276,7 @@ string[] CompilePepssLineArray(
 
         imported_file_path = imported_directory_path ~ imported_file_name ~ ".pepss";
 
-        WatchFile( imported_file_path );
+        AddFile( imported_file_path );
 
         return stripped_scss_line.replace( InputFolderPath, OutputFolderPath );
     }
@@ -415,7 +413,7 @@ void CompilePepssFile(
     string[]
         pepss_line_array,
         scss_line_array;
-    
+        
     if ( pepss_file_path.endsWith( ".pepss" ) )
     {
         scss_file_path = ( pepss_file_path[ 0 .. $ - 6 ] ~ ".scss" ).replace( InputFolderPath, OutputFolderPath );
@@ -427,7 +425,7 @@ void CompilePepssFile(
     }
     else
     {
-        writeln( "*** ERROR : Invalid file extension : " ~ pepss_file_path );
+        PrintError( "Invalid file extension : " ~ pepss_file_path );
     }
 }
 
@@ -440,6 +438,11 @@ void SplitFile(
     string html_extension 
     )
 {
+    bool
+        class_attribute_is_set,
+        class_comment_is_set,
+        id_attribute_is_set,
+        id_comment_is_set;
     int
         block_space_count,
         line_index,
@@ -447,13 +450,13 @@ void SplitFile(
         space_count;
     string    
         class_attribute,
-        class_comment_argument,
+        class_comment,
         css_code,
         css_file_path,
         html_code,
         html_file_path,
         id_attribute,
-        id_comment_argument,
+        id_comment,
         line,
         stripped_line;
     string[]
@@ -478,10 +481,15 @@ void SplitFile(
     css_code = "";
     removed_space_count = -1;
     
-    id_comment_expression = regex( `<!--#(.*)` );
-    class_comment_expression = regex( `<!--\.(.*)` );
     id_attribute_expression = regex( `<[a-z]+.* id="([^"]+)"` );
     class_attribute_expression = regex( `<[a-z]+.* class="([^"]+)"` );
+    id_comment_expression = regex( `<!--#(.*)` );
+    class_comment_expression = regex( `<!--\.(.*)` );
+    
+    id_attribute_is_set = false;
+    class_attribute_is_set = false;
+    id_comment_is_set = false;
+    class_comment_is_set = false;
 
     for ( line_index = 0;
           line_index < line_array.length;
@@ -501,26 +509,18 @@ void SplitFile(
             removed_space_count = space_count + 4;
             block_space_count = 0;
 
-            id_comment_argument = "";
-            class_comment_argument = "";
+            id_comment_is_set = false;
+            class_comment_is_set = false;
 
             if ( !id_comment_match.empty )
             {
-                id_comment_argument = id_comment_match[ 1 ];
-
-                if ( id_attribute == "" )
-                {
-                    PrintFileError( split_file_path, line_index, "missing id attribute" );
-                }
+                id_comment = id_comment_match[ 1 ];
+                id_comment_is_set = true;
             }
             else if ( !class_comment_match.empty )
             {
-                class_comment_argument = class_comment_match[ 1 ];
-
-                if ( class_attribute == "" )
-                {
-                    PrintFileError( split_file_path, line_index, "missing class attribute" );
-                }
+                class_comment = class_comment_match[ 1 ];
+                class_comment_is_set = true;
             }
         }
         else if ( stripped_line == "=-->"
@@ -528,8 +528,8 @@ void SplitFile(
                   || stripped_line == ".-->" )
         {
             if ( stripped_line != "=-->"
-                 && id_comment_argument == ""
-                 && class_comment_argument == "" )
+                 && !id_comment_is_set
+                 && !class_comment_is_set )
             {
                 css_code ~= "}\n";
             }
@@ -537,25 +537,25 @@ void SplitFile(
             css_code ~= "\n";
             removed_space_count = -1;
 
-            id_comment_argument = "";
-            class_comment_argument = "";
+            id_comment_is_set = false;
+            class_comment_is_set = false;
         }
         else if ( removed_space_count >= 0 )
         {
-            if ( ( id_comment_argument != ""
-                   || class_comment_argument != "" )
+            if ( ( id_comment_is_set
+                   || class_comment_is_set )
                  && stripped_line != ""
                  && !stripped_line.startsWith( "//" ) )
             {
-                if ( id_comment_argument != null )
+                if ( id_comment_is_set )
                 {
-                    css_code ~= "#" ~ id_attribute ~ id_comment_argument ~ "\n{\n";
-                    id_comment_argument = null;
+                    css_code ~= "#" ~ id_attribute ~ id_comment ~ "\n{\n";
+                    id_comment_is_set = false;
                 }
-                else if ( class_comment_argument != null )
+                else if ( class_comment_is_set )
                 {
-                    css_code ~= "." ~ class_attribute ~ class_comment_argument ~ "\n{\n";
-                    class_comment_argument = null;
+                    css_code ~= "." ~ class_attribute ~ class_comment ~ "\n{\n";
+                    class_comment_is_set = false;
                 }
 
                 block_space_count = 4;
@@ -575,6 +575,7 @@ void SplitFile(
             if ( !id_attribute_match.empty )
             {
                 id_attribute = id_attribute_match[ 1 ];
+                id_attribute_is_set = true;
             }
 
             class_attribute_match = stripped_line.matchFirst( class_attribute_expression );
@@ -582,6 +583,7 @@ void SplitFile(
             if ( !class_attribute_match.empty )
             {
                 class_attribute = class_attribute_match[ 1 ];
+                class_attribute_is_set = true;
             }
         }
     }
@@ -598,7 +600,7 @@ void SplitFile(
 // ~~
 
 void CompileFile( 
-    ref WATCHED_FILE watched_file
+    ref FILE file
     )
 {
     string
@@ -608,16 +610,12 @@ void CompileFile(
     Regex!char
         file_path_expression;
         
-    if ( !watched_file.ItIsCompiled )
+    if ( !file.ItIsCompiled )
     {
-        watched_file.ItIsCompiled = true;
+        file.ItIsCompiled = true;
         
-        file_path = watched_file.Path;
-        
-        writeln( "Compiling file : " ~ file_path );
-
+        file_path = file.Path;        
         file_path_expression = regex( `(.*)(\.[a-z]*)(\.[a-z]*)$` );
-        
         file_path_match = file_path.matchFirst( file_path_expression );
 
         if ( !file_path_match.empty )
@@ -629,19 +627,19 @@ void CompileFile(
             CompilePepssFile( file_path );
         }
 
-        watched_file.ItIsCompiled = false;
+        file.ItIsCompiled = false;
     }
 }
 
 // ~~ 
 
-bool IsWatchedFile(
-    string watched_file_path
+bool IsFile(
+    string file_path
     )
 {
-    foreach( watched_file; WatchedFileArray )
+    foreach( file; FileArray )
     {
-        if ( watched_file.Path == watched_file_path )
+        if ( file.Path == file_path )
         {
             return true;
         }
@@ -652,30 +650,28 @@ bool IsWatchedFile(
 
 // ~~
 
-void WatchFile( 
+void AddFile( 
     string file_path 
     )
 {
-    WATCHED_FILE
-        watched_file;
+    FILE
+        file;
 
     file_path = file_path.buildNormalizedPath().replace( "\\", "/" );
 
-    if ( !IsWatchedFile( file_path ) )
+    if ( !IsFile( file_path ) )
     {
-        writeln( "Watching file : " ~ file_path );
-        
         if ( file_path.exists() )
         {
-            watched_file = new WATCHED_FILE( file_path );
+            file = new FILE( file_path );
             
-            WatchedFileArray ~= watched_file;
+            FileArray ~= file;
                     
-            CompileFile( watched_file );
+            CompileFile( file );
         }
         else
         {
-            writeln( "*** ERROR : Invalid file path : " ~ file_path );
+            PrintError( "Invalid file path : " ~ file_path );
         }
     }
 }
@@ -686,23 +682,23 @@ void WatchFiles(
     )
 {
     int
-        watched_file_index;
-    WATCHED_FILE
-        watched_file;
+        file_index;
+    FILE
+        file;
 
     writeln( "Watching files..." );
 
     for ( ; ; )
     {
-        for ( watched_file_index = 0;
-              watched_file_index < WatchedFileArray.length;
-              ++watched_file_index )
+        for ( file_index = 0;
+              file_index < FileArray.length;
+              ++file_index )
         {
-            watched_file = WatchedFileArray[ watched_file_index ];
+            file = FileArray[ file_index ];
             
-            if ( watched_file.HasChanged() )
+            if ( file.HasChanged() )
             {
-                CompileFile( watched_file );
+                CompileFile( file );
             }
         }
 
@@ -756,7 +752,7 @@ void main(
         }
         else
         {
-            writeln( "*** ERROR : Invalid option : " ~ option );
+            PrintError( "Invalid option : " ~ option );
 
             argument_array = argument_array[ 1 .. $ ];
         }
@@ -764,7 +760,7 @@ void main(
 
     if ( argument_array.length == 1 )
     {
-        WatchFile( argument_array[ 0 ] );
+        AddFile( argument_array[ 0 ] );
 
         if ( FilesAreWatched )
         {
@@ -773,7 +769,8 @@ void main(
     }
     else
     {
-        writeln( "*** ERROR : Invalid arguments" );
+        PrintError( "Invalid arguments" );
+        
         writeln( "Usage :" );
         writeln( "    pepss [options] file.pepss[.html]" );
         writeln( "Options :" );

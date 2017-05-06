@@ -1,7 +1,5 @@
 // == RULE
-
 // -- MARGIN
-
 @mixin margin(
     $top_margin,
     $right_margin: $top_margin,
@@ -67,7 +65,6 @@
 {
     margin-left: auto;
     margin-right: auto;
-
     &:before
     {
         content: '<div>';

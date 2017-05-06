@@ -1,7 +1,5 @@
 // == RULE
-
 // -- BORDER
-
 @mixin border(
     $top_border,
     $right_border: $top_border,
@@ -74,4 +72,3 @@
 {
     border-radius: $radius;
 }
-

@@ -1,59 +1,40 @@
 // == CONSTANT
-
 // .. MEDIA
-
 $media_small_max_px_count: 480;
 $media_medium_max_px_count: 640;
 $media_large_max_px_count: 960;
 $media_larger_max_px_count: 1280;
-
 // == IMPORT
-
-@import '../SCSS/pepss.scss';
-@import '../SCSS/slider.scss';
-
+@import '../../SCSS/pepss.scss';
+@import '../../SCSS/slider.scss';
 // == CONSTANT
-
 // .. GRID
-
 $container_width: 930 * $px;
 $gutter_width: 1.5 * $pc;
-
 // .. SLIDER
-
 $slider_height: 300 * $px;
 $slider_animation_duration: 15s;
-
 // -- COLOR
-
 // .. BACKGROUND
-
 $orange_background_color: #ea5e40;
 $black_background_color: #1d1d1d;
 $dark_grey_background_color: #333333;
 $light_grey_background_color: #ece9e0;
-
 // .. TEXT
-
 $orange_text_color: $orange_background_color;
 $dark_grey_text_color: $dark_grey_background_color;
 $grey_text_color: #5e5e5e;
 $light_grey_text_color: #aaaaaa;
 $lightest_grey_text_color: #b7b7b7;
-
 // .. LINE
-
 $orange_line_color: #cc5836;
 $grey_line_color: #444444;
 $brown_line_color: #d6d0c2;
-
 // .. FONT
-
 $title_font_family: 'Baumans', sans-serif;
 $title_font_size_small: 23 * $px;
 $title_font_size_medium: 40 * $px;
 $title_font_size_large: 56 * $px;
-
 $text_font_family: 'Open Sans', sans-serif;
 $text_font_size_smallest: 10 * $px;
 $text_font_size_smaller: 12 * $px;
@@ -62,18 +43,12 @@ $text_font_size_medium: 16 * $px;
 $text_font_size_large: 18 * $px;
 $text_font_size_larger: 20 * $px;
 $text_font_size_largest: 25 * $px;
-
 // == RULE
-
 // -- FONT
-
 @include font_file( 'MEDIA/font_bauman_regular', 'Baumans' );
 @include font_file( 'MEDIA/font_open_sans', 'Open Sans' );
-
 // -- CONTENT
-
 // .. GLOBAL
-
 body
 {
     @include font_family( $text_font_family );
@@ -98,7 +73,6 @@ input
 }
 
 // -- HEADER
-
 .header_wrapper
 {
     @include background_color( $light_grey_background_color );
@@ -117,7 +91,6 @@ input
     @include font_family( $title_font_family );
     @include text_size( $title_font_size_small );
     @include text_align( center );
-
     @include media( medium_min )
     {
         @include text_size( $title_font_size_medium );
@@ -137,7 +110,6 @@ input
 {
     @include column( 96 * $pc, $gutter_width );
     @include text_align( center );
-
     @include media( large_min )
     {
         @include column( 36 * $pc, $gutter_width );
@@ -149,7 +121,6 @@ input
 {
     @include column( 96 * $pc, $gutter_width );
     @include text_align( center );
-
     @include media( large_min )
     {
         @include column( 60 * $pc, $gutter_width );
@@ -162,7 +133,6 @@ input
 .header_menu_button
 {
     @include display( none );
-
     @include media( medium_min )
     {
         @include display( inline-block );
@@ -231,11 +201,9 @@ input
 }
 
 // .. SLIDER
-
 .slider_wrapper
 {
     @include slider_wrapper( $slider_height );
-
     @include media( large_max )
     {
         @include display( none );
@@ -252,7 +220,6 @@ input
 .slider_container
 {
     @include slider_container( $slider_height );
-
     @include media( medium_min )
     {
         @include padding_horizontal( 20 * $px );
@@ -298,7 +265,6 @@ input
 }
 
 // .. SEARCH
-
 .search_wrapper
 {
     @include background_color( $orange_background_color );
@@ -314,7 +280,6 @@ input
 {
     @include column( 96 * $pc, $gutter_width );
     @include text_align( center );
-
     @include media( larger_min )
     {
         @include column( 60 * $pc, $gutter_width );
@@ -330,7 +295,6 @@ input
 .search_input_block
 {
     @include column( 72 * $pc, $gutter_width, 0 );
-
     @include media( medium_min )
     {
         @include column( 80 * $pc, $gutter_width, 0 );
@@ -352,7 +316,6 @@ input
 .search_submit_block
 {
     @include column( 24 * $pc, 1 * $pc, $gutter_width );
-
     @include media( medium_min )
     {
         @include column( 16 * $pc, 1 * $pc, $gutter_width );
@@ -378,14 +341,12 @@ input
 }
 
 // .. MAIN
-
 .main_wrapper
 {
     background: $light_grey_background_color;
 }
 
 // TOP
-
 .main_top_container
 {
     @include inline_container( $container_width );
@@ -397,7 +358,6 @@ input
     )
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( large_min )
     {
         @include column( 96 * $pc, 16 * $pc );
@@ -444,7 +404,6 @@ input
 }
 
 // MIDDLE
-
 .main_middle_container
 {
     @include inline_container( $container_width );
@@ -453,7 +412,6 @@ input
 @mixin main_middle_block
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( larger_min )
     {
         @include column( 96 * $pc, $gutter_width );
@@ -478,7 +436,6 @@ input
 .main_middle_figure_block
 {
     @include column( 96 * $pc, $gutter_width );
-
     @include media( large_min )
     {
         @include column( 48 * $pc, $gutter_width );
@@ -518,7 +475,6 @@ input
 }
 
 // BOTTOM
-
 .main_bottom_container
 {
     @include inline_container( $container_width );
@@ -530,7 +486,6 @@ input
 .main_bottom_title_block
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( larger_min )
     {
         @include column( 48 * $pc, $gutter_width, $gutter_width, 0, 48 * $pc );
@@ -545,7 +500,6 @@ input
 .main_bottom_left_block
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( larger_min )
     {
         @include column( 48 * $pc, $gutter_width );
@@ -562,7 +516,6 @@ input
 .main_bottom_right_block
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( larger_min )
     {
         @include column( 48 * $pc, $gutter_width );
@@ -592,7 +545,6 @@ input
 }
 
 // .. BOTTOM
-
 .bottom_wrapper
 {
     @include background_color( $dark_grey_background_color );
@@ -610,7 +562,6 @@ input
 .bottom_block
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( larger_min )
     {
         @include column( 32 * $pc, $gutter_width );
@@ -650,7 +601,6 @@ input
 .bottom_right_container
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( larger_min )
     {
         @include column( 32 * $pc, $gutter_width );
@@ -681,7 +631,6 @@ input
 }
 
 // .. FOOTER
-
 .footer_wrapper
 {
     @include background_color( $black_background_color );
@@ -699,7 +648,6 @@ input
 .footer_copyright_block
 {
     @include column( 96 * $pc, 16 * $pc );
-
     @include media( large_min )
     {
         @include column( 64 * $pc, $gutter_width );
@@ -714,7 +662,6 @@ input
 .footer_social_block
 {
     @include column( 32 * $pc, $gutter_width );
-
     @include media( medium_max )
     {
         @include display( none );
@@ -771,4 +718,3 @@ input
     @include footer_social_link;
     @include background_image( 'MEDIA/icon_xing.png' );
 }
-

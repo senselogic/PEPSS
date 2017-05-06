@@ -1,43 +1,35 @@
 // == CONSTANT
-
 $media_small_max_px_count: 640 !default;
 $media_medium_max_px_count: 1024 !default;
 $media_large_max_px_count: 1440 !default;
 $media_larger_max_px_count: 1920 !default;
 $media_largest_max_px_count: 9999 !default;
-
 $media_small_min_px_count: 1;
 $media_medium_min_px_count: ( $media_small_max_px_count + $media_small_min_px_count );
 $media_large_min_px_count: ( $media_medium_max_px_count + $media_small_min_px_count );
 $media_larger_min_px_count: ( $media_large_max_px_count + $media_small_min_px_count );
 $media_largest_min_px_count: ( $media_larger_max_px_count + $media_small_min_px_count );
-
 $media_small_max_px: ( $media_small_max_px_count * $px );
 $media_medium_max_px: ( $media_medium_max_px_count * $px );
 $media_large_max_px: ( $media_large_max_px_count * $px );
 $media_larger_max_px: ( $media_larger_max_px_count * $px );
 $media_largest_max_px: ( $media_largest_max_px_count * $px );
-
 $media_small_min_px: ( $media_small_min_px_count * $px );
 $media_medium_min_px: ( $media_medium_min_px_count * $px );
 $media_large_min_px: ( $media_large_min_px_count * $px );
 $media_larger_min_px: ( $media_larger_min_px_count * $px );
 $media_largest_min_px: ( $media_largest_min_px_count * $px );
-
 $media_small_max_pm: ( $media_small_max_px_count * $pm );
 $media_medium_max_pm: ( $media_medium_max_px_count * $pm );
 $media_large_max_pm: ( $media_large_max_px_count * $pm );
 $media_larger_max_pm: ( $media_larger_max_px_count * $pm );
 $media_largest_max_pm: ( $media_largest_max_px_count * $pm );
-
 $media_small_min_pm: ( $media_small_min_px_count * $pm );
 $media_medium_min_pm: ( $media_medium_min_px_count * $pm );
 $media_large_min_pm: ( $media_large_min_px_count * $pm );
 $media_larger_min_pm: ( $media_larger_min_px_count * $pm );
 $media_largest_min_pm: ( $media_largest_min_px_count * $pm );
-
 // == RULE
-
 @mixin media(
     $prefix
     )
@@ -206,5 +198,3 @@ $media_largest_min_pm: ( $media_largest_min_px_count * $pm );
         @content;
     }
 }
-
-
