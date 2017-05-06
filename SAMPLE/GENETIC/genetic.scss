@@ -1,25 +1,43 @@
 // == IMPORT
+
 @import '../../SCSS/unit.scss';
+
 // == CONSTANT
+
 // .. MEDIA
+
 $media_small_max_px_count: 540;
 $media_medium_max_px_count: 960;
 $media_large_max_px_count: 1280;
+
 // .. INLINE
+
 $inline_content_letter_spacing: 1 * $px;
+
 // == IMPORT
+
 @import '../../SCSS/pepss.scss';
+
 // == CONSTANT
+
 // -- COLOR
+
 // .. BACKGROUND
+
 $light_grey_background_color: #f6f6f6;
+
 // .. TEXT
+
 $dark_grey_text_color: #484848;
 $light_grey_text_color: #959595;
+
 // .. LINE
+
 $grey_line_color: #c7c7c7;
 $light_grey_line_color: #d9d9d9;
+
 // .. FONT
+
 $text_font_family: Raleway, Arial, sans-serif;
 $text_font_size_smaller: 11 * $px;
 $text_font_size_small: 14 * $px;
@@ -27,12 +45,18 @@ $text_font_size_medium: 18 * $px;
 $text_font_size_large: 24 * $px;
 $text_font_size_larger: 26 * $px;
 $text_font_size_largest: 32 * $px;
+
 // == RULE
+
 // -- FONT
+
 @include font_file( 'MEDIA/raleway_500', 'Raleway', 500 );
 @include font_file( 'MEDIA/raleway_800', 'Raleway', 800 );
+
 // -- CONTENT
+
 // .. GLOBAL
+
 body
 {
     @include font_family( $text_font_family );
@@ -54,10 +78,12 @@ a:hover
 }
 
 // .. HEADER
+
 .header_block
 {
     @include width( 100% );
     @include padding( 30 * $px );
+
     @include media( large_min )
     {
         @include float( left );
@@ -192,6 +218,7 @@ a:hover
 }
 
 // .. MAIN
+
 .main_container
 {
     @include display( block );
@@ -205,6 +232,7 @@ a:hover
 }
 
 // .. SLIDER
+
 .slider_title
 {
     @include display( none );
@@ -287,6 +315,7 @@ a:hover
 }
 
 // .. GALLERY
+
 .gallery_container
 {
     @include column( 96 * $pc, 3.5 * $pc );
@@ -313,6 +342,7 @@ a:hover
 }
 
 // .. WORK
+
 .work_container
 {
     @include float_container;
@@ -370,3 +400,4 @@ a:hover
 {
     @include display( block );
 }
+

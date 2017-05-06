@@ -1,5 +1,7 @@
 // == RULE
+
 // -- WEIGHT
+
 @mixin text_weight(
     $weight
     )
@@ -8,6 +10,7 @@
 }
 
 // -- STYLE
+
 @mixin text_style(
     $style
     )
@@ -16,6 +19,7 @@
 }
 
 // -- DECORATION
+
 @mixin text_decoration(
     $decoration
     )
@@ -24,6 +28,7 @@
 }
 
 // -- SIZE
+
 @mixin text_size(
     $size
     )
@@ -32,6 +37,7 @@
 }
 
 // -- HEIGHT
+
 @mixin text_height(
     $height: 1
     )
@@ -40,6 +46,7 @@
 }
 
 // -- SPACING
+
 @mixin text_spacing(
     $spacing
     )
@@ -48,6 +55,7 @@
 }
 
 // -- COLOR
+
 @mixin text_color(
     $color
     )
@@ -56,6 +64,7 @@
 }
 
 // -- ALIGN
+
 @mixin text_align( $align )
 {
     @if $align == left or $align == center or $align == right
@@ -75,6 +84,7 @@
 }
 
 // -- CASE
+
 @mixin text_case(
     $case
     )

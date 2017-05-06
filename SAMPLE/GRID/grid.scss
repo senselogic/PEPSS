@@ -1,37 +1,53 @@
 // == CONSTANT
+
 // .. MEDIA
+
 $media_small_max_px_count: 640;
 $media_medium_max_px_count: 1024;
 $media_large_max_px_count: 1440;
 $media_larger_max_px_count: 1920;
+
 // == IMPORT
+
 @import '../../SCSS/pepss.scss';
+
 // == CONSTANT
+
 // -- COLOR
+
 $wrapper_color: #f4f4f4;
 $container_color: #f8f8f8;
 $title_color: #fee;
 $first_block_color: #eef;
 $second_block_color: #efe;
 $third_block_color: #eff;
+
 // -- FONT
+
 $title_font_family: $font_family_impact;
 $title_font_size_small: 24 * $px;
 $title_font_size_medium: 32 * $px;
 $title_font_size_large: 48 * $px;
 $title_font_size_larger: 60 * $px;
+
 $first_block_font_family: $font_family_monaco;
 $first_block_font_size_small: 12 * $px;
+
+
 $second_block_font_family: $font_family_palatino;
 $second_block_font_size_small: 14 * $px;
+
 // -- CONTENT
+
 // BODY
+
 body
 {
     @include background_color( $wrapper_color );
 }
 
 // HEADER
+
 .header_container
 {
     @include float_container( 960 * $px );
@@ -257,3 +273,4 @@ body
     @include padding_horizontal( 10 * $px );
     @include spacing_vertical( 10 * $px );
 }
+

@@ -1,5 +1,7 @@
 // == RULE
+
 // -- SPACING
+
 @mixin spacing(
     $top_border,
     $right_border: $top_border,
@@ -58,3 +60,4 @@
 {
     border-right: $right_border solid transparent;
 }
+

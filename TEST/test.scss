@@ -1,7 +1,9 @@
 /*
     comment
 */
+
 $variable_123: 0;    // :
+
 @function func_123(    // @function
     $first_argument_1_2_3
     )
@@ -22,10 +24,13 @@ $a: 10;    // :
 $b: ( ( $a + 1 ) * 2 - 2 ) / 2;    // :
 $a: 10;    // :
 $c: $b;    // :
+
 $a $b $c
 #{$a}#{$b}px    // #{$a}#{$b}px
+
 $s: '#{$a}#{$b}px';    // #{$a}#{$b}px
 @import 'test_include.scss';    // @import scss
+
 .test
 {
     $a
@@ -80,6 +85,7 @@ $s: '#{$a}#{$b}px';    // #{$a}#{$b}px
     $a $b
 }
 
+
 @include media( small_min )
 {
     $a: 1;    // @include media( small_min ) { $a: 1; }
@@ -91,7 +97,9 @@ $s: '#{$a}#{$b}px';    // #{$a}#{$b}px
 }
 
 $c: -1;    // :
+
 $colors: a, b, c;    // :
+
 @each $color in $colors    // @each $color in $colors
 {
 }
@@ -99,6 +107,7 @@ $colors: a, b, c;    // :
 @for $index from 1 through length( $colors )    // @for $index from 1 through length( $colors )
 {
     $color: nth( $colors, $index );
+
     .test_#{$color}    // #{$color}
     {
         color : $color;
@@ -116,6 +125,7 @@ $colors: a, b, c;    // :
 }
 
 $i: 6;    // :
+
 @while $i > 0    // @while
 {
     $i: $i - 2;    // :

@@ -137,7 +137,7 @@ string[] ReadLineArray(
 
     code = file_path.readText().replace( "\r", "" ).replace( "\t", "    " );
     
-    line_array = code.split( "\n" );
+    line_array = code.split( '\n' );
 
     return line_array;
 }
@@ -164,7 +164,7 @@ void WriteLineArray(
     string
         code;
         
-    code = line_array.join( "\n" );
+    code = line_array.join( '\n' );
     
     WriteCode( file_path, code );
 }
@@ -177,10 +177,15 @@ string[] CompilePepssLineArray(
     )
 {
     int
-        pepss_line_index,
         space_count,
-        stripped_scss_line_count,
-        stripped_scss_line_index;
+        split_scss_line_count;
+    string
+        prior_scss_line,
+        space_text,
+        stripped_scss_line;
+    string[]
+        scss_line_array,
+        split_scss_line_array;
     Regex!char
         else_if_expression,
         else_expression,
@@ -206,49 +211,37 @@ string[] CompilePepssLineArray(
         variable_star_assignment_expression,
         warn_expression,
         while_expression;
-    string
-        pepss_line,
-        prior_stripped_scss_line,
-        space_text,
-        stripped_pepss_line,
-        stripped_scss_line;
-    string[]
-        scss_line_array,
-        stripped_scss_line_array;
 
     // ~~
 
-    bool ReplacePepssExpression(
-        Regex!char pepss_expression,
-        string scss_translation,
+    bool ReplaceExpression(
+        Regex!char expression,
+        string translation,
         string delegate( string, string ) process_stripped_scss_line = null
         )
     {
         string
-            stripped_scss_line;
+            processed_stripped_scss_line;
         Captures!(string, ulong)
-            pepss_match;
+            match;
 
-        if ( process_stripped_scss_line != null )
+        match = stripped_scss_line.matchFirst( expression );
+
+        if ( !match.empty )
         {
-            pepss_match = stripped_pepss_line.matchFirst( pepss_expression );
-        }
+            processed_stripped_scss_line = stripped_scss_line.replaceFirst( expression, translation );
 
-        stripped_scss_line = stripped_pepss_line.replaceFirst( pepss_expression, scss_translation );
-
-        if ( stripped_scss_line != stripped_pepss_line )
-        {
             if ( process_stripped_scss_line != null )
             {
-                stripped_scss_line = process_stripped_scss_line( stripped_scss_line, pepss_match[ 1 ] );
+                processed_stripped_scss_line = process_stripped_scss_line( processed_stripped_scss_line, match[ 1 ] );
 
-                if ( stripped_scss_line == "" )
+                if ( processed_stripped_scss_line == "" )
                 {
                     return false;
                 }
             }
 
-            stripped_pepss_line = stripped_scss_line;
+            stripped_scss_line = processed_stripped_scss_line;
 
             return true;
         }
@@ -258,8 +251,8 @@ string[] CompilePepssLineArray(
 
     // ~~
 
-    string WatchImportedFile(
-        string stripped_scss_line,
+    string AddImportedFile(
+        string processed_stripped_scss_line,
         string imported_file_name
         )
     {
@@ -278,13 +271,13 @@ string[] CompilePepssLineArray(
 
         AddFile( imported_file_path );
 
-        return stripped_scss_line.replace( InputFolderPath, OutputFolderPath );
+        return processed_stripped_scss_line.replace( InputFolderPath, OutputFolderPath );
     }
 
     // ~~
 
     string IsMixinName(
-        string stripped_scss_line,
+        string processed_stripped_scss_line,
         string mixin_name
         )
     {
@@ -295,10 +288,12 @@ string[] CompilePepssLineArray(
              && mixin_name != "-webkit-keyframes"
              && mixin_name != "media" )
         {
-            return stripped_scss_line;
+            return processed_stripped_scss_line;
         }
-
-        return "";
+        else
+        {
+            return "";
+        }
     }
 
     // ~~
@@ -328,74 +323,75 @@ string[] CompilePepssLineArray(
     variable_interpolation_expression = regex( `(^.*)\$\(([A-Za-z_][A-Za-z0-9_]*)\)(.*$)` );
     media_condition_expression = regex( `(^.*) @ ([^;]*);(.*$)` );
 
-    for ( pepss_line_index = 0;
-          pepss_line_index < pepss_line_array.length;
-          ++pepss_line_index )
+    prior_scss_line = "";
+
+    foreach ( pepss_line; pepss_line_array )
     {
-        pepss_line = pepss_line_array[ pepss_line_index ];
-        stripped_pepss_line = pepss_line.strip();
-        space_count = pepss_line.indexOf( stripped_pepss_line ).to!int();
+        stripped_scss_line = pepss_line.strip();
+        space_count = pepss_line.indexOf( stripped_scss_line ).to!int();
 
-        if ( ReplacePepssExpression( import_expression, "@import '$1.scss'$2", &WatchImportedFile )
-             || ReplacePepssExpression( return_expression, "@return $1" )
-             || ReplacePepssExpression( if_expression, "@if $1" )
-             || ReplacePepssExpression( else_if_expression, "@else $1" )
-             || ReplacePepssExpression( else_expression, "@else" )
-             || ReplacePepssExpression( while_expression, "@while $1" )
-             || ReplacePepssExpression( foreach_expression, "@each $1" )
-             || ReplacePepssExpression( for_to_expression, "@for $1 from $2 through $3" )
-             || ReplacePepssExpression( for_toward_expression, "@for $1 from $2 to $3" )
-             || ReplacePepssExpression( print_expression, "@debug $1" )
-             || ReplacePepssExpression( warn_expression, "@warn $1" )
-             || ReplacePepssExpression( error_expression, "@error $1" )
-             || ReplacePepssExpression( variable_assignment_expression, "$1:$2" )
-             || ReplacePepssExpression( variable_plus_assignment_expression, "$1: $1 +$2" )
-             || ReplacePepssExpression( variable_minus_assignment_expression, "$1: $1 -$2" )
-             || ReplacePepssExpression( variable_star_assignment_expression, "$1: $1 *$2" )
-             || ReplacePepssExpression( variable_slash_assignment_expression, "$1: $1 /$2" )
-             || ReplacePepssExpression( function_declaration_expression, "@function $1" )
-             || ReplacePepssExpression( mixin_declaration_expression, "@mixin $1$2", &IsMixinName )
-             || ReplacePepssExpression( mixin_function_declaration_expression, "@mixin $1$2" )
-             || ReplacePepssExpression( extend_expression, "@extend $1" )
-             || ReplacePepssExpression( include_expression, "@include $1" ) )
+        if ( ReplaceExpression( import_expression, "@import '$1.scss'$2", &AddImportedFile )
+             || ReplaceExpression( return_expression, "@return $1" )
+             || ReplaceExpression( if_expression, "@if $1" )
+             || ReplaceExpression( else_if_expression, "@else $1" )
+             || ReplaceExpression( else_expression, "@else" )
+             || ReplaceExpression( while_expression, "@while $1" )
+             || ReplaceExpression( foreach_expression, "@each $1" )
+             || ReplaceExpression( for_to_expression, "@for $1 from $2 through $3" )
+             || ReplaceExpression( for_toward_expression, "@for $1 from $2 to $3" )
+             || ReplaceExpression( print_expression, "@debug $1" )
+             || ReplaceExpression( warn_expression, "@warn $1" )
+             || ReplaceExpression( error_expression, "@error $1" )
+             || ReplaceExpression( variable_assignment_expression, "$1:$2" )
+             || ReplaceExpression( variable_plus_assignment_expression, "$1: $1 +$2" )
+             || ReplaceExpression( variable_minus_assignment_expression, "$1: $1 -$2" )
+             || ReplaceExpression( variable_star_assignment_expression, "$1: $1 *$2" )
+             || ReplaceExpression( variable_slash_assignment_expression, "$1: $1 /$2" )
+             || ReplaceExpression( function_declaration_expression, "@function $1" )
+             || ReplaceExpression( mixin_declaration_expression, "@mixin $1$2", &IsMixinName )
+             || ReplaceExpression( mixin_function_declaration_expression, "@mixin $1$2" )
+             || ReplaceExpression( extend_expression, "@extend $1" )
+             || ReplaceExpression( include_expression, "@include $1" ) )
         {
         }
 
-        while ( ReplacePepssExpression( variable_interpolation_expression, "$1#{$$$2}$3" ) )
+        while ( ReplaceExpression( variable_interpolation_expression, "$1#{$$$2}$3" ) )
         {
         }
 
-        ReplacePepssExpression( media_condition_expression, "@include media( $2 )\n{\n    $1;$3\n}" );
+        ReplaceExpression( media_condition_expression, "@include media( $2 )\n{\n    $1;$3\n}" );
 
         space_text = GetSpaceText( space_count );
-        stripped_scss_line_array = stripped_pepss_line.split( "\n" );
-        stripped_scss_line_count = stripped_scss_line_array.length.to!int();
 
-        if ( stripped_pepss_line != ""
-			 && stripped_pepss_line != "}"
-             && ( prior_stripped_scss_line == "}"
-                  || ( prior_stripped_scss_line != "{"
-                       && stripped_scss_line_count > 1 ) ) )
+        split_scss_line_array = stripped_scss_line.split( '\n' );
+        split_scss_line_count = split_scss_line_array.length.to!int();
+
+        if ( split_scss_line_count == 0 )
+        {
+            split_scss_line_array ~= "";
+        }
+
+        if ( stripped_scss_line != ""
+			 && stripped_scss_line != "}"
+             && ( prior_scss_line == "}"
+                  || ( prior_scss_line != "{"
+                       && split_scss_line_count > 1 ) ) )
         {
             scss_line_array ~= "";
         }
 
-        for ( stripped_scss_line_index = 0;
-              stripped_scss_line_index < stripped_scss_line_count;
-              ++stripped_scss_line_index )
+        foreach ( split_scss_line; split_scss_line_array )
         {
-            stripped_scss_line = stripped_scss_line_array[ stripped_scss_line_index ];
-
-            if ( stripped_scss_line == "" )
+            if ( split_scss_line == "" )
             {
                 scss_line_array ~= "";
             }
             else
             {
-                scss_line_array ~= space_text ~ stripped_scss_line;
+                scss_line_array ~= space_text ~ split_scss_line;
             }
 
-            prior_stripped_scss_line = stripped_scss_line;
+            prior_scss_line = split_scss_line;
         }
     }
 
@@ -445,7 +441,6 @@ void SplitFile(
         id_comment_is_set;
     int
         block_space_count,
-        line_index,
         removed_space_count,
         space_count;
     string    
@@ -457,7 +452,6 @@ void SplitFile(
         html_file_path,
         id_attribute,
         id_comment,
-        line,
         stripped_line;
     string[]
         line_array;
@@ -491,11 +485,8 @@ void SplitFile(
     id_comment_is_set = false;
     class_comment_is_set = false;
 
-    for ( line_index = 0;
-          line_index < line_array.length;
-          ++line_index )
+    foreach ( line; line_array )
     {
-        line = line_array[ line_index ];
         stripped_line = line.strip();
         space_count = line.indexOf( stripped_line ).to!int();
 

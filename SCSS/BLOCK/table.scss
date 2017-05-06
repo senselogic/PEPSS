@@ -1,11 +1,14 @@
 // == RULE
+
 // -- CONTAINER
+
 @mixin table_container(
     $maximum_width: null,
     $width: null
     )
 {
     display: table;
+
     & > *
     {
         display: table-cell;
@@ -25,6 +28,7 @@
 }
 
 // -- LAYOUT
+
 @mixin table_layout(
     $layout
     )
