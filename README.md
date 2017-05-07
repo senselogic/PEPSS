@@ -179,7 +179,7 @@ Converts "main.pepss" and its dependencies into ".scss" files, and watches them 
 pepss --watch main.pepss.html
 ```
 
-Splits "main.pepss.html" into "main.html" and "main.pepss", converts "main.pepss" and its dependencies into ".scss" files, and watches them for modifications
+Splits "main.pepss.html" into "main.html" and "main.pepss", converts "main.pepss" and its dependencies into ".scss" files, and watches them for modifications.
 
 ```bash
 sass --watch main.scss:main.css
