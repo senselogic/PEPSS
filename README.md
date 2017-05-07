@@ -1,6 +1,6 @@
 # Pepss
 
-Concise SCSS.
+Concise SCSS preprocessor.
 
 ## Features
 
