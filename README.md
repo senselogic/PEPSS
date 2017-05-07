@@ -10,9 +10,7 @@ Concise SCSS.
 * Watches file modifications for instant recompilation.
 * Extracts CSS definitions from HTML templates.
 
-## Syntax
-
-The "test.pepss" file shows the available Pepss statements and how they are translated in SCSS.
+## Sample
 
 ```cpp
 /*
@@ -148,6 +146,8 @@ Build the executable with the following command line :
 dmd pepss.d
 ```
 
+Install the [SCSS compiler](http://sass-lang.com/install).
+
 ## Command line
 
 ``` 
@@ -163,23 +163,31 @@ pepss [options] file.pepss[.html]
 
 ### Examples
 
-Convert "main.pepss" and its dependencies into ".scss" files.
-
 ```bash
 pepss main.pepss 
 ```
 
-Convert "main.pepss" and its dependencies into ".scss" files, and watch them for modifications.
+Converts "main.pepss" and its dependencies into ".scss" files.
 
 ```bash
 pepss --watch main.pepss 
 ```
 
-Split "main.pepss.html" into "main.html" and "main.pepss", convert "main.pepss" and its dependencies into ".scss" files, and watch them for modifications
+Converts "main.pepss" and its dependencies into ".scss" files, and watches them for modifications.
 
 ```bash
 pepss --watch main.pepss.html
 ```
+
+Splits "main.pepss.html" into "main.html" and "main.pepss", converts "main.pepss" and its dependencies into ".scss" files, and watches them for modifications
+
+```bash
+sass --watch main.scss:main.css
+```
+
+Converts "main.scss" and its dependencies into "main.css".
+
+## Pepss code extraction
 
 The Pepss code is extracted from special HTML comments :
 
@@ -220,7 +228,7 @@ The Pepss code is extracted from special HTML comments :
         ...
 ```
 
-Once the generated ".scss" files have been processed by the SCSS compiler, refresh the ".pepss.html" file in your web browser to see the result.
+Once the generated ".scss" files have been processed by the SCSS compiler, you can immediately refresh the ".pepss.html" file in your web browser to see the result.
 
 ## Version
 
