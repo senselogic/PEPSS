@@ -760,8 +760,6 @@ void main(
     }
     else
     {
-        PrintError( "Invalid arguments" );
-        
         writeln( "Usage :" );
         writeln( "    pepss [options] file.pepss[.html]" );
         writeln( "Options :" );
@@ -770,5 +768,7 @@ void main(
         writeln( "Examples :" );
         writeln( "    pepss file.pepss" );
         writeln( "    pepss file.pepss.html" );
+        
+        PrintError( "Invalid arguments" );
     }
 }
