@@ -4,7 +4,7 @@ Lightweight SCSS preprocessor.
 
 ## Features
 
-* More concise syntax than standard SCSS.
+* Less verbose syntax than standard SCSS.
 * Media condition suffixes.
 * Automatically detects and compiles dependencies.
 * Watches file modifications for instant recompilation.
