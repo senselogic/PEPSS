@@ -1,10 +1,10 @@
 # Pepss
 
-Concise SCSS preprocessor.
+Lightweight SCSS preprocessor.
 
 ## Features
 
-* Very concise syntax.
+* More concise syntax than standard SCSS.
 * Media condition suffixes.
 * Automatically detects and compiles dependencies.
 * Watches file modifications for instant recompilation.
