@@ -82,7 +82,7 @@ class FILE
 // -- VARIABLES
 
 bool
-    FilesAreWatched;
+    WatchOptionIsEnabled;
 int
     PauseDuration;
 string
@@ -712,7 +712,7 @@ void main(
 
     InputFolderPath = "PEPSS/";
     OutputFolderPath = "SCSS/";
-    FilesAreWatched = false;
+    WatchOptionIsEnabled = false;
     PauseDuration = 500;
 
     while ( argument_array.length >= 1
@@ -720,32 +720,32 @@ void main(
     {
         option = argument_array[ 0 ];
 
-        if ( option == "--replace"
-             && argument_array.length >= 3 )
-        {
-            InputFolderPath = argument_array[ 1 ];
-            OutputFolderPath = argument_array[ 2 ];
+        argument_array = argument_array[ 1 .. $ ];
 
-            argument_array = argument_array[ 3 .. $ ];
+        if ( option == "--replace"
+             && argument_array.length >= 2
+             && argument_array[ 0 ].endsWith( '/' )
+             && argument_array[ 1 ].endsWith( '/' ) )
+        {
+            InputFolderPath = argument_array[ 0 ];
+            OutputFolderPath = argument_array[ 1 ];
+
+            argument_array = argument_array[ 2 .. $ ];
         }
         else if ( option == "--watch" )
         {
-            FilesAreWatched = true;
-
-            argument_array = argument_array[ 1 .. $ ];
+            WatchOptionIsEnabled = true;
         }
         else if ( option == "--pause"
-             && argument_array.length >= 2 )
+             && argument_array.length >= 1 )
         {
-            PauseDuration = argument_array[ 1 ].to!int();
+            PauseDuration = argument_array[ 0 ].to!int();
 
-            argument_array = argument_array[ 2 .. $ ];
+            argument_array = argument_array[ 1 .. $ ];
         }
         else
         {
             PrintError( "Invalid option : " ~ option );
-
-            argument_array = argument_array[ 1 .. $ ];
         }
     }
 
@@ -753,7 +753,7 @@ void main(
     {
         AddFile( argument_array[ 0 ] );
 
-        if ( FilesAreWatched )
+        if ( WatchOptionIsEnabled )
         {
             WatchFiles();
         }
