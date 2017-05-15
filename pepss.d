@@ -769,6 +769,6 @@ void main(
         writeln( "    pepss file.pepss" );
         writeln( "    pepss file.pepss.html" );
         
-        PrintError( "Invalid arguments" );
+        PrintError( "Invalid arguments : " ~ argument_array.to!string() );
     }
 }
