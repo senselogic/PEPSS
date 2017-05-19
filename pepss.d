@@ -44,9 +44,9 @@ class FILE
         ModificationTime;
     bool
         ItIsCompiled;
-        
+
     // ~~
-    
+
     this(
         string file_path
         )
@@ -55,21 +55,21 @@ class FILE
         ModificationTime = file_path.timeLastModified();
         ItIsCompiled = false;
     }
-    
+
     // ~~
-    
+
     bool HasChanged(
         )
     {
         SysTime
             modification_time;
-            
+
         modification_time = Path.timeLastModified();
-        
+
         if ( modification_time > ModificationTime )
         {
             ModificationTime = modification_time;
-            
+
             return true;
         }
         else
@@ -103,8 +103,8 @@ void PrintError(
 
 // ~~
 
-string GetSpaceText( 
-    int space_count 
+string GetSpaceText(
+    int space_count
     )
 {
     if ( space_count <= 0 )
@@ -124,19 +124,19 @@ string GetSpaceText(
 
 // ~~
 
-string[] ReadLineArray( 
-    string file_path 
+string[] ReadLineArray(
+    string file_path
     )
 {
     string
         code;
     string[]
         line_array;
-        
+
     writeln( "Reading file : " ~ file_path );
 
     code = file_path.readText().replace( "\r", "" ).replace( "\t", "    " );
-    
+
     line_array = code.split( '\n' );
 
     return line_array;
@@ -144,9 +144,9 @@ string[] ReadLineArray(
 
 // ~~
 
-void WriteCode( 
-    string file_path, 
-    string code 
+void WriteCode(
+    string file_path,
+    string code
     )
 {
     writeln( "Writing file : " ~ file_path ~ " (" ~ Clock.currTime().to!string() ~ ")" );
@@ -156,24 +156,24 @@ void WriteCode(
 
 // ~~
 
-void WriteLineArray( 
-    string file_path, 
-    string[] line_array 
+void WriteLineArray(
+    string file_path,
+    string[] line_array
     )
 {
     string
         code;
-        
+
     code = line_array.join( '\n' );
-    
+
     WriteCode( file_path, code );
 }
 
 // ~~
 
-string[] CompilePepssLineArray( 
-    string[] pepss_line_array, 
-    string pepss_file_path 
+string[] CompilePepssLineArray(
+    string[] pepss_line_array,
+    string pepss_file_path
     )
 {
     int
@@ -222,7 +222,7 @@ string[] CompilePepssLineArray(
     {
         string
             processed_stripped_scss_line;
-        Captures!(string, ulong)
+        Captures!( string, ulong )
             match;
 
         match = stripped_scss_line.matchFirst( expression );
@@ -297,7 +297,7 @@ string[] CompilePepssLineArray(
     }
 
     // ~~
-    
+
     import_expression = regex( `^import +\'([^']+)\.pepss'(.*$)` );
     return_expression = regex( `^return +(.*$)` );
     if_expression = regex( `^if +(.*$)` );
@@ -372,7 +372,7 @@ string[] CompilePepssLineArray(
         }
 
         if ( stripped_scss_line != ""
-			 && stripped_scss_line != "}"
+             && stripped_scss_line != "}"
              && ( prior_scss_line == "}"
                   || ( prior_scss_line != "{"
                        && split_scss_line_count > 1 ) ) )
@@ -400,8 +400,8 @@ string[] CompilePepssLineArray(
 
 // ~~
 
-void CompilePepssFile( 
-    string pepss_file_path 
+void CompilePepssFile(
+    string pepss_file_path
     )
 {
     string
@@ -409,14 +409,14 @@ void CompilePepssFile(
     string[]
         pepss_line_array,
         scss_line_array;
-        
+
     if ( pepss_file_path.endsWith( ".pepss" ) )
     {
         scss_file_path = ( pepss_file_path[ 0 .. $ - 6 ] ~ ".scss" ).replace( InputFolderPath, OutputFolderPath );
-        
+
         pepss_line_array = ReadLineArray( pepss_file_path );
         scss_line_array = CompilePepssLineArray( pepss_line_array, pepss_file_path );
-        
+
         WriteLineArray( scss_file_path, scss_line_array );
     }
     else
@@ -427,11 +427,11 @@ void CompilePepssFile(
 
 // ~~
 
-void SplitFile( 
-    string split_file_path, 
-    string html_file_name, 
-    string css_extension, 
-    string html_extension 
+void SplitFile(
+    string split_file_path,
+    string html_file_name,
+    string css_extension,
+    string html_extension
     )
 {
     bool
@@ -443,7 +443,7 @@ void SplitFile(
         block_space_count,
         removed_space_count,
         space_count;
-    string    
+    string
         class_attribute,
         class_comment,
         css_code,
@@ -455,7 +455,7 @@ void SplitFile(
         stripped_line;
     string[]
         line_array;
-    Captures!(string, ulong)
+    Captures!( string, ulong )
         class_attribute_match,
         class_comment_match,
         id_attribute_match,
@@ -465,21 +465,21 @@ void SplitFile(
         class_comment_expression,
         id_attribute_expression,
         id_comment_expression;
-        
+
     css_file_path = html_file_name ~ css_extension;
     html_file_path = html_file_name ~ html_extension;
-    
+
     line_array = ReadLineArray( split_file_path );
-    
+
     html_code = "";
     css_code = "";
     removed_space_count = -1;
-    
+
     id_attribute_expression = regex( `<[a-z]+.* id="([^"]+)"` );
     class_attribute_expression = regex( `<[a-z]+.* class="([^"]+)"` );
     id_comment_expression = regex( `<!--#(.*)` );
     class_comment_expression = regex( `<!--\.(.*)` );
-    
+
     id_attribute_is_set = false;
     class_attribute_is_set = false;
     id_comment_is_set = false;
@@ -590,22 +590,22 @@ void SplitFile(
 
 // ~~
 
-void CompileFile( 
+void CompileFile(
     ref FILE file
     )
 {
     string
         file_path;
-    Captures!(string, ulong)
+    Captures!( string, ulong )
         file_path_match;
     Regex!char
         file_path_expression;
-        
+
     if ( !file.ItIsCompiled )
     {
         file.ItIsCompiled = true;
-        
-        file_path = file.Path;        
+
+        file_path = file.Path;
         file_path_expression = regex( `(.*)(\.[a-z]*)(\.[a-z]*)$` );
         file_path_match = file_path.matchFirst( file_path_expression );
 
@@ -622,7 +622,7 @@ void CompileFile(
     }
 }
 
-// ~~ 
+// ~~
 
 bool IsFile(
     string file_path
@@ -635,14 +635,14 @@ bool IsFile(
             return true;
         }
     }
-    
+
     return false;
 }
 
 // ~~
 
-void AddFile( 
-    string file_path 
+void AddFile(
+    string file_path
     )
 {
     FILE
@@ -655,9 +655,9 @@ void AddFile(
         if ( file_path.exists() )
         {
             file = new FILE( file_path );
-            
+
             FileArray ~= file;
-                    
+
             CompileFile( file );
         }
         else
@@ -686,14 +686,14 @@ void WatchFiles(
               ++file_index )
         {
             file = FileArray[ file_index ];
-            
+
             if ( file.HasChanged() )
             {
                 CompileFile( file );
             }
         }
 
-        Thread.sleep( dur!("msecs")( PauseDuration ) );
+        Thread.sleep( dur!( "msecs" )( PauseDuration ) );
     }
 }
 
@@ -737,7 +737,7 @@ void main(
             WatchOptionIsEnabled = true;
         }
         else if ( option == "--pause"
-             && argument_array.length >= 1 )
+                  && argument_array.length >= 1 )
         {
             PauseDuration = argument_array[ 0 ].to!int();
 
@@ -768,7 +768,7 @@ void main(
         writeln( "Examples :" );
         writeln( "    pepss file.pepss" );
         writeln( "    pepss file.pepss.html" );
-        
+
         PrintError( "Invalid arguments : " ~ argument_array.to!string() );
     }
 }
