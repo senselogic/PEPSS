@@ -143,7 +143,7 @@ Install the [DMD 2 compiler](https://dlang.org/download.html).
 Build the executable with the following command line :
 
 ```bash
-dmd pepss.d
+dmd -m64 pepss.d
 ```
 
 Install the [SCSS compiler](http://sass-lang.com/install).
