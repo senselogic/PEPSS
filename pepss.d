@@ -83,7 +83,7 @@ class FILE
 
 bool
     WatchOptionIsEnabled;
-int
+long
     PauseDuration;
 string
     InputFolderPath,
@@ -104,7 +104,7 @@ void PrintError(
 // ~~
 
 string GetSpaceText(
-    int space_count
+    long space_count
     )
 {
     if ( space_count <= 0 )
@@ -176,7 +176,7 @@ string[] CompilePepssLineArray(
     string pepss_file_path
     )
 {
-    int
+    long
         space_count,
         split_scss_line_count;
     string
@@ -328,7 +328,7 @@ string[] CompilePepssLineArray(
     foreach ( pepss_line; pepss_line_array )
     {
         stripped_scss_line = pepss_line.strip();
-        space_count = pepss_line.indexOf( stripped_scss_line ).to!int();
+        space_count = pepss_line.indexOf( stripped_scss_line );
 
         if ( ReplaceExpression( import_expression, "@import '$1.scss'$2", &AddImportedFile )
              || ReplaceExpression( return_expression, "@return $1" )
@@ -364,7 +364,7 @@ string[] CompilePepssLineArray(
         space_text = GetSpaceText( space_count );
 
         split_scss_line_array = stripped_scss_line.split( '\n' );
-        split_scss_line_count = split_scss_line_array.length.to!int();
+        split_scss_line_count = split_scss_line_array.length;
 
         if ( split_scss_line_count == 0 )
         {
@@ -439,7 +439,7 @@ void SplitFile(
         class_comment_is_set,
         id_attribute_is_set,
         id_comment_is_set;
-    int
+    long
         block_space_count,
         removed_space_count,
         space_count;
@@ -488,7 +488,7 @@ void SplitFile(
     foreach ( line; line_array )
     {
         stripped_line = line.strip();
-        space_count = line.indexOf( stripped_line ).to!int();
+        space_count = line.indexOf( stripped_line );
 
         id_comment_match = stripped_line.matchFirst( id_comment_expression );
         class_comment_match = stripped_line.matchFirst( class_comment_expression );
@@ -672,7 +672,7 @@ void AddFile(
 void WatchFiles(
     )
 {
-    int
+    long
         file_index;
     FILE
         file;
@@ -739,7 +739,7 @@ void main(
         else if ( option == "--pause"
                   && argument_array.length >= 1 )
         {
-            PauseDuration = argument_array[ 0 ].to!int();
+            PauseDuration = argument_array[ 0 ].to!long();
 
             argument_array = argument_array[ 1 .. $ ];
         }
