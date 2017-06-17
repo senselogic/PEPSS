@@ -158,7 +158,7 @@ void WriteCode(
 
 void WriteLineArray(
     string file_path,
-    string[] line_array
+    ref string[] line_array
     )
 {
     string
@@ -172,7 +172,7 @@ void WriteLineArray(
 // ~~
 
 string[] CompilePepssLineArray(
-    string[] pepss_line_array,
+    ref string[] pepss_line_array,
     string pepss_file_path
     )
 {
