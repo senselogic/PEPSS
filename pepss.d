@@ -28,9 +28,9 @@ import std.conv : to;
 import std.datetime : Clock, SysTime;
 import std.file : exists, readText, timeLastModified, write;
 import std.path : buildNormalizedPath, dirName;
+import std.regex : matchFirst, regex, replaceAll, replaceFirst, Captures, Regex;
 import std.stdio : writeln;
 import std.string : endsWith, indexOf, join, replace, split, startsWith, strip;
-import std.regex : matchFirst, regex, replaceAll, replaceFirst, Captures, Regex;
 
 // == GLOBAL
 
