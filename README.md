@@ -157,7 +157,8 @@ pepss [options] file.pepss[.html]
 ### Options
 
 ``` 
---replace PEPSS/ SCSS/ : folder paths to replace to get the SCSS file paths from the PEPSS file paths
+--replace PEPSS/ SCSS/ : folder paths to replace to get the SCSS file paths from the Pepss file paths
+--watch : watch the Pepss files for modifications
 --pause 500 : time to wait before checking the Pepss files again
 ``` 
 

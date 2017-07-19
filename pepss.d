@@ -764,6 +764,7 @@ void main(
         writeln( "    pepss [options] file.pepss[.html]" );
         writeln( "Options :" );
         writeln( "    --replace PEPSS/ SCSS/" );
+        writeln( "    --watch" );
         writeln( "    --pause 500" );
         writeln( "Examples :" );
         writeln( "    pepss file.pepss" );
