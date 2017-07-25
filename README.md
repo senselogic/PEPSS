@@ -1,6 +1,6 @@
 # Pepss
 
-Lightweight language translated to SCSS.
+Lightweight language that compiles to SCSS.
 
 ## Features
 
