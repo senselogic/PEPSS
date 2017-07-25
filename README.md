@@ -1,6 +1,6 @@
 # Pepss
 
-Lightweight SCSS preprocessor.
+Lightweight language that compiles to SCSS.
 
 ## Features
 
@@ -233,7 +233,7 @@ Once the generated ".scss" files have been processed by the SCSS compiler, you c
 
 ## Version
 
-0.1
+1.0
 
 ## Author
 
