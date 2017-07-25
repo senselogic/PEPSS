@@ -1,6 +1,6 @@
 # Pepss
 
-Lightweight SCSS syntax preprocessor.
+Lightweight syntax for SCSS.
 
 ## Features
 
