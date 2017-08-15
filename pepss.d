@@ -43,7 +43,7 @@ class FILE
     SysTime
         ModificationTime;
     bool
-        ItIsCompiled;
+        IsCompiled;
 
     // ~~
 
@@ -53,7 +53,7 @@ class FILE
     {
         Path = file_path;
         ModificationTime = file_path.timeLastModified();
-        ItIsCompiled = false;
+        IsCompiled = false;
     }
 
     // ~~
@@ -227,7 +227,7 @@ string[] CompilePepssLineArray(
 
         match = stripped_scss_line.matchFirst( expression );
 
-        if ( !match.empty )
+        if ( !match.empty() )
         {
             processed_stripped_scss_line = stripped_scss_line.replaceFirst( expression, translation );
 
@@ -493,8 +493,8 @@ void SplitFile(
         id_comment_match = stripped_line.matchFirst( id_comment_expression );
         class_comment_match = stripped_line.matchFirst( class_comment_expression );
 
-        if ( !id_comment_match.empty
-             || !class_comment_match.empty
+        if ( !id_comment_match.empty()
+             || !class_comment_match.empty()
              || stripped_line == "<!--=" )
         {
             removed_space_count = space_count + 4;
@@ -503,12 +503,12 @@ void SplitFile(
             id_comment_is_set = false;
             class_comment_is_set = false;
 
-            if ( !id_comment_match.empty )
+            if ( !id_comment_match.empty() )
             {
                 id_comment = id_comment_match[ 1 ];
                 id_comment_is_set = true;
             }
-            else if ( !class_comment_match.empty )
+            else if ( !class_comment_match.empty() )
             {
                 class_comment = class_comment_match[ 1 ];
                 class_comment_is_set = true;
@@ -563,7 +563,7 @@ void SplitFile(
 
             id_attribute_match = stripped_line.matchFirst( id_attribute_expression );
 
-            if ( !id_attribute_match.empty )
+            if ( !id_attribute_match.empty() )
             {
                 id_attribute = id_attribute_match[ 1 ];
                 id_attribute_is_set = true;
@@ -571,7 +571,7 @@ void SplitFile(
 
             class_attribute_match = stripped_line.matchFirst( class_attribute_expression );
 
-            if ( !class_attribute_match.empty )
+            if ( !class_attribute_match.empty() )
             {
                 class_attribute = class_attribute_match[ 1 ];
                 class_attribute_is_set = true;
@@ -601,15 +601,15 @@ void CompileFile(
     Regex!char
         file_path_expression;
 
-    if ( !file.ItIsCompiled )
+    if ( !file.IsCompiled )
     {
-        file.ItIsCompiled = true;
+        file.IsCompiled = true;
 
         file_path = file.Path;
         file_path_expression = regex( `(.*)(\.[a-z]*)(\.[a-z]*)$` );
         file_path_match = file_path.matchFirst( file_path_expression );
 
-        if ( !file_path_match.empty )
+        if ( !file_path_match.empty() )
         {
             SplitFile( file_path, file_path_match[ 1 ], file_path_match[ 2 ], file_path_match[ 3 ] );
         }
@@ -618,7 +618,7 @@ void CompileFile(
             CompilePepssFile( file_path );
         }
 
-        file.ItIsCompiled = false;
+        file.IsCompiled = false;
     }
 }
 
