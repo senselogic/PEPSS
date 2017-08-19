@@ -1,3 +1,5 @@
+![](https://github.com/senselogic/PEPSS/blob/master/LOGO/pepss.png)
+
 # Pepss
 
 Lightweight language that compiles to SCSS.
