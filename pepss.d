@@ -133,7 +133,7 @@ string[] ReadLineArray(
     string[]
         line_array;
 
-    writeln( "Reading file : " ~ file_path );
+    writeln( "Reading file : ", file_path );
 
     code = file_path.readText().replace( "\r", "" ).replace( "\t", "    " );
 
@@ -149,7 +149,7 @@ void WriteCode(
     string code
     )
 {
-    writeln( "Writing file : " ~ file_path ~ " (" ~ Clock.currTime().to!string() ~ ")" );
+    writeln( "Writing file : ", file_path, " (", Clock.currTime(), ")" );
 
     file_path.write( code );
 }
