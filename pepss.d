@@ -222,7 +222,7 @@ string[] CompilePepssLineArray(
     {
         string
             processed_stripped_scss_line;
-        Captures!( string, ulong )
+        Captures!( string )
             match;
 
         match = stripped_scss_line.matchFirst( expression );
@@ -455,7 +455,7 @@ void SplitFile(
         stripped_line;
     string[]
         line_array;
-    Captures!( string, ulong )
+    Captures!( string )
         class_attribute_match,
         class_comment_match,
         id_attribute_match,
@@ -596,7 +596,7 @@ void CompileFile(
 {
     string
         file_path;
-    Captures!( string, ulong )
+    Captures!( string )
         file_path_match;
     Regex!char
         file_path_expression;
