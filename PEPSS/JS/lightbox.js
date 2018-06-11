@@ -18,8 +18,6 @@
     along with Pepss.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// == GLOBAL
-
 // -- STATEMENTS
 
 // .. LIGHTBOX MANAGEMENT

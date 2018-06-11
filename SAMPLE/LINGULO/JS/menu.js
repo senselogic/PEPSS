@@ -1,5 +1,3 @@
-// == GLOBAL
-
 // -- STATEMENTS
 
 // .. MENU MANAGEMENT

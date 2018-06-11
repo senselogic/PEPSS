@@ -18,8 +18,6 @@
     along with Pepss.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-// == LOCAL
-
 // -- IMPORTS
 
 import core.thread;
@@ -31,8 +29,6 @@ import std.path : buildNormalizedPath, dirName;
 import std.regex : matchFirst, regex, replaceAll, replaceFirst, Captures, Regex;
 import std.stdio : writeln;
 import std.string : endsWith, indexOf, join, replace, split, startsWith, strip;
-
-// == GLOBAL
 
 // -- TYPES
 
