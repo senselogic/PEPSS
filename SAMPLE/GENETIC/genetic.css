@@ -182,9 +182,9 @@ a:hover {
 
 .slider_text {
   display: block;
-  width: 92.70833%;
-  margin-left: 3.64583%;
-  margin-right: 3.64583%;
+  width: 92.7083333333%;
+  margin-left: 3.6458333333%;
+  margin-right: 3.6458333333%;
   padding: 1.25rem;
   position: absolute;
   bottom: 0;
@@ -232,9 +232,9 @@ a:hover {
   background-position: -82px; }
 
 .gallery_container {
-  width: 92.70833%;
-  margin-left: 3.64583%;
-  margin-right: 3.64583%;
+  width: 92.7083333333%;
+  margin-left: 3.6458333333%;
+  margin-right: 3.6458333333%;
   padding: 1.875rem;
   background-color: white; }
 
@@ -275,7 +275,7 @@ a:hover {
       margin-right: 0; } }
   @media (min-width: 60.0625em) {
     .work_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 0;
       margin-right: 0; } }
 

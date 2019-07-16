@@ -2,7 +2,7 @@
 
 // -- SIZING
 
-@sizing(
+%sizing(
     $sizing
     )
 {

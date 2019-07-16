@@ -61,9 +61,9 @@ body {
         float: left; } }
 
 .header_title_block {
-  width: 79.16667%;
-  margin-left: 10.41667%;
-  margin-right: 10.41667%;
+  width: 79.1666666667%;
+  margin-left: 10.4166666667%;
+  margin-right: 10.4166666667%;
   background-color: #fee;
   font-family: Impact, Charcoal, sans-serif;
   font-size: 1.5rem;
@@ -97,7 +97,7 @@ body {
   padding-bottom: 0.625rem; }
   @media (min-width: 40.0625em) {
     .header_first_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 12.5%;
       margin-right: 0; } }
   @media (min-width: 64.0625em) {
@@ -124,12 +124,12 @@ body {
   border-bottom: 0.625rem solid transparent; }
   @media (min-width: 40.0625em) {
     .header_second_block {
-      width: 33.33333%;
-      margin-left: 8.33333%;
+      width: 33.3333333333%;
+      margin-left: 8.3333333333%;
       margin-right: 12.5%; } }
   @media (min-width: 64.0625em) {
     .header_second_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 0;
       margin-right: 0; } }
   @media (min-width: 90.0625em) {
@@ -151,7 +151,7 @@ body {
   border-bottom: 0.625rem solid transparent; }
   @media (min-width: 64.0625em) {
     .header_third_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 0;
       margin-right: 0; } }
   @media (min-width: 90.0625em) {
@@ -183,9 +183,9 @@ body {
         float: left; } }
 
 .footer_title_block {
-  width: 79.16667%;
-  margin-left: 10.41667%;
-  margin-right: 10.41667%;
+  width: 79.1666666667%;
+  margin-left: 10.4166666667%;
+  margin-right: 10.4166666667%;
   background-color: #fee;
   font-family: Impact, Charcoal, sans-serif;
   font-size: 1.5rem;
@@ -219,7 +219,7 @@ body {
   padding-bottom: 0.625rem; }
   @media (min-width: 40.0625em) {
     .footer_first_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 12.5%;
       margin-right: 0; } }
   @media (min-width: 64.0625em) {
@@ -246,12 +246,12 @@ body {
   border-bottom: 0.625rem solid transparent; }
   @media (min-width: 40.0625em) {
     .footer_second_block {
-      width: 33.33333%;
-      margin-left: 8.33333%;
+      width: 33.3333333333%;
+      margin-left: 8.3333333333%;
       margin-right: 12.5%; } }
   @media (min-width: 64.0625em) {
     .footer_second_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 0;
       margin-right: 0; } }
   @media (min-width: 90.0625em) {
@@ -273,7 +273,7 @@ body {
   border-bottom: 0.625rem solid transparent; }
   @media (min-width: 64.0625em) {
     .footer_third_block {
-      width: 33.33333%;
+      width: 33.3333333333%;
       margin-left: 0;
       margin-right: 0; } }
   @media (min-width: 90.0625em) {

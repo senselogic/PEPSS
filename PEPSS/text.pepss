@@ -2,25 +2,25 @@
 
 // -- WEIGHT
 
-@text_weight(
-	$weight
-	)
+%text_weight(
+    $weight
+    )
 {
     font-weight: $weight;
 }
 
 // -- STYLE
 
-@text_style(
-	$style
-	)
+%text_style(
+    $style
+    )
 {
     font-style: $style;
 }
 
 // -- DECORATION
 
-@text_decoration(
+%text_decoration(
     $decoration
     )
 {
@@ -29,25 +29,25 @@
 
 // -- SIZE
 
-@text_size(
-	$size
-	)
+%text_size(
+    $size
+    )
 {
     font-size: $size;
 }
 
 // -- HEIGHT
 
-@text_height(
-	$height = 1
-	)
+%text_height(
+    $height = 1
+    )
 {
     line-height: $height;
 }
 
 // -- SPACING
 
-@text_spacing(
+%text_spacing(
     $spacing
     )
 {
@@ -56,16 +56,16 @@
 
 // -- COLOR
 
-@text_color(
-	$color
-	)
+%text_color(
+    $color
+    )
 {
     color: $color;
 }
 
 // -- ALIGN
 
-@text_align( $align )
+%text_align( $align )
 {
     if $align == left or $align == center or $align == right
     {
@@ -83,9 +83,9 @@
 
 // -- CASE
 
-@text_case(
-	$case
-	)
+%text_case(
+    $case
+    )
 {
     text-transform: $case;
 }

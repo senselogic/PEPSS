@@ -22,13 +22,13 @@ Lightweight language that compiles to SCSS.
 $variable_123 = 0;    // :
 
 ?func_123(    // @function
-    $first_argument_1_2_3 
+    $first_argument_1_2_3
     )
 {
     return $first_argument_1_2_3 + 1;    // @return
 }
 
-@rule_123(    // @mixin
+!rule_123(    // @mixin
     $first_argument_1_2_3 = $variable_123,    // :
     $second_argument_1_2_3 = $first_argument_1_2_3 * 2 + func_123( $variable_123 )    // :
     )
@@ -54,8 +54,8 @@ import 'test_include.pepss';    // @import scss
 }
 
 ?test(    // @function
-    $x, 
-    $y 
+    $x,
+    $y
     )
 {
     return $x + $y;    // @return
@@ -65,10 +65,10 @@ import 'test_include.pepss';    // @import scss
 {
 }
 
-@test(    // @mixin
-    $x, 
-    $y, 
-    $z 
+%test(    // @mixin
+    $x,
+    $y,
+    $z
     )
 {
     :test;    // @include
@@ -76,7 +76,7 @@ import 'test_include.pepss';    // @import scss
     $w = test( $x, $y ) + $z;    // :
 }
 
-@test    // @mixin
+%test    // @mixin
 {
     :test( 1, 2, 3 );    // @include
 }
@@ -113,7 +113,7 @@ foreach $color in $colors    // @each $color in $colors
 for $index = 1 .. length( $colors )    // @for $index from 1 through length( $colors )
 {
     $color = nth( $colors, $index );
-    
+
     .test_$(color)    // #{$color}
     {
         color : $color;
@@ -152,28 +152,28 @@ Install the [SCSS compiler](http://sass-lang.com/install).
 
 ## Command line
 
-``` 
+```
 pepss [options] file.pepss[.html]
-``` 
+```
 
 ### Options
 
-``` 
+```
 --replace PEPSS/ SCSS/ : folder paths to replace to get the SCSS file paths from the Pepss file paths
 --watch : watch the Pepss files for modifications
 --pause 500 : time to wait before checking the Pepss files again
-``` 
+```
 
 ### Examples
 
 ```bash
-pepss main.pepss 
+pepss main.pepss
 ```
 
 Converts "main.pepss" and its dependencies into ".scss" files.
 
 ```bash
-pepss --watch main.pepss 
+pepss --watch main.pepss
 ```
 
 Converts "main.pepss" and its dependencies into ".scss" files, and watches them for modifications.
@@ -194,7 +194,7 @@ Converts "main.scss" and its dependencies into "main.css".
 
 The Pepss code is extracted from special HTML comments :
 
-* `<!--=` `=-->` : copied code. 
+* `<!--=` `=-->` : copied code.
 * `<!--#` `#-->` : id code.
 * `<!--.` `.-->` : class code.
 

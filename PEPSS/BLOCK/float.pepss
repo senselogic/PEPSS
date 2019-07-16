@@ -2,9 +2,9 @@
 
 // -- CLEAR
 
-@float_clear
+%float_clear
 {
-    if & 
+    if &
     {
         &:before,
         &:after
@@ -22,14 +22,14 @@
 
 // -- CONTAINER
 
-@float_container(
+%float_container(
     $maximum_width = null,
     $width = null
     )
 {
     :float_clear;
-    
-    if & 
+
+    if &
     {
         & > *
         {
@@ -37,13 +37,13 @@
             float: left;
         }
     }
-    
+
     if $maximum_width != null
     {
         margin: 0 auto;
         max-width: $maximum_width;
     }
-    
+
     if $width != null
     {
         width: $width;
@@ -52,7 +52,7 @@
 
 // -- FLOAT
 
-@float(
+%float(
     $float
     )
 {

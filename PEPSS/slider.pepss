@@ -1,18 +1,5 @@
 // == ANIMATION
 
-@-webkit-keyframes slider_slide_1_3_animation
-{
-    33%, 95%
-    {
-        :opacity( 0 );
-    }
-
-    0%, 28%, 100%
-    {
-        :opacity( 1 );
-    }
-}
-
 @keyframes slider_slide_1_3_animation
 {
     33%, 95%
@@ -26,19 +13,6 @@
     }
 }
 
-@-webkit-keyframes slider_slide_2_3_animation
-{
-    0%, 28%, 66%, 100%
-    {
-        :opacity( 0 );
-    }
-
-    33%, 61%
-    {
-        :opacity( 1 );
-    }
-}
-
 @keyframes slider_slide_2_3_animation
 {
     0%, 28%, 66%, 100%
@@ -47,19 +21,6 @@
     }
 
     33%, 61%
-    {
-        :opacity( 1 );
-    }
-}
-
-@-webkit-keyframes slider_slide_3_3_animation
-{
-    0%, 61%, 100%
-    {
-        :opacity( 0 );
-    }
-
-    66%, 95%
     {
         :opacity( 1 );
     }
@@ -82,9 +43,9 @@
 
 // -- WRAPPER
 
-@slider_wrapper( 
-	$slider_height 
-	)
+%slider_wrapper(
+    $slider_height
+    )
 {
     :position( relative );
     :size( 100%, $slider_height );
@@ -92,9 +53,9 @@
 
 // -- CONTAINER
 
-@slider_container( 
-	$slider_height 
-	)
+%slider_container(
+    $slider_height
+    )
 {
     :inline_container( $container_width );
     :size( 100%, $slider_height );
@@ -102,9 +63,9 @@
 
 // -- SLIDE
 
-@slider_slide( 
-	$slider_height 
-	)
+%slider_slide(
+    $slider_height
+    )
 {
     :size( 100%, $slider_height );
     :position( absolute );

@@ -1,18 +1,5 @@
 // == ANIMATION
 
-@-webkit-keyframes slider_slide_1_3_animation
-{
-    33%, 95%
-    {
-        @include opacity( 0 );
-    }
-
-    0%, 28%, 100%
-    {
-        @include opacity( 1 );
-    }
-}
-
 @keyframes slider_slide_1_3_animation
 {
     33%, 95%
@@ -26,19 +13,6 @@
     }
 }
 
-@-webkit-keyframes slider_slide_2_3_animation
-{
-    0%, 28%, 66%, 100%
-    {
-        @include opacity( 0 );
-    }
-
-    33%, 61%
-    {
-        @include opacity( 1 );
-    }
-}
-
 @keyframes slider_slide_2_3_animation
 {
     0%, 28%, 66%, 100%
@@ -47,19 +21,6 @@
     }
 
     33%, 61%
-    {
-        @include opacity( 1 );
-    }
-}
-
-@-webkit-keyframes slider_slide_3_3_animation
-{
-    0%, 61%, 100%
-    {
-        @include opacity( 0 );
-    }
-
-    66%, 95%
     {
         @include opacity( 1 );
     }

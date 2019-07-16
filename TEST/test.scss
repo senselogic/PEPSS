@@ -11,7 +11,7 @@ $variable_123: 0;    // :
     @return $first_argument_1_2_3 + 1;    // @return
 }
 
-@mixin rule_123(    // @mixin
+!rule_123(    // @mixin
     $first_argument_1_2_3: $variable_123,    // :
     $second_argument_1_2_3: $first_argument_1_2_3 * 2 + func_123( $variable_123 )    // :
     )
@@ -44,7 +44,7 @@ $s: '#{$a}#{$b}px';    // #{$a}#{$b}px
     @return $x + $y;    // @return
 }
 
-%test
+@mixin test
 {
 }
 

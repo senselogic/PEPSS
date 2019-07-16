@@ -32,30 +32,15 @@ body:before, body:after {
 body:after {
   clear: both; }
 
-@-webkit-keyframes slider_slide_1_3_animation {
-  33%, 95% {
-    opacity: 0; }
-  0%, 28%, 100% {
-    opacity: 1; } }
 @keyframes slider_slide_1_3_animation {
   33%, 95% {
     opacity: 0; }
   0%, 28%, 100% {
     opacity: 1; } }
-@-webkit-keyframes slider_slide_2_3_animation {
-  0%, 28%, 66%, 100% {
-    opacity: 0; }
-  33%, 61% {
-    opacity: 1; } }
 @keyframes slider_slide_2_3_animation {
   0%, 28%, 66%, 100% {
     opacity: 0; }
   33%, 61% {
-    opacity: 1; } }
-@-webkit-keyframes slider_slide_3_3_animation {
-  0%, 61%, 100% {
-    opacity: 0; }
-  66%, 95% {
     opacity: 1; } }
 @keyframes slider_slide_3_3_animation {
   0%, 61%, 100% {
@@ -303,7 +288,7 @@ input {
   font-size: 1rem; }
   @media (min-width: 30.0625em) {
     .search_input_block {
-      width: 81.77083%;
+      width: 81.7708333333%;
       margin-left: 1.5625%;
       margin-right: 0; } }
   @media (min-width: 60.0625em) {
@@ -313,8 +298,8 @@ input {
       margin-right: 0; } }
 
 .search_submit_block {
-  width: 22.39583%;
-  margin-left: 1.04167%;
+  width: 22.3958333333%;
+  margin-left: 1.0416666667%;
   margin-right: 1.5625%;
   border-radius: 0.3125rem;
   margin-top: 0.09375rem;
@@ -325,12 +310,12 @@ input {
   @media (min-width: 30.0625em) {
     .search_submit_block {
       width: 14.0625%;
-      margin-left: 1.04167%;
+      margin-left: 1.0416666667%;
       margin-right: 1.5625%; } }
   @media (min-width: 60.0625em) {
     .search_submit_block {
-      width: 9.89583%;
-      margin-left: 1.04167%;
+      width: 9.8958333333%;
+      margin-left: 1.0416666667%;
       margin-right: 1.5625%; } }
 
 .search_submit_block:hover {
@@ -352,9 +337,9 @@ input {
     letter-spacing: normal; }
 
 .main_top_article_padlock_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   min-height: 4rem;
   padding-left: 4.9375rem;
   padding-bottom: 2.25rem;
@@ -362,12 +347,12 @@ input {
   background-repeat: no-repeat; }
   @media (min-width: 40.0625em) {
     .main_top_article_padlock_block {
-      width: 66.66667%;
-      margin-left: 16.66667%;
-      margin-right: 16.66667%; } }
+      width: 66.6666666667%;
+      margin-left: 16.6666666667%;
+      margin-right: 16.6666666667%; } }
   @media (min-width: 60.0625em) {
     .main_top_article_padlock_block {
-      width: 30.20833%;
+      width: 30.2083333333%;
       margin-left: 1.5625%;
       margin-right: 1.5625%; } }
 
@@ -381,9 +366,9 @@ input {
   font-size: 0.875rem; }
 
 .main_top_article_iphone_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   min-height: 4rem;
   padding-left: 4.9375rem;
   padding-bottom: 2.25rem;
@@ -391,19 +376,19 @@ input {
   background-repeat: no-repeat; }
   @media (min-width: 40.0625em) {
     .main_top_article_iphone_block {
-      width: 66.66667%;
-      margin-left: 16.66667%;
-      margin-right: 16.66667%; } }
+      width: 66.6666666667%;
+      margin-left: 16.6666666667%;
+      margin-right: 16.6666666667%; } }
   @media (min-width: 60.0625em) {
     .main_top_article_iphone_block {
-      width: 30.20833%;
+      width: 30.2083333333%;
       margin-left: 1.5625%;
       margin-right: 1.5625%; } }
 
 .main_top_article_gear_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   min-height: 4rem;
   padding-left: 4.9375rem;
   padding-bottom: 2.25rem;
@@ -411,12 +396,12 @@ input {
   background-repeat: no-repeat; }
   @media (min-width: 40.0625em) {
     .main_top_article_gear_block {
-      width: 66.66667%;
-      margin-left: 16.66667%;
-      margin-right: 16.66667%; } }
+      width: 66.6666666667%;
+      margin-left: 16.6666666667%;
+      margin-right: 16.6666666667%; } }
   @media (min-width: 60.0625em) {
     .main_top_article_gear_block {
-      width: 30.20833%;
+      width: 30.2083333333%;
       margin-left: 1.5625%;
       margin-right: 1.5625%; } }
 
@@ -430,9 +415,9 @@ input {
     letter-spacing: normal; }
 
 .main_middle_title_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   padding-bottom: 0.75rem;
   border-bottom: 0.0625rem solid #d6d0c2;
   font-family: "Open Sans", sans-serif;
@@ -444,9 +429,9 @@ input {
       margin-right: 1.5625%; } }
 
 .main_middle_figure_container {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   letter-spacing: -0.31em; }
   @media (min-width: 60.0625em) {
     .main_middle_figure_container {
@@ -509,9 +494,9 @@ input {
     letter-spacing: normal; }
 
 .main_bottom_title_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   padding-bottom: 0.75rem;
   border-bottom: 0.0625rem solid #d6d0c2;
   font-family: "Open Sans", sans-serif;
@@ -523,9 +508,9 @@ input {
       margin-right: 51.5625%; } }
 
 .main_bottom_left_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   padding-top: 1.25rem;
   padding-bottom: 1.25rem; }
   @media (min-width: 60.0625em) {
@@ -538,9 +523,9 @@ input {
   padding-bottom: 0.625rem; }
 
 .main_bottom_right_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%; }
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%; }
   @media (min-width: 60.0625em) {
     .main_bottom_right_block {
       width: 46.875%;
@@ -582,13 +567,13 @@ input {
     letter-spacing: normal; }
 
 .bottom_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   letter-spacing: -0.31em; }
   @media (min-width: 60.0625em) {
     .bottom_block {
-      width: 30.20833%;
+      width: 30.2083333333%;
       margin-left: 1.5625%;
       margin-right: 1.5625%; } }
   .bottom_block > * {
@@ -627,14 +612,14 @@ input {
   color: #aaaaaa; }
 
 .bottom_right_container {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%;
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%;
   letter-spacing: -0.31em;
   padding-bottom: 0.9375rem; }
   @media (min-width: 60.0625em) {
     .bottom_right_container {
-      width: 30.20833%;
+      width: 30.2083333333%;
       margin-left: 1.5625%;
       margin-right: 1.5625%; } }
   .bottom_right_container > * {
@@ -655,9 +640,9 @@ input {
     letter-spacing: normal; }
 
 .bottom_right_link_image_block {
-  width: 29.16667%;
+  width: 29.1666666667%;
   margin-left: 0;
-  margin-right: 4.16667%;
+  margin-right: 4.1666666667%;
   max-width: 7.0625rem;
   border-top: 0.1875rem solid #444444;
   border-right: 0.1875rem solid #444444;
@@ -665,7 +650,7 @@ input {
   border-left: 0.1875rem solid #444444; }
 
 .bottom_right_link_text_block {
-  width: 66.66667%;
+  width: 66.6666666667%;
   margin-left: 0;
   margin-right: 0; }
 
@@ -687,12 +672,12 @@ input {
     letter-spacing: normal; }
 
 .footer_copyright_block {
-  width: 66.66667%;
-  margin-left: 16.66667%;
-  margin-right: 16.66667%; }
+  width: 66.6666666667%;
+  margin-left: 16.6666666667%;
+  margin-right: 16.6666666667%; }
   @media (min-width: 40.0625em) {
     .footer_copyright_block {
-      width: 63.54167%;
+      width: 63.5416666667%;
       margin-left: 1.5625%;
       margin-right: 1.5625%; } }
 
@@ -700,7 +685,7 @@ input {
   color: #aaaaaa; }
 
 .footer_social_block {
-  width: 30.20833%;
+  width: 30.2083333333%;
   margin-left: 1.5625%;
   margin-right: 1.5625%;
   text-align: right; }

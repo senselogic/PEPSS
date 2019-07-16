@@ -20,7 +20,7 @@ $font_family_verdana = Verdana, Geneva, sans-serif;
 
 // -- FILE
 
-@font_file(
+%font_file(
     $path,
     $family,
     $weight = 400,
@@ -32,14 +32,14 @@ $font_family_verdana = Verdana, Geneva, sans-serif;
         font-family: $family;
         font-weight: $weight;
         font-style: $style;
-        src: url("$(path).woff2") format("woff2"), 
+        src: url("$(path).woff2") format("woff2"),
              url("$(path).woff") format("woff");
     }
 }
 
 // -- FAMILY
 
-@font_family(
+%font_family(
     $family
     )
 {

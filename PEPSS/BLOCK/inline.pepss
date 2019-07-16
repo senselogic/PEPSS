@@ -9,7 +9,7 @@ $inline_content_letter_spacing = normal !default;
 
 // -- CONTAINER
 
-@inline_container(
+%inline_container(
     $maximum_width = null,
     $width = null,
     $letter_spacing = $inline_container_letter_spacing,
@@ -20,7 +20,7 @@ $inline_content_letter_spacing = normal !default;
     {
         letter-spacing: $letter_spacing;
     }
-    
+
     & > *
     {
         display: inline-block;
@@ -30,13 +30,13 @@ $inline_content_letter_spacing = normal !default;
             letter-spacing: $content_letter_spacing;
         }
     }
-    
+
     if $maximum_width != null
     {
         margin: 0 auto;
         max-width: $maximum_width;
     }
-    
+
     if $width != null
     {
         width: $width;

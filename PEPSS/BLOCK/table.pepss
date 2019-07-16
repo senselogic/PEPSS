@@ -2,25 +2,25 @@
 
 // -- CONTAINER
 
-@table_container(
+%table_container(
     $maximum_width = null,
     $width = null
     )
 {
-	display: table;
-	
+    display: table;
+
     & > *
     {
         display: table-cell;
         vertical-align: top;
     }
-    
+
     if $maximum_width != null
     {
         margin: 0 auto;
         max-width: $maximum_width;
     }
-    
+
     if $width != null
     {
         width: $width;
@@ -29,7 +29,7 @@
 
 // -- LAYOUT
 
-@table_layout(
+%table_layout(
     $layout
     )
 {

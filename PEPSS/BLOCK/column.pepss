@@ -2,7 +2,7 @@
 
 // -- COLUMN
 
-@column(
+%column(
     $width = 100%,
     $left_margin_width = 0,
     $right_margin_width = $left_margin_width,

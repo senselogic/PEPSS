@@ -2,21 +2,21 @@
 
 // -- HEIGHT
 
-@height(
+%height(
     $height
     )
 {
     height: $height;
 }
 
-@height_min(
+%height_min(
     $min_height
     )
 {
     min-height: $min_height;
 }
 
-@height_max(
+%height_max(
     $max_height
     )
 {

@@ -272,28 +272,6 @@ string[] CompilePepssLineArray(
 
     // ~~
 
-    string IsMixinName(
-        string processed_stripped_scss_line,
-        string mixin_name
-        )
-    {
-        if ( mixin_name != "content"
-             && mixin_name != "font-face"
-             && mixin_name != "import"
-             && mixin_name != "keyframes"
-             && mixin_name != "-webkit-keyframes"
-             && mixin_name != "media" )
-        {
-            return processed_stripped_scss_line;
-        }
-        else
-        {
-            return "";
-        }
-    }
-
-    // ~~
-
     import_expression = regex( `^import +\'([^']+)\.pepss'(.*$)` );
     return_expression = regex( `^return +(.*$)` );
     if_expression = regex( `^if +(.*$)` );
@@ -312,8 +290,8 @@ string[] CompilePepssLineArray(
     variable_star_assignment_expression = regex( `^(\$[A-Za-z_][A-Za-z0-9_]*) +\*=(.*$)` );
     variable_slash_assignment_expression = regex( `^(\$[A-Za-z_][A-Za-z0-9_]*) +\/=(.*$)` );
     function_declaration_expression = regex( `^\?([^ ].*$)` );
-    mixin_declaration_expression = regex( `^@([A-Za-z0-9_-]*)(.*$)` );
-    mixin_function_declaration_expression = regex( `^@([A-Za-z0-9_-]*)(\(.*$)` );
+    mixin_declaration_expression = regex( `^%([A-Za-z0-9_-]*)(.*$)` );
+    mixin_function_declaration_expression = regex( `^%([A-Za-z0-9_-]*)(\(.*$)` );
     extend_expression = regex( `^>([^ ].*$)` );
     include_expression = regex( `^:([^ ].*$)` );
     variable_interpolation_expression = regex( `(^.*)\$\(([A-Za-z_][A-Za-z0-9_]*)\)(.*$)` );
@@ -344,7 +322,7 @@ string[] CompilePepssLineArray(
              || ReplaceExpression( variable_star_assignment_expression, "$1: $1 *$2" )
              || ReplaceExpression( variable_slash_assignment_expression, "$1: $1 /$2" )
              || ReplaceExpression( function_declaration_expression, "@function $1" )
-             || ReplaceExpression( mixin_declaration_expression, "@mixin $1$2", &IsMixinName )
+             || ReplaceExpression( mixin_declaration_expression, "@mixin $1$2" )
              || ReplaceExpression( mixin_function_declaration_expression, "@mixin $1$2" )
              || ReplaceExpression( extend_expression, "@extend $1" )
              || ReplaceExpression( include_expression, "@include $1" ) )
