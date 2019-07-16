@@ -2,7 +2,7 @@
 
 // -- ANIMATION
 
-%animation(
+~animation(
     $animation
     )
 {

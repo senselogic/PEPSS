@@ -2,7 +2,7 @@
 
 // -- BORDER
 
-%border(
+~border(
     $top_border,
     $right_border = $top_border,
     $bottom_border = $top_border,
@@ -15,7 +15,7 @@
     border-left: $left_border;
 }
 
-%border_vertical(
+~border_vertical(
     $top_border,
     $bottom_border = $top_border
     )
@@ -24,7 +24,7 @@
     border-bottom: $bottom_border;
 }
 
-%border_horizontal(
+~border_horizontal(
     $left_border,
     $right_border = $left_border
     )
@@ -33,42 +33,42 @@
     border-right: $right_border;
 }
 
-%border_top(
+~border_top(
     $top_border
     )
 {
     border-top: $top_border;
 }
 
-%border_bottom(
+~border_bottom(
     $bottom_border
     )
 {
     border-bottom: $bottom_border;
 }
 
-%border_left(
+~border_left(
     $left_border
     )
 {
     border-left: $left_border;
 }
 
-%border_right(
+~border_right(
     $right_border
     )
 {
     border-right: $right_border;
 }
 
-%border_style(
+~border_style(
     $style
     )
 {
     border-style: $style;
 }
 
-%border_radius(
+~border_radius(
     $radius
     )
 {

@@ -2,7 +2,7 @@
 
 // -- SIZE
 
-%size(
+~size(
     $width,
     $height
     )
@@ -11,7 +11,7 @@
     height: $height;
 }
 
-%size_min(
+~size_min(
     $min_width,
     $min_height
     )
@@ -20,7 +20,7 @@
     min-height: $min_height;
 }
 
-%size_max(
+~size_max(
     $max_width,
     $max_height
     )

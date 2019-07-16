@@ -44,7 +44,7 @@ $s: '#{$a}#{$b}px';    // #{$a}#{$b}px
     @return $x + $y;    // @return
 }
 
-@mixin test
+%test
 {
 }
 

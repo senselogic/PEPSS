@@ -20,7 +20,7 @@ $font_family_verdana = Verdana, Geneva, sans-serif;
 
 // -- FILE
 
-%font_file(
+~font_file(
     $path,
     $family,
     $weight = 400,
@@ -39,7 +39,7 @@ $font_family_verdana = Verdana, Geneva, sans-serif;
 
 // -- FAMILY
 
-%font_family(
+~font_family(
     $family
     )
 {

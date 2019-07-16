@@ -4,7 +4,7 @@
 
 // .. BACKGROUND
 
-%background(
+~background(
     $background_list...
     )
 {
@@ -13,7 +13,7 @@
 
 // .. COLOR
 
-%background_color(
+~background_color(
     $color_list...
     )
 {
@@ -22,7 +22,7 @@
 
 // .. IMAGE
 
-%background_image(
+~background_image(
     $image_list...
     )
 {
@@ -43,7 +43,7 @@
 
 // .. TILING
 
-%background_tiling(
+~background_tiling(
     $tiling_list...
     )
 {
@@ -52,7 +52,7 @@
 
 // .. SIZE
 
-%background_size(
+~background_size(
     $size_list...
     )
 {
@@ -61,7 +61,7 @@
 
 // .. POSITION
 
-%background_position(
+~background_position(
     $position_list...
     )
 {
@@ -70,7 +70,7 @@
 
 // .. ATTACHMENT
 
-%background_attachment(
+~background_attachment(
     $attachment_list...
     )
 {

@@ -28,7 +28,7 @@ $variable_123 = 0;    // :
     return $first_argument_1_2_3 + 1;    // @return
 }
 
-%rule_123(    // @mixin
+~rule_123(    // @mixin
     $first_argument_1_2_3 = $variable_123,    // :
     $second_argument_1_2_3 = $first_argument_1_2_3 * 2 + func_123( $variable_123 )    // :
     )
@@ -65,7 +65,7 @@ import 'test_include.pepss';    // @import scss
 {
 }
 
-%test(    // @mixin
+~test(    // @mixin
     $x,
     $y,
     $z
@@ -76,7 +76,7 @@ import 'test_include.pepss';    // @import scss
     $w = test( $x, $y ) + $z;    // :
 }
 
-%test    // @mixin
+~test    // @mixin
 {
     :test( 1, 2, 3 );    // @include
 }

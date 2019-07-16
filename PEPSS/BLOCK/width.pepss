@@ -2,21 +2,21 @@
 
 // -- WIDTH
 
-%width(
+~width(
     $width
     )
 {
     width: $width;
 }
 
-%width_min(
+~width_min(
     $min_width
     )
 {
     min-width: $min_width;
 }
 
-%width_max(
+~width_max(
     $max_width
     )
 {

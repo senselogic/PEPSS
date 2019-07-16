@@ -38,7 +38,7 @@ $media_largest_min_pm = ( $media_largest_min_px_count * $pm );
 
 // == RULE
 
-%media(
+~media(
     $prefix
     )
 {
@@ -160,7 +160,7 @@ $media_largest_min_pm = ( $media_largest_min_px_count * $pm );
     }
 }
 
-%media_min(
+~media_min(
     $min_width
     )
 {
@@ -170,7 +170,7 @@ $media_largest_min_pm = ( $media_largest_min_px_count * $pm );
     }
 }
 
-%media_max(
+~media_max(
     $max_width
     )
 {
@@ -180,7 +180,7 @@ $media_largest_min_pm = ( $media_largest_min_px_count * $pm );
     }
 }
 
-%media_range(
+~media_range(
     $min_width,
     $max_width
     )

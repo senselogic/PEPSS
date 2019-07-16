@@ -9,7 +9,7 @@ $inline_content_letter_spacing = normal !default;
 
 // -- CONTAINER
 
-%inline_container(
+~inline_container(
     $maximum_width = null,
     $width = null,
     $letter_spacing = $inline_container_letter_spacing,

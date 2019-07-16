@@ -2,7 +2,7 @@
 
 // -- DISPLAY
 
-%display(
+~display(
     $type
     )
 {

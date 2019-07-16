@@ -2,7 +2,7 @@
 
 // -- MARGIN
 
-%margin(
+~margin(
     $top_margin,
     $right_margin = $top_margin,
     $bottom_margin = $top_margin,
@@ -12,7 +12,7 @@
     margin: $top_margin $right_margin $bottom_margin $left_margin;
 }
 
-%margin_vertical(
+~margin_vertical(
     $top_margin,
     $bottom_margin = $top_margin
     )
@@ -21,7 +21,7 @@
     margin-bottom: $bottom_margin;
 }
 
-%margin_horizontal(
+~margin_horizontal(
     $left_margin,
     $right_margin = $left_margin
     )
@@ -30,40 +30,40 @@
     margin-right: $right_margin;
 }
 
-%margin_top(
+~margin_top(
     $top_margin
     )
 {
     margin-top: $top_margin;
 }
 
-%margin_bottom(
+~margin_bottom(
     $bottom_margin
     )
 {
     margin-bottom: $bottom_margin;
 }
 
-%margin_left(
+~margin_left(
     $left_margin
     )
 {
     margin-left: $left_margin;
 }
 
-%margin_right(
+~margin_right(
     $right_margin
     )
 {
     margin-right: $right_margin;
 }
 
-%margin_center
+~margin_center
 {
     margin: 0 auto;
 }
 
-%margin_centered
+~margin_centered
 {
     margin-left: auto;
     margin-right: auto;

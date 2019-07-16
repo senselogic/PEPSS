@@ -290,8 +290,8 @@ string[] CompilePepssLineArray(
     variable_star_assignment_expression = regex( `^(\$[A-Za-z_][A-Za-z0-9_]*) +\*=(.*$)` );
     variable_slash_assignment_expression = regex( `^(\$[A-Za-z_][A-Za-z0-9_]*) +\/=(.*$)` );
     function_declaration_expression = regex( `^\?([^ ].*$)` );
-    mixin_declaration_expression = regex( `^%([A-Za-z0-9_-]*)(.*$)` );
-    mixin_function_declaration_expression = regex( `^%([A-Za-z0-9_-]*)(\(.*$)` );
+    mixin_declaration_expression = regex( `^~([A-Za-z0-9_-]*)(.*$)` );
+    mixin_function_declaration_expression = regex( `^~([A-Za-z0-9_-]*)(\(.*$)` );
     extend_expression = regex( `^>([^ ].*$)` );
     include_expression = regex( `^:([^ ].*$)` );
     variable_interpolation_expression = regex( `(^.*)\$\(([A-Za-z_][A-Za-z0-9_]*)\)(.*$)` );

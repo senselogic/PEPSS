@@ -2,7 +2,7 @@
 
 // -- WEIGHT
 
-%text_weight(
+~text_weight(
     $weight
     )
 {
@@ -11,7 +11,7 @@
 
 // -- STYLE
 
-%text_style(
+~text_style(
     $style
     )
 {
@@ -20,7 +20,7 @@
 
 // -- DECORATION
 
-%text_decoration(
+~text_decoration(
     $decoration
     )
 {
@@ -29,7 +29,7 @@
 
 // -- SIZE
 
-%text_size(
+~text_size(
     $size
     )
 {
@@ -38,7 +38,7 @@
 
 // -- HEIGHT
 
-%text_height(
+~text_height(
     $height = 1
     )
 {
@@ -47,7 +47,7 @@
 
 // -- SPACING
 
-%text_spacing(
+~text_spacing(
     $spacing
     )
 {
@@ -56,7 +56,7 @@
 
 // -- COLOR
 
-%text_color(
+~text_color(
     $color
     )
 {
@@ -65,7 +65,7 @@
 
 // -- ALIGN
 
-%text_align( $align )
+~text_align( $align )
 {
     if $align == left or $align == center or $align == right
     {
@@ -83,7 +83,7 @@
 
 // -- CASE
 
-%text_case(
+~text_case(
     $case
     )
 {

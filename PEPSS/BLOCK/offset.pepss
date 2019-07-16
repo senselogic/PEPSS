@@ -2,7 +2,7 @@
 
 // -- OFFSET
 
-%offset_left(
+~offset_left(
     $left_offset
     )
 {
@@ -10,7 +10,7 @@
     left: $left_offset;
 }
 
-%offset_right(
+~offset_right(
     $right_offset
     )
 {
@@ -18,7 +18,7 @@
     right: $right_offset;
 }
 
-%offset_top(
+~offset_top(
     $top_offset
     )
 {
@@ -26,7 +26,7 @@
     top: $top_offset;
 }
 
-%offset_bottom(
+~offset_bottom(
     $bottom_offset
     )
 {
